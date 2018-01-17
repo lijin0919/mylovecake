@@ -1,0 +1,16 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="lovecake:war exploded">
+    <output-path>$PROJECT_DIR$/target/lovecake</output-path>
+    <root id="root">
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="lovecake" />
+        </element>
+      </element>
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/target/lovecake/META-INF/MANIFEST.MF" />
+      </element>
+      <element id="javaee-facet-resources" facet="lovecake/web/Web" />
+    </root>
+  </artifact>
+</component>

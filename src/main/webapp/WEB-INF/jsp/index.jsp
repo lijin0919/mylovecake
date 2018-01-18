@@ -38,7 +38,7 @@
     <div class="container">
         <h2 class="hdng"><a href="../jsp/detail.jsp">${topList1[0].goods.goodName}</a><span></span></h2>
         <p>今日精选推荐</p>
-        <a class="banner_a" href="detail.jsp" onclick="">立刻购买</a>
+        <a class="banner_a" href="detail.jsp" onclick="">加入购物车</a>
         <div class="banner-text">
             <a href="detail.jsp">
                 <img src="/picture/7-1.jpg" alt="" width="350" height="350">
@@ -68,7 +68,7 @@
                         <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
                         <a href="detail.jsp">查看详情</a>
                     </p>
-                    <a class="shop" href="detail.jsp" onclick="">立刻购买</a>
+                    <a class="shop" href="detail.jsp" onclick="">加入购物车</a>
                     <div class="clearfix"> </div>
                 </div>
                 <div class="galy-info">
@@ -104,7 +104,7 @@
                             <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
                             <a href="#">查看详情</a>
                         </p>
-                        <a class="shop" href="#" onclick="">立刻购买</a>
+                        <a class="shop" href="#" onclick="">加入购物车</a>
                         <div class="clearfix"> </div>
                     </div>
                     <div class="galy-info">

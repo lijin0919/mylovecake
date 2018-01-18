@@ -13,8 +13,8 @@ public interface ITypesMapper {
 
     @Results(
             {
-            @Result(property = "id",column = "id"),
-            @Result(property = "name",column = "name")
+            @Result(property = "typeId",column = "id"),
+            @Result(property = "typeName",column = "name")
     })
     @Select("SELECT * FROM types;")
     List<Types> selectTypes();

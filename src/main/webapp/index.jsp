@@ -1,7 +1,8 @@
 <html>
+<head>
+    <!-- 自动跳转到网站首页 -->
+    <meta http-equiv="refresh" content="0;url=index">
+</head>
 <body>
-<h2>Hello World!</h2>
-<a href="test">a</a>
 </body>
-<a href="getTypes">dddddddddddddddd</a>
 </html>

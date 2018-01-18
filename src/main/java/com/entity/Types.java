@@ -2,8 +2,8 @@ package com.entity;
 
 public class Types {
 
-    private Integer id;
-    private String name;
+    private Integer typeId;
+    private String typeName;
 
     /**
      * 无参构造
@@ -17,8 +17,8 @@ public class Types {
      * @param typeName
      */
     public Types(Integer typeId, String typeName) {
-        this.id = typeId;
-        this.name = typeName;
+        this.typeId = typeId;
+        this.typeName = typeName;
     }
 
     /**
@@ -26,27 +26,28 @@ public class Types {
      * @return
      * @Override
      */
-
+    @Override
     public String toString() {
         return "Types{" +
-                "typeId=" + id +
-                ", typeName='" + name + '\'' +
+                "typeId=" + typeId +
+                ", typeName='" + typeName + '\'' +
                 '}';
     }
 
-    public Integer getId() {
-        return id;
+
+    public Integer getTypeId() {
+        return typeId;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setTypeId(Integer typeId) {
+        this.typeId = typeId;
     }
 
-    public String getName() {
-        return name;
+    public String getTypeName() {
+        return typeName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setTypeName(String typeName) {
+        this.typeName = typeName;
     }
 }

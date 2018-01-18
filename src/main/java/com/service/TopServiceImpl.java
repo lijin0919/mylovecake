@@ -37,6 +37,19 @@ public class TopServiceImpl implements ITopService{
         return topList;
     }
 
+
+    public List<Top> getTopListByTypeId(Integer typeId) {
+        List<Top> topList = topMapper.findTopListByTypeId(typeId);
+        // 遍历tops集合
+        for (Top top: topList
+                ) {
+            int goodId = top.getGoodId();
+            top.setTypes(typeMapper.findTypeById(typeId));
+            top.setGoods(goodMapper.findGoodById(goodId));
+        }
+        return topList;
+    }
+
     public Top getTopListById(Integer topId) {
         Top top = topMapper.findTopListById(topId);
         return top;

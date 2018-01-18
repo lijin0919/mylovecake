@@ -9,5 +9,6 @@ public interface ITopService {
   List<Top> getTopList();
   //根据id获取单个首页商品
   Top getTopListById(Integer topId);
-
+//根据typeId获取top类型
+  List<Top> getTopListByTypeId(Integer typeId);
 }

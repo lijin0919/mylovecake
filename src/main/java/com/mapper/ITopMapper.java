@@ -41,8 +41,16 @@ public interface ITopMapper {
     List<Top> findTopList();
 
 
-
-
-    
+    /**
+     * 通过typeId查询top类型
+     * @param typeId
+     * @return
+     */
+    @Select("SELECT * FROM tops WHERE type=#{typeId}")
+    @Results({
+            @Result(id = true,property = "topId",column = "id"),
+            @Result(property = "goodId",column = "good_id"),
+            @Result(property = "typeId",column = "type")
+    })
     List<Top> findTopListByTypeId(Integer typeId);
 }

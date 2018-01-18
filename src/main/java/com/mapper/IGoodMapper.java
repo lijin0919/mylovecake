@@ -1,6 +1,7 @@
 package com.mapper;
 
 import com.entity.Goods;
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Result;
 import org.apache.ibatis.annotations.Results;
 import org.apache.ibatis.annotations.Select;
@@ -10,6 +11,7 @@ import java.util.List;
 /**
  * 商品表映射
  */
+@Mapper
 public interface IGoodMapper {
 
     /**
@@ -20,7 +22,7 @@ public interface IGoodMapper {
 
     @Select("SELECT * FROM goods WHERE id=#{id};")
     @Results({
-            @Result(property = "goodId",column = "id"),
+            @Result(id = true,property = "goodId",column = "id"),
             @Result(property = "goodName",column = "name"),
             @Result(property = "goodCover",column = "cover"),
             @Result(property = "goodImage1",column = "image1"),
@@ -39,7 +41,7 @@ public interface IGoodMapper {
      */
     @Select("SELECT * FROM goods;")
     @Results({
-            @Result(property = "goodId",column = "id"),
+            @Result(id = true,property = "goodId",column = "id"),
             @Result(property = "goodName",column = "name"),
             @Result(property = "goodCover",column = "cover"),
             @Result(property = "goodImage1",column = "image1"),

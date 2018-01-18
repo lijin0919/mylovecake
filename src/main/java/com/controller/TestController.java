@@ -1,22 +1,25 @@
 package com.controller;
 
-import com.entity.TestUser;
-import com.mapper.ITestMapper;
+import com.entity.Types;
+import com.mapper.ITypesMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+
+import java.util.List;
 
 @Controller
 public class TestController {
 
     @Autowired
-    private ITestMapper mapper;
+    private ITypesMapper mapper;
+
 
     @GetMapping("/test")
     public String test(){
         try{
-            TestUser user = mapper.select();
-            System.out.println(user.getUserName());
+            List<Types> typesList = mapper.selectTypes();
+            System.out.println(typesList);
         }
         catch (Exception e){
             e.printStackTrace();

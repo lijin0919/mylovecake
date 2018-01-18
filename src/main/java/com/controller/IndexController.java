@@ -1,7 +1,7 @@
 package com.controller;
 
 import com.entity.Types;
-import com.mapper.ITypesMapper;
+import com.mapper.IIndexMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,14 +14,14 @@ import java.util.List;
 @SessionAttributes("typeList")
 public class IndexController {
     @Autowired
-    private ITypesMapper iTypesMapper;
+    private IIndexMapper iIndexMapper;
 
     @GetMapping("/index")
     public String getTypes(Model model){
 
         try {
             //进行查询
-            List<Types> typesList = iTypesMapper.selectTypes();
+            List<Types> typesList = iIndexMapper.selectTypes();
             model.addAttribute("types",typesList);
 
         }catch (Exception e){

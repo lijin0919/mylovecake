@@ -9,11 +9,11 @@ import org.apache.ibatis.annotations.Select;
 import java.util.List;
 
 @Mapper
-public interface ITypesMapper {
+public interface IIndexMapper {
 
     @Results(
             {
-            @Result(property = "typeId",column = "id"),
+            @Result(id = true,property = "typeId",column = "id"),
             @Result(property = "typeName",column = "name")
     })
     @Select("SELECT * FROM types;")

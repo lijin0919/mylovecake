@@ -17,7 +17,7 @@ public class IndexController {
     private IIndexMapper iIndexMapper;
 
     @GetMapping("/index")
-    public String getTypes(Model model){
+    public String getTypes(Model model,Model model1){
 
         try {
             //进行查询

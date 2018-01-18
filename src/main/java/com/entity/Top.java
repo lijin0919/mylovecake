@@ -4,6 +4,7 @@ package com.entity;
  * 首页商品推荐，记住，是一个商品
  */
 public class Top {
+
     /**
      * 商品类型
      */
@@ -13,18 +14,11 @@ public class Top {
      */
     private Goods goods;
 
-    @Override
-    public String toString() {
-        return "Top{" +
-                "types=" + types +
-                ", goods=" + goods +
-                '}';
-    }
+    private Integer topId;
 
-    public Top(Types types, Goods goods) {
-        this.types = types;
-        this.goods = goods;
-    }
+    private Integer goodId;
+//
+
 
     public Types getTypes() {
         return types;
@@ -41,4 +35,22 @@ public class Top {
     public void setGoods(Goods goods) {
         this.goods = goods;
     }
+
+    public Integer getTopId() {
+        return topId;
+    }
+
+    public void setTopId(Integer topId) {
+        this.topId = topId;
+    }
+
+    public Integer getGoodId() {
+        return goodId;
+    }
+
+    public void setGoodId(Integer goodId) {
+        this.goodId = goodId;
+    }
+
+
 }

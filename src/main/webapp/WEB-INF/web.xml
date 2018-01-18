@@ -7,11 +7,13 @@
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
          version="3.1">
   <display-name>Archetype Created Web Application</display-name>
-
+  <!--加载Spring上下文到web-->
   <context-param>
     <param-name>contextConfigLocation</param-name>
+    <!--applicationContext.xml路径-->
     <param-value>classpath:applicationContext.xml</param-value>
   </context-param>
+  <!--监听上下文-->
   <listener>
     <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
   </listener>
@@ -19,18 +21,24 @@
   <servlet>
     <servlet-name>dispatcher</servlet-name>
     <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+    <!--初始化属性-->
     <init-param>
+      <!--属性名-->
       <param-name>contextConfigLocation</param-name>
+      <!--属性值-->
       <param-value>classpath:dispatcher-servlet.xml</param-value>
     </init-param>
+    <!--容器启动优先级-->
     <load-on-startup>1</load-on-startup>
   </servlet>
+  <!--servlet映射方式-->
   <servlet-mapping>
     <servlet-name>dispatcher</servlet-name>
+    <!--所有"/"后面的都是请求-->
     <url-pattern>/</url-pattern>
   </servlet-mapping>
 
-
+  <!--配置过滤器-->
   <filter>
     <filter-name>SpringEncodingFilter</filter-name>
     <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>

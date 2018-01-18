@@ -39,4 +39,10 @@ public interface ITopMapper {
             @Result(property = "typeId",column = "type")
     })
     List<Top> findTopList();
+
+
+
+
+    
+    List<Top> findTopListByTypeId(Integer typeId);
 }

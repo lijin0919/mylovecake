@@ -36,12 +36,12 @@
 
 <div class="banner">
     <div class="container">
-        <h2 class="hdng"><a href="../jsp/detail.jsp">${topList[0].goods.goodName}</a><span></span></h2>
+        <h2 class="hdng"><a href="../jsp/detail.jsp">${topList1[0].goods.goodName}</a><span></span></h2>
         <p>今日精选推荐</p>
         <a class="banner_a" href="detail.jsp" onclick="">立刻购买</a>
         <div class="banner-text">
             <a href="detail.jsp">
-                <img src="picture/7-1.jpg" alt="" width="350" height="350">
+                <img src="/picture/7-1.jpg" alt="" width="350" height="350">
             </a>
         </div>
     </div>
@@ -58,9 +58,10 @@
         <div class="gallery-grids">
             <!-------------------------------热销推荐------------------------------------->
             <!--商品1-->
+            <c:forEach items="${topList2}" var="top">
             <div class="col-md-4 gallery-grid glry-two">
                 <a href="detail.jsp">
-                    <img src="picture/6-1.jpg" class="img-responsive" alt="" width="350" height="350"/>
+                    <img src="${top.goods.goodCover}" class="img-responsive" alt="" width="350" height="350"/>
                 </a>
                 <div class="gallery-info galrr-info-two">
                     <p>
@@ -71,132 +72,17 @@
                     <div class="clearfix"> </div>
                 </div>
                 <div class="galy-info">
-                    <p>经典系列 > 夜礼服</p>
+                    <p>${top.types.typeName} > ${top.goods.goodName}</p>
                     <div class="galry">
                         <div class="prices">
-                            <h5 class="item_price">￥ 299</h5>
+                            <h5 class="item_price">￥ ${top.goods.goodPrice}</h5>
                         </div>
                         <div class="clearfix"></div>
                     </div>
                 </div>
             </div>
-            <!--商品2-->
-            <div class="col-md-4 gallery-grid glry-two">
-                <a href="detail.jsp">
-                    <img src="picture/1-1.jpg" class="img-responsive" alt="" width="350" height="350"/>
-                </a>
-                <div class="gallery-info galrr-info-two">
-                    <p>
-                        <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
-                        <a href="detail.jsp">查看详情</a>
-                    </p>
-                    <a class="shop" href="detail.jsp" onclick="">立刻购买</a>
-                    <div class="clearfix"> </div>
-                </div>
-                <div class="galy-info">
-                    <p>冰淇淋系列 > 草莓冰淇淋</p>
-                    <div class="galry">
-                        <div class="prices">
-                            <h5 class="item_price">￥ 299</h5>
-                        </div>
-                        <div class="clearfix"></div>
-                    </div>
-                </div>
-            </div>
-            <!--商品3-->
-            <div class="col-md-4 gallery-grid glry-two">
-                <a href="detail.jsp">
-                    <img src="picture/2-1.jpg" class="img-responsive" alt="" width="350" height="350"/>
-                </a>
-                <div class="gallery-info galrr-info-two">
-                    <p>
-                        <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
-                        <a href="detail.jsp">查看详情</a>
-                    </p>
-                    <a class="shop" href="detail.jsp" onclick="">立刻购买</a>
-                    <div class="clearfix"> </div>
-                </div>
-                <div class="galy-info">
-                    <p>经典系列 > 留恋之恋</p>
-                    <div class="galry">
-                        <div class="prices">
-                            <h5 class="item_price">￥ 299</h5>
-                        </div>
-                        <div class="clearfix"></div>
-                    </div>
-                </div>
-            </div>
-            <!--商品4-->
-            <div class="col-md-4 gallery-grid glry-two">
-                <a href="detail.jsp">
-                    <img src="picture/3-1.jpg" class="img-responsive" alt="" width="350" height="350"/>
-                </a>
-                <div class="gallery-info galrr-info-two">
-                    <p>
-                        <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
-                        <a href="detail.jsp">查看详情</a>
-                    </p>
-                    <a class="shop" href="detail.jsp" onclick="">立刻购买</a>
-                    <div class="clearfix"> </div>
-                </div>
-                <div class="galy-info">
-                    <p>经典系列 > 芒果列车</p>
-                    <div class="galry">
-                        <div class="prices">
-                            <h5 class="item_price">￥ 299</h5>
-                        </div>
-                        <div class="clearfix"></div>
-                    </div>
-                </div>
-            </div>
-            <!--商品5-->
-            <div class="col-md-4 gallery-grid glry-two">
-                <a href="detail.jsp">
-                    <img src="picture/4-1.jpg" class="img-responsive" alt="" width="350" height="350"/>
-                </a>
-                <div class="gallery-info galrr-info-two">
-                    <p>
-                        <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
-                        <a href="detail.jsp">查看详情</a>
-                    </p>
-                    <a class="shop" href="detail.jsp" onclick="">立刻购买</a>
-                    <div class="clearfix"> </div>
-                </div>
-                <div class="galy-info">
-                    <p>经典系列 > 浪漫甜心</p>
-                    <div class="galry">
-                        <div class="prices">
-                            <h5 class="item_price">￥ 299</h5>
-                        </div>
-                        <div class="clearfix"></div>
-                    </div>
-                </div>
-            </div>
-            <!--商品6-->
-            <div class="col-md-4 gallery-grid glry-two">
-                <a href="detail.jsp">
-                    <img src="picture/5-1.jpg" class="img-responsive" alt="" width="350" height="350"/>
-                </a>
-                <div class="gallery-info galrr-info-two">
-                    <p>
-                        <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
-                        <a href="detail.jsp">查看详情</a>
-                    </p>
-                    <a class="shop" href="detail.jsp" onclick="">立刻购买</a>
-                    <div class="clearfix"> </div>
-                </div>
-                <div class="galy-info">
-                    <p>经典系列 > 玫瑰花园</p>
-                    <div class="galry">
-                        <div class="prices">
-                            <h5 class="item_price">￥ 299</h5>
-                        </div>
-                        <div class="clearfix"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
 
+            </c:forEach>
         <!---------------------------新品推荐------------------------------->
 
 

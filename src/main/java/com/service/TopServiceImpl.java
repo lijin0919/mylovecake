@@ -1,6 +1,7 @@
 package com.service;
 
 import com.entity.Top;
+import com.entity.Types;
 import com.mapper.IGoodMapper;
 import com.mapper.ITopMapper;
 import com.mapper.ITypeMapper;
@@ -18,6 +19,8 @@ public class TopServiceImpl implements ITopService{
     private ITypeMapper typeMapper;
     @Autowired
     private IGoodMapper goodMapper;
+    @Autowired
+    private ITypeMapper iTypeMapper;
     //获取tops集合
     public List<Top> getTopList() {
 
@@ -53,5 +56,18 @@ public class TopServiceImpl implements ITopService{
     public Top getTopListById(Integer topId) {
         Top top = topMapper.findTopListById(topId);
         return top;
+    }
+
+    public List<Top> getTopList(Integer typeId) {
+        //获取top信息
+        List<Top> topList = topMapper.findTopListByTypeId(typeId);
+        for (Top top: topList
+                ) {
+            int goodId = top.getGoodId();
+
+            top.setTypes(typeMapper.findTypeById(typeId));
+            top.setGoods(goodMapper.findGoodById(goodId));
+        }
+        return topList;
     }
 }

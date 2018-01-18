@@ -1,13 +1,14 @@
 package com.mapper;
 
 import com.entity.Types;
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Result;
 import org.apache.ibatis.annotations.Results;
 import org.apache.ibatis.annotations.Select;
 
 import java.lang.reflect.Type;
 import java.util.List;
-
+@Mapper
 public interface ITypeMapper {
     /**
      * 首页商品类型映射

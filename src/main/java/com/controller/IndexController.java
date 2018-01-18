@@ -19,7 +19,8 @@ import java.util.List;
 public class IndexController {
 
 
-    ITopService topService =new TopServiceImpl();
+    @Autowired
+   private TopServiceImpl topService;
 
     @GetMapping("/index")
     public String getTypes(Model model,Model model1){

@@ -17,6 +17,8 @@ public class Top {
     private Integer topId;
 
     private Integer goodId;
+
+    private Integer typeId;
 //
 
 
@@ -52,5 +54,22 @@ public class Top {
         this.goodId = goodId;
     }
 
+    public Integer getTypeId() {
+        return typeId;
+    }
 
+    public void setTypeId(Integer typeId) {
+        this.typeId = typeId;
+    }
+
+    @Override
+    public String toString() {
+        return "Top{" +
+                "types=" + types +
+                ", goods=" + goods +
+                ", topId=" + topId +
+                ", goodId=" + goodId +
+                ", typeId=" + typeId +
+                '}';
+    }
 }

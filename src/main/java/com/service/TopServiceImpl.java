@@ -5,9 +5,11 @@ import com.mapper.IGoodMapper;
 import com.mapper.ITopMapper;
 import com.mapper.ITypeMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class TopServiceImpl implements ITopService{
 
     @Autowired
@@ -23,12 +25,14 @@ public class TopServiceImpl implements ITopService{
         List<Top> topList = topMapper.findTopList();
         // 遍历tops集合
         for (Top top: topList
-             ) {
+                ) {
             int goodId = top.getGoodId();
-            int typeId = top.getTopId();
+            int typeId = top.getTypeId();
             top.setTypes(typeMapper.findTypeById(typeId));
             top.setGoods(goodMapper.findGoodById(goodId));
         }
+
+        System.out.println(topList);
 
         return topList;
     }

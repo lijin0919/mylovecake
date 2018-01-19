@@ -40,7 +40,7 @@
         <p>今日精选推荐</p>
         <button class="banner_a" onclick="addGoodToCart(${topList1[0].goods.goodId})">加入购物车</button>
         <div class="banner-text">
-            <a href="detail.jsp">
+            <a href="detail?goodId=${top.goods.goodId}">
                 <img src="/picture/7-1.jpg" alt="" width="350" height="350">
             </a>
         </div>
@@ -60,7 +60,7 @@
             <!--商品1-->
             <c:forEach items="${topList2}" var="top">
             <div class="col-md-4 gallery-grid glry-two">
-                <a href="detail.jsp">
+                <a href="detail?goodId=${top.goods.goodId}">
                     <img src="${top.goods.goodCover}" class="img-responsive" alt="" width="350" height="350"/>
                 </a>
                 <div class="gallery-info galrr-info-two">
@@ -96,7 +96,7 @@
 
             <c:forEach items="${requestScope.topList3}" var="top">
                 <div class="col-md-3 gallery-grid ">
-                    <a href="#">
+                    <a href="detail?goodId=${top.goods.goodId}">
                         <img src="${top.goods.goodCover}" class="img-responsive" alt=""/>
                     </a>
                     <div class="gallery-info">

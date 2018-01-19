@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 
 
@@ -70,27 +71,27 @@
                 <div class="flexslider">
 
                     <ul class="slides">
-                        <li data-thumb="picture/1-1.jpg">
-                            <div class="thumb-image"> <img src="picture/1-1.jpg" data-imagezoom="true" class="img-responsive"> </div>
+                        <li data-thumb="${requestScope.good.goodCover}">
+                            <div class="thumb-image"> <img src="${requestScope.good.goodCover}" data-imagezoom="true" class="img-responsive"> </div>
                         </li>
-                        <li data-thumb="picture/1-2.jpg">
-                            <div class="thumb-image"> <img src="picture/1-2.jpg" data-imagezoom="true" class="img-responsive"> </div>
+                        <li data-thumb="${requestScope.good.goodImage1}">
+                            <div class="thumb-image"> <img src="${requestScope.good.goodImage1}" data-imagezoom="true" class="img-responsive"> </div>
                         </li>
-                        <li data-thumb="picture/1-3.jpg">
-                            <div class="thumb-image"> <img src="picture/1-3.jpg" data-imagezoom="true" class="img-responsive"> </div>
+                        <li data-thumb="${requestScope.good.goodImage2}">
+                            <div class="thumb-image"> <img src="${requestScope.good.goodImage2}" data-imagezoom="true" class="img-responsive"> </div>
                         </li>
                     </ul>
                 </div>
             </div>
             <div class="col-md-4 single-grid simpleCart_shelfItem">
-                <h3>玫瑰花园</h3>
+                <h3>${requestScope.good.goodName}</h3>
                 <div class="tag">
-                    <p>分类 : <a href="goods.jsp">经典系列</a></p>
+                    <p>分类 : <a href="goods.jsp">${requestScope.good.goodType.typeName}</a></p>
                 </div>
-                <p>介绍: 一层层渐变,充满变幻无穷的神秘浪漫气息 层层口味的变化 完全来自于可可本身 由淡到浓一次叠加 呈现清新爽滑的巧克力慕斯风味 回味无穷</p>
+                <p>${requestScope.good.goodIntro}</p>
                 <div class="galry">
                     <div class="prices">
-                        <h5 class="item_price">¥ 229</h5>
+                        <h5 class="item_price">¥ ${requestScope.good.goodPrice}</h5>
                     </div>
                     <div class="clearfix"></div>
                 </div>
@@ -102,17 +103,9 @@
             <div class="col-md-4 single-grid1">
                 <!-- <h2>商品分类</h2> -->
                 <ul>
-
-                    <li><a href="goods.jsp">经典系列</a></li>
-
-                    <li><a href="goods.jsp">法式系列</a></li>
-
-                    <li><a href="goods.jsp">儿童系列</a></li>
-
-                    <li><a href="goods.jsp">零食系列</a></li>
-
-                    <li><a href="goods.jsp">冰淇淋系列</a></li>
-
+                    <c:forEach items="${requestScope.typeList}" var="types">
+                        <li><a href="#">${types.typeName}</a></li>
+                    </c:forEach>
                 </ul>
             </div>
             <div class="clearfix"> </div>

@@ -52,4 +52,23 @@ public interface IGoodMapper {
             @Result(property = "typeId",column = "type_id")
     })
     List<Goods> findGoodList();
+
+
+    /**
+     * 根据商品类型id查询商品
+     *
+     */
+    @Select("SELECT * FROM goods WHERE type_id=#{Id};")
+    @Results({
+            @Result(id = true,property = "goodId",column = "id"),
+            @Result(property = "goodName",column = "name"),
+            @Result(property = "goodCover",column = "cover"),
+            @Result(property = "goodImage1",column = "image1"),
+            @Result(property = "goodImage2",column = "image2"),
+            @Result(property = "goodPrice",column = "price"),
+            @Result(property = "goodIntro",column = "intro"),
+            @Result(property = "goodStock",column = "stock"),
+            @Result(property = "typeId",column = "type_id")
+    })
+    List<Goods> findGoodListByTypeId(Integer Id);
 }

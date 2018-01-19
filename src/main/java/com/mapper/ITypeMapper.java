@@ -18,7 +18,6 @@ public interface ITypeMapper {
             @Result(id = true,property = "typeId",column = "id"),
             @Result(property = "typeName",column = "name")
     })
-
     List<Types> findTypeList();
 
     @Select("SELECT * FROM types WHERE id=#{typeId};")

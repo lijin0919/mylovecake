@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
     <title>首页</title>
@@ -24,6 +25,7 @@
     <script src="js/minicart_addItems.js"></script>
     <link rel="stylesheet" href="css/minicart.css">
     <script src="js/common.js"></script>
+
 </head>
 <body>
 <!DOCTYPE html>
@@ -42,15 +44,15 @@
 <!--products-->
 <div class="products">
     <div class="container">
-        <h2>经典系列</h2>
+        <h2>${goodsList[0].goodType.typeName}</h2>
 
         <div class="col-md-12 product-model-sec">
-
+            <c:forEach items="${goodsList}" var="good">
             <div class="product-grid">
                 <a href="detail.jsp">
                     <div class="more-product"><span> </span></div>
                     <div class="product-img b-link-stripe b-animate-go  thickbox">
-                        <img src="picture/6-1.jpg" class="img-responsive" alt="夜礼服" width="240" height="240">
+                        <img src="${good.goodCover}" class="img-responsive" alt="夜礼服" width="240" height="240">
                         <div class="b-wrapper">
                             <h4 class="b-animate b-from-left  b-delay03">
                                 <button>查看详情</button>
@@ -60,123 +62,15 @@
                 </a>
                 <div class="product-info simpleCart_shelfItem">
                     <div class="product-info-cust prt_name">
-                        <h4>夜礼服</h4>
-                        <span class="item_price">¥ 299</span>
+                        <h4>${good.goodName}</h4>
+                        <span class="item_price">¥ ${good.goodPrice}</span>
                         <input type="button" class="item_add items" id="item_add_id6" value="加入购物车">
                         <div class="clearfix"> </div>
                     </div>
                 </div>
             </div>
+            </c:forEach>
 
-            <div class="product-grid">
-                <a href="detail.jsp">
-                    <div class="more-product"><span> </span></div>
-                    <div class="product-img b-link-stripe b-animate-go  thickbox">
-                        <img src="picture/5-1.jpg" class="img-responsive" alt="芒果列车" width="240" height="240">
-                        <div class="b-wrapper">
-                            <h4 class="b-animate b-from-left  b-delay03">
-                                <button>查看详情</button>
-                            </h4>
-                        </div>
-                    </div>
-                </a>
-                <div class="product-info simpleCart_shelfItem">
-                    <div class="product-info-cust prt_name">
-                        <h4>芒果列车</h4>
-                        <span class="item_price">¥ 269</span>
-                        <input type="button" class="item_add items" id="item_add_id5" value="加入购物车" >
-                        <div class="clearfix"> </div>
-                    </div>
-                </div>
-            </div>
-            <div class="product-grid">
-                <a href="detail.jsp">
-                    <div class="more-product"><span> </span></div>
-                    <div class="product-img b-link-stripe b-animate-go  thickbox">
-                        <img src="picture/4-1.jpg" class="img-responsive" alt="玫瑰物语" width="240" height="240">
-                        <div class="b-wrapper">
-                            <h4 class="b-animate b-from-left  b-delay03">
-                                <button>查看详情</button>
-                            </h4>
-                        </div>
-                    </div>
-                </a>
-                <div class="product-info simpleCart_shelfItem">
-                    <div class="product-info-cust prt_name">
-                        <h4>玫瑰物语</h4>
-                        <span class="item_price">¥ 299</span>
-                        <input type="button" class="item_add items" id="item_add_id4"  value="加入购物车" >
-                        <div class="clearfix"> </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="product-grid">
-                <a href="detail.jsp">
-                    <div class="more-product"><span> </span></div>
-                    <div class="product-img b-link-stripe b-animate-go  thickbox">
-                        <img src="picture/3-1.jpg" class="img-responsive" alt="留恋之恋" width="240" height="240">
-                        <div class="b-wrapper">
-                            <h4 class="b-animate b-from-left  b-delay03">
-                                <button>查看详情</button>
-                            </h4>
-                        </div>
-
-                    </div>
-                </a>
-                <div class="product-info simpleCart_shelfItem">
-                    <div class="product-info-cust prt_name">
-                        <h4>留恋之恋</h4>
-                        <span class="item_price">¥ 229</span>
-                        <input type="button" class="item_add items" id="item_add_id3"  value="加入购物车">
-                        <div class="clearfix"> </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="product-grid">
-                <a href="detail.jsp">
-                    <div class="more-product"><span> </span></div>
-                    <div class="product-img b-link-stripe b-animate-go  thickbox">
-                        <img src="picture/2-1.jpg" class="img-responsive" alt="浪漫甜心" width="240">
-                        <div class="b-wrapper">
-                            <h4 class="b-animate b-from-left  b-delay03">
-                                <button>查看详情</button>
-                            </h4>
-                        </div>
-                    </div>
-                </a>
-                <div class="product-info simpleCart_shelfItem">
-                    <div class="product-info-cust prt_name">
-                        <h4>浪漫甜心</h4>
-                        <span class="item_price">¥ 229</span>
-                        <input type="button" class="item_add items" id="item_add_id2"  value="加入购物车">
-                        <div class="clearfix"> </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="product-grid">
-                <a href="detail.jsp">
-                    <div class="more-product"><span> </span></div>
-                    <div class="product-img b-link-stripe b-animate-go  thickbox">
-                        <img src="picture/1-1.jpg" class="img-responsive" alt="玫瑰花园" width="240" height="240">
-                        <div class="b-wrapper">
-                            <h4 class="b-animate b-from-left  b-delay03">
-                                <button>查看详情</button>
-                            </h4>
-                        </div>
-                    </div>
-                </a>
-                <div class="product-info simpleCart_shelfItem">
-                    <div class="product-info-cust prt_name">
-                        <h4>玫瑰花园</h4>
-                        <span class="item_price">¥ 229</span>
-                        <input type="button" class="item_add items" id="item_add_id1"  value="加入购物车">
-                        <div class="clearfix"> </div>
-                    </div>
-                </div>
-            </div>
 
             <div class="clearfix"> </div>
         </div>

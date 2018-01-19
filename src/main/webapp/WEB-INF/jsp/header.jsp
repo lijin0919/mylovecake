@@ -11,6 +11,58 @@
 <head>
     <title>Title</title>
 </head>
+<script>
+    function addGoodToCart(goodsId) {
+        if (window.XMLHttpRequest) {
+            //高版本浏览器
+            xmlRequest = new XMLHttpRequest();
+        } else {
+            xmlRequest = new ActiveXObject();
+        }
+        alert(goodsId);
+        xmlRequest.onreadystatechange = function () {
+            if (xmlRequest.readyState == 4 && xmlRequest.status == 200) {
+                alert("请求成功！")
+                // document.getElementsByClassName("card_num").innerText  = xmlRequest.responseText;
+            }else {
+                alert("请求失败")
+            }
+        };
+        xmlRequest.open("POST", "http://127.0.0.1:8080/getCartGood", true);
+        xmlRequest.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xmlRequest.send("goodId=1");
+    }
+        // ---------------------------
+        // $().ready(
+        //     function() {
+        //         $(".banner_a").click(
+        //             function() {
+        //                 var goodId = $(".banner_a").val();
+        //
+        //                  // id = {"goodId":goodId};
+        //                 $.ajax({
+        //                     url : '/getCartGood',
+        //                     type : 'POST',
+        //                     data : goodId, // Request body
+        //                     //data : JSON.toString(id), // Request body
+        //                     contentType : 'application/json; charset=utf-8',
+        //                     // dataType : 'jsonp',
+        //
+        //                     success : function(response) {
+        //                         //请求成功，显示购物车商品数量
+        //                         // $(".card_num").innerText=response.length;
+        //                         alert("请求成功");
+        //
+        //                     },
+        //                     error : function() {
+        //                         alert("请求失败");
+        //                     }
+        //                 });
+        //             });
+        //     });
+        // ---------------------------------
+    // }
+</script>
 <body>
 <div class="header">
     <div class="container">
@@ -36,8 +88,8 @@
                                     <div class="col-sm-12">
                                         <h4>商品分类</h4>
                                         <ul class="multi-column-dropdown">
-                                           <c:forEach items="${requestScope.types }" var="type">
-                                               <li><a class="list" href="#">${type.typeName}</a></li>
+                                           <c:forEach items="${typeList }" var="type">
+                                               <li><a class="list" href="typeGoods?goodsTypeId=${type.typeId}">${type.typeName}</a></li>
                                            </c:forEach>
 
 

@@ -19,8 +19,6 @@ import java.util.Map;
 @Controller
 @SessionAttributes("typeList")
 public class IndexController {
-
-
     @Autowired
    private TopServiceImpl topService;
 

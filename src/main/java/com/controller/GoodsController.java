@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import java.util.List;
 
 @Controller
-public class TypeGoodsController {
+public class GoodsController {
     @Autowired
     private GoodsImpl goodsImpl;
 

@@ -15,10 +15,8 @@ public class GoodsImpl implements IGoods {
     @Autowired
     private ITypeMapper iTypeMapper;
     public List<Goods> getGoodsListByTypeId(Integer Id) {
-        System.out.println(Id+"*****************************************************************");
         List<Goods> goodslist=goodMapper.findGoodListByTypeId(Id);
 
-        System.out.println(goodslist);
         for (Goods good:goodslist) {
             good.setGoodType(iTypeMapper.findTypeById(good.getTypeId()));
         }

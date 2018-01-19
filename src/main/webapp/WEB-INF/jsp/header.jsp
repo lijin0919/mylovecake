@@ -88,7 +88,7 @@
                                     <div class="col-sm-12">
                                         <h4>商品分类</h4>
                                         <ul class="multi-column-dropdown">
-                                           <c:forEach items="${typeList }" var="type">
+                                           <c:forEach items="${sessionScope.typeList }" var="type">
                                                <li><a class="list" href="typeGoods?goodsTypeId=${type.typeId}">${type.typeName}</a></li>
                                            </c:forEach>
 

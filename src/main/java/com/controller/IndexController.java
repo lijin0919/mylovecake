@@ -17,7 +17,7 @@ import java.util.List;
 import java.util.Map;
 
 @Controller
-@SessionAttributes("topList1")
+@SessionAttributes("typeList")
 public class IndexController {
 
 
@@ -28,7 +28,7 @@ public class IndexController {
     private GoodsTypesImpl goodsTypes;
 
     @GetMapping("/index")
-    public String getTypes(Model model,Model model1,Model model2,Model modeTypes){
+    public String getTypes(Model model){
 
         try {
 //            //进行查询
@@ -38,11 +38,11 @@ public class IndexController {
             List<Top> topList1 = topService.getTopListByTypeId(1);
             model.addAttribute("topList1",topList1);
             List<Top> topList2 = topService.getTopListByTypeId(2);
-            model1.addAttribute("topList2",topList2);
+            model.addAttribute("topList2",topList2);
             List<Top> topList3 = topService.getTopListByTypeId(3);
-            model2.addAttribute("topList3",topList3);
+            model.addAttribute("topList3",topList3);
             List<Types> typeList=goodsTypes.getGoodTypeLIst();
-            modeTypes.addAttribute("typeList",typeList);
+            model.addAttribute("typeList",typeList);
 //            System.out.println(topList1);
 
         }catch (Exception e){

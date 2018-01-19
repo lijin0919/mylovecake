@@ -1,5 +1,4 @@
 package com.controller;
-
 import com.entity.Goods;
 import com.entity.Types;
 import com.service.DetailServiceImpl;
@@ -26,7 +25,6 @@ public class DetailController {
         goodModel.addAttribute("good",good);
         //获取类型集合
         List<Types> typesList = goodsTypes.getGoodTypeLIst();
-        System.out.println(typesList);
         //将集合放入Model中
         typeListModel.addAttribute("typeList",typesList);
      return "detail" ;

@@ -20,7 +20,7 @@
 
         <property name="mapperLocations">
             <array>
-                <value>classpath:com/mapper/*</value>
+                <value>classpath:com/mapper/*.java</value>
             </array>
         </property>
     </bean>

@@ -108,8 +108,8 @@
                             </li>
                         </ul>
                     </li>
-                    <li><a href="goods.jsp" >热销</a></li>
-                    <li><a href="goods.jsp" >新品</a></li>
+                    <li><a href="typeGoods2?goodsType=tops" >热销</a></li>
+                    <li><a href="typeGoods2?goodsType=news" >新品</a></li>
 
 
                     <li><a href="order.jsp" >我的订单</a></li>

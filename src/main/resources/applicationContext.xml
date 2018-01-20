@@ -2,6 +2,7 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <!--这里的bean，相当于new了一个org.apache.ibatis.datasource.pooled.PooledDataSource，并设置属性property-->
     <bean id="dataSource"
           class="org.apache.ibatis.datasource.pooled.PooledDataSource">
             <!--制定连接数据库的驱动-->
@@ -13,18 +14,20 @@
             <!--指定数据库的密码-->
             <property name="password" value="121121"/>
         </bean>
-
+    <!--这里的bean，相当于new了一个org.mybatis.spring.SqlSessionFactoryBean，并设置属性property-->
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
         <property name="configLocation" value="classpath:mybatis-config.xml"/>
         <property name="dataSource" ref="dataSource"/>
-
+        <!--//映射地址-->
         <property name="mapperLocations">
             <array>
                 <value>classpath:com/mapper/*.java</value>
             </array>
         </property>
     </bean>
+    <!--相关扫描包配置-->
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <!--扫描com.mapper包-->
         <property name="basePackage" value="com.mapper"/>
     </bean>
 </beans>

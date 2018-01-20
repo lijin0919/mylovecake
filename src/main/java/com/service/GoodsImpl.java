@@ -14,6 +14,12 @@ public class GoodsImpl implements IGoods {
     private IGoodMapper goodMapper;
     @Autowired
     private ITypeMapper iTypeMapper;
+
+    /**
+     * 根据商品类型id查询商品信息
+     * @param Id
+     * @return
+     */
     public List<Goods> getGoodsListByTypeId(Integer Id) {
         List<Goods> goodslist=goodMapper.findGoodListByTypeId(Id);
 
@@ -23,5 +29,13 @@ public class GoodsImpl implements IGoods {
         return goodslist;
     }
 
-
+    /**
+     * 根据商品id查询商品信息
+     * @param Id
+     * @return
+     */
+    public Goods getGoodByGoodId(Integer Id){
+        Goods goods=goodMapper.findGoodById(Id);
+        return goods;
+    }
 }

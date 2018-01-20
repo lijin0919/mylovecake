@@ -7,7 +7,7 @@
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
          version="3.1">
   <display-name>Archetype Created Web Application</display-name>
-  <!--加载Spring上下文到web-->
+  <!--加载Spring上下文到web，整个容器的配置文件参数（contextConfigLocation）-->
   <context-param>
     <param-name>contextConfigLocation</param-name>
     <!--applicationContext.xml路径-->

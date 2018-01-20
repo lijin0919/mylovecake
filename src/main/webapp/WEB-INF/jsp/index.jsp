@@ -24,30 +24,30 @@
     <link rel="stylesheet" href="css/minicart.css">
     <script src="js/common.js"></script>
     
-    <script>
-        //就绪函数
-        $().ready(function () {
-            var req = new XMLHttpRequest();
-            $(".addItem").click(function () {
-                //设置传送方式，对应的servlet或action路径，是否异步处理
-                req.open("POST","/index",true);
-                //如果设置数据传送方式为post，则必须设置请求头信息
-                req.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-                //设置回调函数
-                req.onreadystatechange=callback()
+    <%--<script>--%>
+        <%--//就绪函数--%>
+        <%--$().ready(function () {--%>
+            <%--var req = new XMLHttpRequest();--%>
+            <%--$(".addItem").click(function () {--%>
+                <%--//设置传送方式，对应的servlet或action路径，是否异步处理--%>
+                <%--req.open("POST","/index",true);--%>
+                <%--//如果设置数据传送方式为post，则必须设置请求头信息--%>
+                <%--req.setRequestHeader("Content-type", "application/x-www-form-urlencoded");--%>
+                <%--//设置回调函数--%>
+                <%--req.onreadystatechange=callback()--%>
 
-                //设置要发送的信息
-                // 商品图片、商品类型、商品价格、图片href属性值
-                var reqData = "goodDetailHref="+$("#top-Good-href").attr("href");
-                reqData+="&goodType="+${topList1[0].types.typeName};
-                reqData+="&goodCover="+$("#top-good-pic");
-                alert(reqData);
-                req.send(reqData);
+                <%--//设置要发送的信息--%>
+                <%--// 商品图片、商品类型、商品价格、图片href属性值--%>
+                <%--var reqData = "goodDetailHref="+$("#top-Good-href").attr("href");--%>
+                <%--reqData+="&goodType="+${topList1[0].types.typeName};--%>
+                <%--reqData+="&goodCover="+$("#top-good-pic");--%>
+                <%--alert(reqData);--%>
+                <%--req.send(reqData);--%>
 
 
-            })
-        })
-    </script>
+            <%--})--%>
+        <%--})--%>
+    <%--</script>--%>
 
 
 </head>
@@ -63,7 +63,7 @@
     <div class="container">
         <h2 class="hdng"><a href="detail?goodId=${top.goods.goodId}">${topList1[0].goods.goodName}</a><span></span></h2>
         <p>今日精选推荐</p>
-        <button class="banner_a addItem" onclick="addGoodToCart(${topList1[0].goods.goodId})">加入购物车</button>
+        <button class="banner_a addItem" value="${topList1[0].goods.goodId}">加入购物车</button>
         <div class="banner-text">
             <a id="top-Good-href" href="detail?goodId=${top.goods.goodId}">
                 <img id="top-good-pic" src="${topList1[0].goods.goodCover}" alt="" width="350" height="350">

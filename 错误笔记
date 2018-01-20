@@ -5,4 +5,5 @@ Failed to obtain JDBC Connection; nested exception is java.sql.SQLException:
 解决方法是在数据库Console中运行如下语句：
 set global time_zone='+8:00';（将数据库时间设置为东八区，需要注意的是每次重启服务器都要先设置时区）
 
-2、
+2、在使用AJAX发送请求时注意解决跨域问题
+解决办法是在使用注解

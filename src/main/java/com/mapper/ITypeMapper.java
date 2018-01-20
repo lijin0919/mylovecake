@@ -20,6 +20,11 @@ public interface ITypeMapper {
     })
     List<Types> findTypeList();
 
+    /**
+     * 根据商品类型Id获取商品类型信息
+     * @param typeId
+     * @return
+     */
     @Select("SELECT * FROM types WHERE id=#{typeId};")
     @Results({
             @Result(id = true,property = "typeId",column = "id"),

@@ -1,7 +1,10 @@
 package com.controller;
 
+import com.entity.Goods;
 import com.entity.Top;
 import com.entity.Types;
+import com.google.gson.Gson;
+import com.service.GoodsImpl;
 import com.service.GoodsTypesImpl;
 import com.service.ITopService;
 import com.service.TopServiceImpl;
@@ -10,20 +13,26 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import sun.net.httpserver.HttpsServerImpl;
+import javax.servlet.http.HttpSession;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-
+@CrossOrigin
 @Controller
-@SessionAttributes("typeList")
+@SessionAttributes({"typeList","topList1","topList2","topList3","cartGoodList"})
 public class IndexController {
     @Autowired
    private TopServiceImpl topService;
 
     @Autowired
     private GoodsTypesImpl goodsTypes;
+
+    @Autowired
+    private GoodsImpl goodsImpl;
+
+    @Autowired
+    private HttpSession session;
 
     @GetMapping("/index")
     public String getTypes(Model model){
@@ -53,22 +62,30 @@ public class IndexController {
 
     @RequestMapping(value = "/getCartGood", method = RequestMethod.POST)
     @ResponseBody
-    public String getCartGood(@RequestParam("goodId") String goodId){
+    public String getCartGood(@RequestParam("id") Integer id,Model model){
 
-//        Integer id=new Integer(map.get("goodId"));
+
         //新建购物车商品集合，如果存在就无需新建
-//        System.out.println(id+"11111111111111111111111111111111111111111111111111111111111111111111");
-//        List<Top> cartGoodList=new ArrayList<Top>();
-        //根据id单查
-//        Top top=topService.getTopListById(id);
-        //将单查的商品加入集合
-//        cartGoodList.add(top);
-        //将购物车商品集合放入Model
-//        model.addAttribute("cartGoodList",cartGoodList);
-//
-//        return "index";
-        //返回集合
-        return goodId;
+
+        List<Goods> cartGoodList= null;
+        try {
+            cartGoodList = (List<Goods>) session.getAttribute("cartGoodList");
+            if (null==cartGoodList){
+                cartGoodList=new ArrayList<Goods>();
+            }
+            //根据id单查
+            Goods goods=goodsImpl.getGoodByGoodId(id);
+            //将单查的商品加入集合
+            cartGoodList.add(goods);
+            //将购物车商品集合放入Model
+            model.addAttribute("cartGoodList",cartGoodList);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        Gson gson = new Gson();
+
+        return gson.toJson(cartGoodList);
     }
 
 //    @RequestMapping(value = "getCartGood.json", method = { RequestMethod.POST })

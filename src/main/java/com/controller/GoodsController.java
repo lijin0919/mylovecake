@@ -21,12 +21,19 @@ public class GoodsController {
     @Autowired
     private HttpSession session;
 
+    /**
+     * 在导航栏点击商品类型列表的类型信息商品，这里根据商品类型id获取同一类型的商品集合
+     * @param goodsTypeId  商品类型id
+     * @param goodModel
+     * @return
+     */
     @GetMapping("/typeGoods")
     public String say(@RequestParam("goodsTypeId") Integer goodsTypeId, Model goodModel){
-
+//        根据商品类型id获取同一类型的商品集合
         List<Goods> list=goodsImpl.getGoodsListByTypeId(new Integer(goodsTypeId));
+//        将集合放入goodModel
         goodModel.addAttribute("goodsList",list);
-
+//        返回商品展示页面
         return "goods";
     }
 
@@ -38,16 +45,19 @@ public class GoodsController {
      */
     @GetMapping("/typeGoods2")
     public String say(@RequestParam("goodsType")String goodsType, Model goodModel){
-
+        //存放获取的商品集合
         List<Goods> list=new ArrayList<Goods>();
 //        当参数goodsType为tops时，将热销商品集合放入model
         if ("tops".equals(goodsType)){
         List<Top> listTop= (List<Top>) session.getAttribute("topList2");
         for (Top top:listTop) {
+//            重置商品类型
             Types types=new Types();
             types.setTypeId(111);
             types.setTypeName("热销推荐");
+            //获取商品信息
             top.getGoods().setGoodType(types);
+            //将商品加入集合
             list.add(top.getGoods());
         }
         }

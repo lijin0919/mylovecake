@@ -13,9 +13,19 @@ public class Goods {
     private String goodIntro;//商品描述
     private Integer goodStock;//商品库存
     private Integer typeId;//类型id
-
+    //购物车中商品数量
+    private Integer goodsNum;
     //这个属性是要去service层去通过方法查询后，再set值
     private Types goodType;//商品类型
+
+
+    public Integer getGoodsNum() {
+        return goodsNum;
+    }
+
+    public void setGoodsNum(Integer goodsNum) {
+        this.goodsNum = goodsNum;
+    }
 
     /**
      * 无参构造
@@ -53,6 +63,7 @@ public class Goods {
                 ", goodIntro='" + goodIntro + '\'' +
                 ", goodStock=" + goodStock +
                 ", typeId=" + typeId +
+                ", goodsNum=" + goodsNum +
                 ", goodType=" + goodType +
                 '}';
     }

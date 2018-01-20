@@ -61,11 +61,12 @@
 
 <div class="banner">
     <div class="container">
-        <h2 class="hdng"><a href="detail?goodId=${top.goods.goodId}">${topList1[0].goods.goodName}</a><span></span></h2>
+        <h2 class="hdng"><a href="detail?goodId=${topList1[0].goods.goodId}">${topList1[0].goods.goodName}</a><span></span></h2>
         <p>今日精选推荐</p>
-        <button class="banner_a addItem" value="${topList1[0].goods.goodId}">加入购物车</button>
+        <a class="banner_a" href="#" onclick="addGoodToCart(${topList1[0].goods.goodId});return false;">立刻购买</a>
+        <%--<button class="banner_a addItem" value="${topList1[0].goods.goodId}">加入购物车</button>--%>
         <div class="banner-text">
-            <a id="top-Good-href" href="detail?goodId=${top.goods.goodId}">
+            <a id="top-Good-href" href="detail?goodId=${topList1[0].goods.goodId}">
                 <img id="top-good-pic" src="${topList1[0].goods.goodCover}" alt="" width="350" height="350">
             </a>
         </div>
@@ -83,7 +84,7 @@
         <div class="gallery-grids">
             <!-------------------------------热销推荐------------------------------------->
             <!--商品1-->
-            <c:forEach items="${topList2}" var="top">
+            <c:forEach items="${sessionScope.topList2}" var="top">
             <div class="col-md-4 gallery-grid glry-two">
                 <a href="detail?goodId=${top.goods.goodId}">
                     <img src="${top.goods.goodCover}" class="img-responsive" alt="" width="350" height="350"/>
@@ -93,7 +94,7 @@
                         <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
                         <a href="detail.jsp">查看详情</a>
                     </p>
-                    <a class="shop" href="#" onclick="addGoodToCart(${top.goods.goodId})">加入购物车</a>
+                    <a class="shop" href="#" onclick="addGoodToCart(${top.goods.goodId});return false;">加入购物车</a>
                     <div class="clearfix"> </div>
                 </div>
                 <div class="galy-info">
@@ -119,7 +120,7 @@
 
             <!--推荐1-->
 
-            <c:forEach items="${requestScope.topList3}" var="top">
+            <c:forEach items="${sessionScope.topList3}" var="top">
                 <div class="col-md-3 gallery-grid ">
                     <a href="detail?goodId=${top.goods.goodId}">
                         <img src="${top.goods.goodCover}" class="img-responsive" alt=""/>
@@ -129,7 +130,7 @@
                             <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
                             <a href="#">查看详情</a>
                         </p>
-                        <a class="shop" href="#" onclick="addGoodToCart(${top.goods.goodId})">加入购物车</a>
+                        <a class="shop" href="#" onclick="addGoodToCart(${top.goods.goodId})";return false;>加入购物车</a>
                         <div class="clearfix"> </div>
                     </div>
                     <div class="galy-info">

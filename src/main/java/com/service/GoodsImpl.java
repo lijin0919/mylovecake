@@ -25,6 +25,8 @@ public class GoodsImpl implements IGoods {
 
         for (Goods good:goodslist) {
             good.setGoodType(iTypeMapper.findTypeById(good.getTypeId()));
+
+
         }
         return goodslist;
     }
@@ -36,6 +38,7 @@ public class GoodsImpl implements IGoods {
      */
     public Goods getGoodByGoodId(Integer Id){
         Goods goods=goodMapper.findGoodById(Id);
+        goods.setGoodsNum(0);
         return goods;
     }
 }

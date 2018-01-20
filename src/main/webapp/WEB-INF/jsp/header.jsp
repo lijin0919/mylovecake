@@ -7,6 +7,8 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
+
 <html>
 <head>
     <title>Title</title>
@@ -33,31 +35,73 @@
     //     xmlRequest.send("goodId=1");
     // }
         // ---------------------------
-        $().ready(
-            function() {
-                $(".banner_a").click(
-                    function() {
-                        var goodId = $(".banner_a").val();
+        // $().ready(
+            // function() {
+            //     $(".banner_a").click(
+                    function addGoodToCart(goodId) {
+                        // var goodId = $(".banner_a").val();
 
-                        alert(111111);
-                         // id = {"goodId":goodId};
-                        $.ajax({
-                            url : "getCartGood",
-                            type:"POST",
-                            data:{id:goodId},
-                            dataType:"Json",
-                            success : function(respons) {
-                                //请求成功，显示购物车商品数量
-                                // $(".card_num").innerText=response.length;
-                                alert("请求成功"+respons[0].goodStock);
+                            $.ajax({
+                                url : "getCartGood",
+                                type:"POST",
+                                data:{id:goodId},
+                                dataType:"Json",
 
-                            },
-                            error : function() {
-                                alert("请求失败");
-                            }
-                        });
-                    });
-            });
+
+                                success : function(respons) {
+
+                                    //请求成功，显示购物车商品数量
+                                    $(".card_num").text(respons.totalNum);
+                                    $("#items_num").text(respons.totalNum);
+                                    $("#cart_items_totalPrice").text("￥"+respons.totalPricr);
+                                        $(".list-minicart").append(
+                                            " <div  type=\"normal\" class=\"item6-in-minicart-a\">\n" +
+                                            "\n" +
+                                            "                                <a href=\"detail.jsp\" target=\"_blank\">\n" +
+                                            "                                    <!--左，商品图片-->\n" +
+                                            "                                    <div><img  class=\"minicart_div_left\"  src=\""+respons.goodsList[respons.goodsList.length-1].goodCover+"\" alt=\"\" ></div>\n" +
+                                            "                                </a>\n" +
+                                            "                                <!--中，商品信息-->\n" +
+                                            "                                <div class=\"minicart_div_center\">\n" +
+                                            "                                    <div class=\"minicart_div_center_div\">\n" +
+                                            "                                        <h5>"+respons.goodsList[respons.goodsList.length-1].goodName+"</h5>\n" +
+                                            "                                    </div>\n" +
+                                            "                                    <div class=\"minicart_div_center_div\">\n" +
+                                            "                                        <h5>\n" +
+                                            "                                            <!--<span class=\"pull-right\">满额折9折</span>-->\n" +
+                                            "                                            ￥"+respons.goodsList[respons.goodsList.length-1].goodPrice+"/礼盒\n" +
+                                            "                                        </h5>\n" +
+                                            "                                    </div>\n" +
+                                            "                                    <div class=\"minicart_div_center_div\">\n" +
+                                            "                                        <input class=\"min\" name=\"\" type=\"button\" value=\"-\" id=\"btn-warning\"/>\n" +
+                                            "                                        <input class=\"text_box\" name=\"goodnum\" type=\"text\" value=\""+respons.goodsList[respons.goodsList.length-1].goodsNum+"\" style=\"width:25px;\" id=\"cart_item_num6\"/>\n" +
+                                            "                                        <input class=\"add\" name=\"\"  type=\"button\" value=\"+\" id=\"btn-info\" onclick='fun()' />\n" +
+                                            "                                    </div>\n" +
+                                            "                                </div>\n" +
+                                            "                                <!--右，删除按钮-->\n" +
+                                            "                                <div class=\"minicart_div_right\">\n" +
+                                            "                                    <div class=\"minicart_div_center_div\"></div>\n" +
+                                            "                                    <div class=\"minicart_div_center_div\"><button id=\"btn-danger6\">删除</button></div>\n" +
+                                            "                                    <div class=\"minicart_div_center_div\"></div>\n" +
+                                            "                                </div>\n" +
+                                            "\n" +
+                                            "                            </div>"
+                                        );
+
+
+                                    alert("加入购物车成功！");
+
+                                },
+                                error : function() {
+                                    alert("请求失败");
+                                }
+                            });
+                    // });
+
+            }
+
+
+
         // ---------------------------------
     // }
 </script>
@@ -133,149 +177,61 @@
 
             <div id="cart-img" class="header-right cart">
                 <a href="cart.jsp">
-                    <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"><span class="card_num" >4</span></span>
+                    <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"><span class="card_num" >${cart.totalNum}</span></span>
                 </a>
                 <!--新增的点击购物车图标弹出迷你购物车窗口功能-->
                 <div id="minicart-show" style="width: 350px;height:auto; background-color:white;position: absolute;display: none;z-index: 99 ;">
                     <!--到顶了。。。。。-->
                     <div class="cart-order" style="display: block;overflow: auto;overflow-x:hidden;width: 335px;height:520px">
+                        <%--miniCart--%>
                         <ul class="list-minicart">
-                            <div  type="normal" class="item6-in-minicart-a">
+                            <c:if test="${sessionScope.cart!=null}">
+                                <c:forEach var="g" items="${sessionScope.cart.goodsList}">
+                                <div  type="normal" class="item-in-minicart-a">
 
-                                <a href="detail.jsp" target="_blank">
-                                    <!--左，商品图片-->
-                                    <div><img  class="minicart_div_left"  src="picture/6-1.jpg" alt="" ></div>
-                                </a>
-                                <!--中，商品信息-->
-                                <div class="minicart_div_center">
-                                    <div class="minicart_div_center_div">
-                                        <h5>夜礼服</h5>
+                                    <a href="detail.jsp" target="_blank">
+                                        <!--左，商品图片-->
+                                        <div><img  class="minicart_div_left"  src="${g.goodCover}" alt="" ></div>
+                                    </a>
+                                    <!--中，商品信息-->
+                                    <div class="minicart_div_center">
+                                        <div class="minicart_div_center_div">
+                                            <h5>${g.goodName}</h5>
+                                        </div>
+                                        <div class="minicart_div_center_div">
+                                            <h5>
+                                                <!--<span class="pull-right">满额折9折</span>-->
+                                                ￥${g.goodPrice}/礼盒
+                                            </h5>
+                                        </div>
+                                        <div class="minicart_div_center_div">
+                                            <input class="min" name="" type="button" value="-" id="btn-warning6"/>
+                                            <input class="text_box" name="goodnum" type="text" value="1" style="width:25px;" id="cart_item_num6"/>
+                                            <input class="add" name="" type="button" value="+" id="btn-info6" />
+                                        </div>
                                     </div>
-                                    <div class="minicart_div_center_div">
-                                        <h5>
-                                            <!--<span class="pull-right">满额折9折</span>-->
-                                            ￥299.00/礼盒
-                                        </h5>
+                                    <!--右，删除按钮-->
+                                    <div class="minicart_div_right">
+                                        <div class="minicart_div_center_div"></div>
+                                        <div class="minicart_div_center_div"><button id="btn-danger6">删除</button></div>
+                                        <div class="minicart_div_center_div"></div>
                                     </div>
-                                    <div class="minicart_div_center_div">
-                                        <input class="min" name="" type="button" value="-" id="btn-warning6"/>
-                                        <input class="text_box" name="goodnum" type="text" value="1" style="width:25px;" id="cart_item_num6"/>
-                                        <input class="add" name="" type="button" value="+" id="btn-info6" />
-                                    </div>
-                                </div>
-                                <!--右，删除按钮-->
-                                <div class="minicart_div_right">
-                                    <div class="minicart_div_center_div"></div>
-                                    <div class="minicart_div_center_div"><button id="btn-danger6">删除</button></div>
-                                    <div class="minicart_div_center_div"></div>
-                                </div>
 
-                            </div>
-                            <div  type="normal" class="item5-in-minicart-a">
-
-                                <a href="detail.jsp" target="_blank">
-                                    <!--左，商品图片-->
-                                    <div><img  class="minicart_div_left"  src="picture/5-1.jpg" alt="" ></div>
-                                </a>
-                                <!--中，商品信息-->
-                                <div class="minicart_div_center">
-                                    <div class="minicart_div_center_div">
-                                        <h5>芒果列车</h5>
-                                    </div>
-                                    <div class="minicart_div_center_div">
-                                        <h5>
-                                            <!--<span class="pull-right">满额折9折</span>-->
-                                            ￥269.00/礼盒
-                                        </h5>
-                                    </div>
-                                    <div class="minicart_div_center_div">
-                                        <input class="min" name="" type="button" value="-" id="btn-warning5"/>
-                                        <input class="text_box" name="goodnum" type="text" value="1" style="width:25px;" id="cart_item_num5"/>
-                                        <input class="add" name="" type="button" value="+" id="btn-info5"/>
-                                    </div>
                                 </div>
-                                <!--右，删除按钮-->
-                                <div class="minicart_div_right">
-                                    <div class="minicart_div_center_div"></div>
-                                    <div class="minicart_div_center_div"><button id="btn-danger5">删除</button></div>
-                                    <div class="minicart_div_center_div"></div>
-                                </div>
-
-                            </div>
-                            <div  type="normal" class="item4-in-minicart-a">
-
-                                <a href="detail.jsp" target="_blank">
-                                    <!--左，商品图片-->
-                                    <div><img  class="minicart_div_left"  src="picture/4-1.jpg" alt="" ></div>
-                                </a>
-                                <!--中，商品信息-->
-                                <div class="minicart_div_center">
-                                    <div class="minicart_div_center_div">
-                                        <h5>玫瑰物语</h5>
-                                    </div>
-                                    <div class="minicart_div_center_div">
-                                        <h5>
-                                            <!--<span class="pull-right">满额折9折</span>-->
-                                            ￥229.00/礼盒
-                                        </h5>
-                                    </div>
-                                    <div class="minicart_div_center_div">
-                                        <input class="min" name="" type="button" value="-" id="btn-warning4"/>
-                                        <input class="text_box" name="goodnum" type="text" value="1" style="width:25px;" id="cart_item_num4"/>
-                                        <input class="add" name="" type="button" value="+" id="btn-info4"/>
-                                    </div>
-                                </div>
-                                <!--右，删除按钮-->
-                                <div class="minicart_div_right">
-                                    <div class="minicart_div_center_div"></div>
-                                    <div class="minicart_div_center_div" ><button id="btn-danger4">删除</button></div>
-                                    <div class="minicart_div_center_div"></div>
-                                </div>
-
-                            </div>
-                            <div  type="normal" class="item3-in-minicart-a">
-
-                                <a href="detail.jsp" target="_blank">
-                                    <!--左，商品图片-->
-                                    <div><img  class="minicart_div_left"  src="picture/3-1.jpg" alt="" ></div>
-                                </a>
-                                <!--中，商品信息-->
-                                <div class="minicart_div_center">
-                                    <div class="minicart_div_center_div">
-                                        <h5>留恋之恋</h5>
-                                    </div>
-                                    <div class="minicart_div_center_div">
-                                        <h5>
-                                            <!--<span class="pull-right">满额折9折</span>-->
-                                            ￥299.00/礼盒
-                                        </h5>
-                                    </div>
-                                    <div class="minicart_div_center_div">
-                                        <input class="min" name="" type="button" value="-" id="btn-warning3"/>
-                                        <input class="text_box" name="goodnum" type="text" value="1" style="width:25px;" id="cart_item_num3"/>
-                                        <input class="add" name="" type="button" value="+" id="btn-info3"/>
-                                    </div>
-                                </div>
-                                <!--右，删除按钮-->
-                                <div class="minicart_div_right">
-                                    <div class="minicart_div_center_div"></div>
-                                    <div class="minicart_div_center_div"><button id="btn-danger3">删除</button></div>
-                                    <div class="minicart_div_center_div"></div>
-                                </div>
-
-                            </div>
+                                </c:forEach>
+                            </c:if>
 
                         </ul>
                     </div>
                     <div class="mcart-pay clearfix">
                         <div class="pull-left" style="margin-left:10px; ">
                             共
-                            <span class="glyphicon-shopping-cart" id="items_num">4</span>
+                            <span class="glyphicon-shopping-cart" id="items_num">${cart.totalNum}</span>
                             件商品
                         </div>
                         <div class="pull-right">
-                            商品小计
-                            <span class="fs-3 VI-color2" id="cart_items_totalPrice">1032.00</span>
+                            商品小计:
+                            <span class="fs-3 VI-color2" id="cart_items_totalPrice">￥${cart.totalPricr}</span>
                         </div>
                         <button id="btncart" type="button" class="btn btn-success btn-lg btn-block" style="margin-right:10px; ">立即结算</button>
                     </div>

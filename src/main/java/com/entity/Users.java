@@ -2,22 +2,22 @@ package com.entity;
 
 public class Users {
     private  Integer id;
-    private String usernNme;
+    private String username;
     private String password;
     private String name;
-    private String phone;
-    private String address;
+    private String userPhone;
+    private String userAddress;
 
     public Users() {
     }
 
-    public Users(Integer id, String usernNme, String password, String name, String phone, String address) {
+    public Users(Integer id, String username, String password, String name, String userPhone, String userAddress) {
         this.id = id;
-        this.usernNme = usernNme;
+        this.username = username;
         this.password = password;
         this.name = name;
-        this.phone = phone;
-        this.address = address;
+        this.userPhone = userPhone;
+        this.userAddress = userAddress;
     }
 
     public Integer getId() {
@@ -28,12 +28,12 @@ public class Users {
         this.id = id;
     }
 
-    public String getUsernNme() {
-        return usernNme;
+    public String getUsername() {
+        return username;
     }
 
-    public void setUsernNme(String usernNme) {
-        this.usernNme = usernNme;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getPassword() {
@@ -52,31 +52,32 @@ public class Users {
         this.name = name;
     }
 
-    public String getPhone() {
-        return phone;
+    public String getUserPhone() {
+        return userPhone;
     }
 
-    public void setPhone(String phone) {
-        this.phone = phone;
+    public void setUserPhone(String userPhone) {
+        this.userPhone = userPhone;
     }
 
-    public String getAddress() {
-        return address;
+    public String getUserAddress() {
+        return userAddress;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
+    public void setUserAddress(String userAddress) {
+        this.userAddress = userAddress;
     }
+
 
     @Override
     public String toString() {
         return "Users{" +
                 "id=" + id +
-                ", usernNme='" + usernNme + '\'' +
+                ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
                 ", name='" + name + '\'' +
-                ", phone='" + phone + '\'' +
-                ", address='" + address + '\'' +
+                ", userPhone='" + userPhone + '\'' +
+                ", userAddress='" + userAddress + '\'' +
                 '}';
     }
 }

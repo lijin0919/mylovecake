@@ -23,7 +23,7 @@ public interface ITopMapper {
     @Results({
             @Result(id = true,property = "topId",column = "id"),
             @Result(property = "goodId",column = "good_id"),
-            @Result(property = "typeId",column = "good_id"),
+            @Result(property = "typeId",column = "good_id")
 
     })
     Top findTopListById(Integer topId);

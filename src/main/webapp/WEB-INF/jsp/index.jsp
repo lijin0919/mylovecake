@@ -27,7 +27,7 @@
     <%--<script>--%>
         <%--//就绪函数--%>
         <%--$().ready(function () {--%>
-            <%--var req = new XMLHttpRequest();--%>
+            var req = new XMLHttpRequest();
             <%--$(".addItem").click(function () {--%>
                 <%--//设置传送方式，对应的servlet或action路径，是否异步处理--%>
                 <%--req.open("POST","/index",true);--%>

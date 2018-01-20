@@ -57,12 +57,12 @@
     <div class="container">
         <div class="register">
 
-            <form class="c" action="" id="commentForm" method="get">
+            <form action="actionRegister" id="commentForm" method="post">
                 <div class="register-top-grid">
                     <h3>注册新用户</h3>
                     <div class="input">
                         <span>用户名 <label style="color:red;">*</label></span>
-                        <input type="text" name="username" placeholder="请输入用户名" required/>
+                        <input type="text" id="username-test" name="username" placeholder="请输入用户名" required/>
                     </div>
                     <div class="input">
                         <span>密码 <label style="color:red;">*</label></span>
@@ -74,11 +74,11 @@
                     </div>
                     <div class="input">
                         <span>收货电话<label></label></span>
-                        <input type="text" name="phone" placeholder="请输入收货电话" required>
+                        <input type="text" name="userPhone" placeholder="请输入收货电话" required>
                     </div>
                     <div class="input">
                         <span>收货地址<label></label></span>
-                        <input type="text" name="address" placeholder="请输入收货地址">
+                        <input type="text" name="userAddress" placeholder="请输入收货地址">
                     </div>
                     <div class="clearfix"> </div>
                 </div>

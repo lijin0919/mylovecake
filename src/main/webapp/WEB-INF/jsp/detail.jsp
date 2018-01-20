@@ -19,7 +19,6 @@
     <link type="text/css" rel="stylesheet" href="css/style.css">
     <link type="text/css" rel="stylesheet" href="css/flexslider.css">
     <link rel="stylesheet" href="css/uiAlertView-1.0.0.css">
-    <script type="text/javascript" src="js/jquery.min.js"></script>
     <script type="text/javascript" src="js/jquery.flexslider.js"></script>
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
     <script src="js/twitter-bootstrap-hover-dropdown.min.js"></script>
@@ -27,7 +26,7 @@
     <script type="text/javascript" src="js/cart.js"></script>
     <script src="js/cart_addItems.js"></script>
     <script src="js/jquery.uiAlertView-1.0.0.js"></script>
-
+    <script src="js/jquery.min.js" type="text/javascript"></script>
     <script>
         $(function() {
             $('.flexslider').flexslider({
@@ -72,6 +71,7 @@
 
                     <ul class="slides">
                         <li data-thumb="${requestScope.good.goodCover}">
+                            <c:out value="${requestScope.good.goodCover}"/>
                             <div class="thumb-image"> <img src="${requestScope.good.goodCover}" data-imagezoom="true" class="img-responsive"> </div>
                         </li>
                         <li data-thumb="${requestScope.good.goodImage1}">

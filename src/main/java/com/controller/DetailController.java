@@ -11,6 +11,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
+/**
+ * 详情页面Controller
+ */
 @Controller
 public class DetailController {
     @Autowired

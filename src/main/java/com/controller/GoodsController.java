@@ -14,6 +14,9 @@ import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * 商品展示页面Controller
+ */
 @Controller
 public class GoodsController {
     @Autowired

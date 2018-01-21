@@ -15,14 +15,14 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <link type="text/css" rel="stylesheet" href="css/bootstrap.css">
     <link type="text/css" rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/minicart.css">
     <script type="text/javascript" src="js/jquery.min.js"></script>
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript"src="js/minicart_addItems.js"></script>
     <script type="text/javascript" src="layer/layer.js"></script>
     <script type="text/javascript" src="js/cart.js"></script>
     <!--购物车Jquery效果-->
-    <script src="js/minicart_addItems.js"></script>
-    <link rel="stylesheet" href="css/minicart.css">
-    <script src="js/common.js"></script>
+    <script type="text/javascript"src="js/common.js"></script>
     
     <%--<script>--%>
         <%--//就绪函数--%>
@@ -63,7 +63,7 @@
     <div class="container">
         <h2 class="hdng"><a href="detail?goodId=${topList1[0].goods.goodId}">${topList1[0].goods.goodName}</a><span></span></h2>
         <p>今日精选推荐</p>
-        <a class="banner_a" href="#" onclick="addGoodToCart(${topList1[0].goods.goodId});return false;">立刻购买</a>
+        <a class="banner_a" href="#" onclick="addGoodToCart(${topList1[0].goods.goodId});return false;">加入购物车</a>
         <%--<button class="banner_a addItem" value="${topList1[0].goods.goodId}">加入购物车</button>--%>
         <div class="banner-text">
             <a id="top-Good-href" href="detail?goodId=${topList1[0].goods.goodId}">

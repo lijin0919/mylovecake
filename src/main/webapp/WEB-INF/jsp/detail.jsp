@@ -72,7 +72,6 @@
 
                     <ul class="slides">
                         <li data-thumb="${requestScope.good.goodCover}">
-                            <c:out value="${requestScope.good.goodCover}"/>
                             <div class="thumb-image"> <img src="${requestScope.good.goodCover}" data-imagezoom="true" class="img-responsive"> </div>
                         </li>
                         <li data-thumb="${requestScope.good.goodImage1}">

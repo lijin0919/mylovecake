@@ -46,6 +46,7 @@ public class UserController {
      */
 
     @PostMapping("/actionRegister")
+    @ResponseBody
     public String actionRegister(@RequestParam("username") String username,
                       @RequestParam("password") String password,
                       @RequestParam("name") String name,
@@ -62,11 +63,15 @@ public class UserController {
         //将用户信息存入session中
         session.setAttribute("user",user);
         //调用方法添加用户信息
+        boolean flag = false;
         Integer result = userService.addUserInfo(user);
+        if(result>0){
+            flag = true;
+        }
         //将返回结果存入Model中
-        resultModel.addAttribute("result",result);
+
         //获取表单数据
-        return "index";
+        return new Gson().toJson(flag);
     }
 
     /**
@@ -105,5 +110,11 @@ public class UserController {
         return "login";
     }
 
-
+    /**
+     * 用户个人中心页面
+     */
+    @GetMapping("/userCenter")
+    public String say(){
+        return "userCenter";
+    }
 }//class

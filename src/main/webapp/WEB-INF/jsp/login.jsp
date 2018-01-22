@@ -19,7 +19,7 @@
     <%--<script type="text/javascript" src="js/simpleCart.min.js"></script>--%>
     <script type="text/javascript" src="js/jquery.validate.min.js"></script>
     <script type="text/javascript" src="js/messages_zh.js"></script>
-    <script  type="text/javascript" src="js/login.js"></script>
+    <script  type="text/javascript" src="../../js/login.js"></script>
     <style>
         .error{
             color: red;

@@ -132,7 +132,7 @@
             <%--如果用户没有登录则不显示--%>
             <c:if test="${sessionScope.user!=null}">
                 <div class="header-right login">
-                    <a href="userCenter"><span class="glyphicon" aria-hidden="true"></span></a>
+                    <a href="userCenter"><span class="glyphicon" aria-hidden="true">${sessionScope.user.username}</span></a>
                 </div>
             </c:if>
 

@@ -84,6 +84,7 @@ $.validator.setDefaults({
 
         $("#submit-btn").click(function () {
             var username = $("#username-test").val();
+            alert(username);
             $.ajax({
 
                 url: "checkUsername",
@@ -92,24 +93,57 @@ $.validator.setDefaults({
                 dataType: "Json",
                 success: function (response) {
                     // 如果返回为真,表示用户存在
-
-                    if(response==true){
-                        // alert(response);
+                    alert(response);
+                    if(response){
+                        alert("123");
+                        // $(location).attr("href","#");
                         $("#warning-msg").html("*用户名已存在，请您重新输入");
 
+
                     } else {
-                        $("#warning-msg").html("");
+
+
+                            var password = $("#user-password").val();
+                            var name = $("#user-name").val();
+                            var userPhone = $("#user-phone").val();
+                            var userAddress =$("#user-address").val();
+                            $.ajax({
+                                url:"actionRegister",
+                                type:"POST",
+                                data:{"username":username,
+                                        "password":password,
+                                        "name":name,
+                                        "userPhone":userPhone,
+                                        "userAddress":userAddress
+                                },
+                                dataType:"Json",
+                                success:function (data) {
+                                    alert(data);
+
+                                    if(data){
+                                        $(location).attr("href","index");
+                                    }
+                                }
+
+                            });
+
+
+
+
                     }
                 },
                 error:function () {
-                    alert();
+                    alert("错误");
                 }
 
             })
         });//ajax
 
 
-
+        //光标移入错误提示移除
+        $("#username-test").focus(function () {
+            $("#warning-msg").html("");
+        });
 
 
 

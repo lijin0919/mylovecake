@@ -67,24 +67,25 @@
                     <p id="warning-msg" style="color: red"></p>
                     <div class="input">
                         <span>密码 <label style="color:red;">*</label></span>
-                        <input type="text" name="password" placeholder="请输入密码" required/>
+                        <input id="user-password" type="text" name="password" placeholder="请输入密码" required/>
                     </div>
                     <div class="input">
                         <span>收货人<label></label></span>
-                        <input type="text" name="name" placeholder="请输入收货人姓名">
+                        <input id="user-name" type="text" name="name" placeholder="请输入收货人姓名">
                     </div>
                     <div class="input">
                         <span>收货电话<label></label></span>
-                        <input type="text" name="userPhone" placeholder="请输入收货电话" required>
+                        <input id="user-phone" type="text" name="userPhone" placeholder="请输入收货电话" required>
                     </div>
                     <div class="input">
                         <span>收货地址<label></label></span>
-                        <input type="text" name="userAddress" placeholder="请输入收货地址">
+                        <input id="user-address" type="text" name="userAddress" placeholder="请输入收货地址">
                     </div>
                     <div class="clearfix"> </div>
                 </div>
                 <div class="register-but text-center">
-                    <input id="submit-btn" class="submit" type="submit" value="提交">
+                    <input id="submit-btn" class="submit" type="button" value="提交">
+                    <%--<button id="submit-btn" class="submit">提交</button>--%>
                     <div class="clearfix"> </div>
                 </div>
             </form>

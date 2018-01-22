@@ -23,7 +23,7 @@ $(".item_add").click(function () {
                 $(location).attr('href','#');
             } },
             { title:"立即结算",color:"red",click:function(){
-                $(location).attr('href','cart.html');
+                $(location).attr('href','cart');
             } }
         ]
     };

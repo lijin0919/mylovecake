@@ -13,12 +13,12 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <link type="text/css" rel="stylesheet" href="css/bootstrap.css">
     <link type="text/css" rel="stylesheet" href="css/style.css">
-    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript"  src="../../js/jquery-3.3.1.min.js"></script>
+
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="js/simpleCart.min.js"></script>
+    <%--<script type="text/javascript" src="js/simpleCart.min.js"></script>--%>
     <script type="text/javascript" src="js/jquery.validate.min.js"></script>
     <script type="text/javascript" src="js/messages_zh.js"></script>
-    <script type="text/javascript"  src="js/jquery.js"></script>
     <script  type="text/javascript" src="js/login.js"></script>
     <style>
         .error{
@@ -63,7 +63,7 @@
                     <div class="clearfix"> </div>
                 </div>
                 <div class="register-but text-center">
-                    <input type="submit" value="提交">
+                    <input type="button" id="btn_login" value="提交">
                     <div class="clearfix"> </div>
                 </div>
             </form>

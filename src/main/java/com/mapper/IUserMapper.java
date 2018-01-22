@@ -28,4 +28,16 @@ public interface IUserMapper {
 
     })
     List<Users> findUserInfoByUsername(@Param("username") String username);
+//根据用户名密码查询用户信息
+    @Select("SELECT * FROM users WHERE username=#{username} AND password=#{password};")
+    @Results({
+            @Result(id = true,property = "id",column = "id"),
+            @Result(property = "username",column = "username"),
+            @Result(property = "password",column = "password"),
+            @Result(property = "name",column = "name"),
+            @Result(property = "userPhone",column = "phone"),
+            @Result(property = "userAddress",column = "address")
+
+    })
+    List<Users> findUserInfoByUsernameAndPassword(@Param("username") String username,@Param("password") String password);
 }

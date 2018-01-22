@@ -81,8 +81,16 @@ public class UserController {
      * 用户登陆判断
      */
     @PostMapping("/actionLogin")
-    public String actionLogin(){
-        return "index";
+    @ResponseBody
+    public String actionLogin(@RequestParam("loginUserName") String loginUserName,@RequestParam("loginPassword") String loginPassword){
+        boolean flag=false;
+        Users user=userService.findUserInfoByUsername(loginUserName,loginPassword);
+        if (user!=null) {
+            flag = true;
+            session.setAttribute("user", user);
+        }
+        Gson gson = new Gson();
+        return gson.toJson(flag);
     }
 
     /**

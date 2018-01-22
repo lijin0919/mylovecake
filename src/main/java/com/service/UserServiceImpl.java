@@ -35,4 +35,26 @@ public class UserServiceImpl implements IUserService {
 
 
     }
+    ////根据用户名密码获取用户信息
+    public Users findUserInfoByUsername(String username, String password) {
+            Users users=null;
+            try{
+                List<Users> usersList = iUserMapper.findUserInfoByUsernameAndPassword(username,password);
+                if (usersList.size()>0) {
+                    for (Users user : usersList
+                            ) {
+                        if (username.equals(user.getUsername())) {
+                            users = user;
+                        }
+                    }
+                }
+            }
+            catch (Exception e){
+                e.printStackTrace();
+
+            }
+            return users;
+    }
+
+
 }

@@ -1,18 +1,24 @@
 $().ready(function () {
     $("#btn_login").click(function () {
         alert("进入了");
+        //获取用户输入的用户名
+        var username=$("#login_username").val();
+        //获取用户输入的密码
+        var password=$("#login_password").val();
         $.ajax({
             url: "actionLogin" ,//url
-            type: "post",//方法类型
-            data: $("#login_form").serialize(),
-            // data: {loginUserName:$("#{login_username}").val(),loginPassword:$("#login_password").val()},
+            type: "POST",//方法类型
+            // data: $("#login_form").serialize(),
+            data: {"loginUserName":username,"loginPassword":password},
             dataType: "Json",//预期服务器返回的数据类型
-            async: false,
-            success: function (result) {
-                console.log(result);//打印服务端返回的数据(调试用)
-                // if (result.resultCode==200) {
-                //     alert("SUCCESS");
-                // };
+            success: function (response) {
+                //response为布尔值，true时表示用户名密码输入正确，我们返回首页，false表示输入错误
+                if(response){
+                    window.location.href="index";
+                }else{
+                    alert("用户名或者密码错误！")
+                }
+
             },
             error : function() {
                 alert("异常！");

@@ -41,7 +41,7 @@ $.validator.setDefaults({
                     required: "*请输入用户名（必填）",
                     rangelength: $.validator.format("*用户名长度在必须为：{0}-{1}之间"),
                     checkName: "*只允许6-16位英文字母、数字或者下画线！",
-                    checkName1:"*用户名存在，请重新输入"
+                    checkName1:"*用户名已存在存在，请重新输入"
                 },
                 password: {
                     required: "*请输入密码（必填）",
@@ -82,24 +82,27 @@ $.validator.setDefaults({
 
 
 
-        $("#username-test").blur(function () {
-            var username1 = $("#username-test").val();
+        $("#submit-btn").click(function () {
+            var username = $("#username-test").val();
             $.ajax({
 
-                url: "checkUsername?username="+username1,
-                type: "GET",
-                // data: {"username": username},
-                // dataType: "Json",
+                url: "checkUsername",
+                type: "POST",
+                data: {"username": username},
+                dataType: "Json",
                 success: function (response) {
-                    //如果返回为真,表示用户存在
-                    // if(response=='true'){
-                    //     $.validator.addMethod("checkName1",function (value, element, params) {
-                    //         return false;
-                    //     })
-                    // }
+                    // 如果返回为真,表示用户存在
+
+                    if(response==true){
+                        // alert(response);
+                        $("#warning-msg").html("*用户名已存在，请您重新输入");
+
+                    } else {
+                        $("#warning-msg").html("");
+                    }
                 },
                 error:function () {
-                    alert(0000);
+                    alert();
                 }
 
             })

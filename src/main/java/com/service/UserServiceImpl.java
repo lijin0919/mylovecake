@@ -22,10 +22,10 @@ public class UserServiceImpl implements IUserService {
             System.out.println(usersList.size());
             if (usersList.size()>0){
                 //如果为空则证明用户存在
-                return false;
+                return true;
             } else {
                 //否则
-                return true;
+                return false;
             }
         }
         catch (Exception e){

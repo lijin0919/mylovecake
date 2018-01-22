@@ -64,6 +64,7 @@
                         <span>用户名 <label style="color:red;">*</label></span>
                         <input type="text" id="username-test" name="username" placeholder="请输入用户名" required/>
                     </div>
+                    <p id="warning-msg" style="color: red"></p>
                     <div class="input">
                         <span>密码 <label style="color:red;">*</label></span>
                         <input type="text" name="password" placeholder="请输入密码" required/>
@@ -83,7 +84,7 @@
                     <div class="clearfix"> </div>
                 </div>
                 <div class="register-but text-center">
-                    <input class="submit" type="submit" value="提交">
+                    <input id="submit-btn" class="submit" type="submit" value="提交">
                     <div class="clearfix"> </div>
                 </div>
             </form>

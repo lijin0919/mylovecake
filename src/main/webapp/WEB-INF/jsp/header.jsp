@@ -66,13 +66,20 @@
                     </li>
                     <li><a href="typeGoods2?goodsType=tops">热销</a></li>
                     <li><a href="typeGoods2?goodsType=news">新品</a></li>
+                    <%--用户登陆显示--%>
+                    <c:if test="${sessionScope.user==null}">
+                        <li><a href="register">注册</a></li>
+                        <li><a href="login">登录</a></li>
+                    </c:if>
+                    <%--用户未登录--%>
+                    <c:if test="${sessionScope.user!=null}">
+                        <li><a href="order">我的订单</a></li>
+                        <li><a href="userCenter">个人中心</a></li>
+                        <li><a href="logout">退出</a></li>
+                    </c:if>
 
 
-                    <li><a href="order.jsp">我的订单</a></li>
-                    <li><a href="userCenter.jsp" class="active">个人中心</a></li>
-                    <li><a href="index.jsp">退出</a></li>
-
-                    <li><a href="admin/adminLogin.jsp" target="_blank">后台管理</a></li>
+                    <li><a href="#" target="_blank">后台管理</a></li>
                 </ul>
                 <!--/.navbar-collapse-->
             </div>
@@ -82,7 +89,7 @@
             <div class="header-right search-box">
                 <a href="#"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></a>
                 <div class="search">
-                    <form class="navbar-form" action="search.action">
+                    <form class="navbar-form" action="#">
                         <input type="text" class="form-control" name="name">
                         <button type="submit" class="btn btn-default" aria-label="Left Align">搜索</button>
                     </form>
@@ -124,9 +131,14 @@
                     <!--到底了。。。。。-->
                 </div>
             </div>
-            <div class="header-right login">
-                <a href="userCenter.jsp"><span class="glyphicon" aria-hidden="true">madi</span></a>
-            </div>
+
+            <%--如果用户没有登录则不显示--%>
+            <c:if test="${sessionScope.user!=null}">
+                <div class="header-right login">
+                    <a href="userCenter"><span class="glyphicon" aria-hidden="true"></span></a>
+                </div>
+            </c:if>
+
             <div class="clearfix"></div>
         </div>
         <div class="clearfix"></div>

@@ -28,7 +28,7 @@ public class UserController {
     /**
      * 验证用户名是否存在
      */
-    @GetMapping("/checkUsername")
+    @PostMapping("/checkUsername")
     @ResponseBody
     public String checkUsername(@RequestParam("username") String username){
         System.out.println(username);

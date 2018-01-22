@@ -50,11 +50,9 @@ public class IndexController {
             List<Types> typeList=goodsTypes.getGoodTypeLIst();
             session.setAttribute("typeList",typeList);
 //            System.out.println(topList1);
-
         }catch (Exception e){
             e.printStackTrace();
         }
-
      return "index";
     }
 
@@ -181,13 +179,37 @@ public class IndexController {
                     cart.setTotalNum(cart.getTotalNum()-cart.getGoodsList().get(i).getGoodsNum());
                     cart.setTotalPricr(cart.getTotalPricr()-cart.getGoodsList().get(i).getGoodPrice()*cart.getGoodsList().get(i).getGoodsNum());
                     cart.getGoodsList().remove(cart.getGoodsList().get(i));
-
                 }
             }
             session.removeAttribute("cart");
 //            将购物车放入session
             session.setAttribute("cart",cart);
 
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        Gson gson = new Gson();
+        return gson.toJson(cart);
+    }
+
+    @RequestMapping(value = "/reload", method = RequestMethod.POST)
+    @ResponseBody
+    public String reload(){
+        //新建购物车商品集合，如果存在就无需新建
+        boolean flag=true;
+        Cart cart= null;
+        try {
+            cart = (Cart) session.getAttribute("cart");
+
+            if (null==cart){
+                cart=new Cart();
+                cart.setTotalNum(0);
+                cart.setTotalPricr(0);
+                List<Goods> list=new ArrayList<Goods>();
+                cart.setGoodsList(list);
+            }
+            //将单查的商品加入cart中的商品集合
+            session.setAttribute("cart",cart);
         } catch (Exception e) {
             e.printStackTrace();
         }

@@ -12,9 +12,6 @@
 <html>
 <head>
     <title>Title</title>
-    <script type="text/javascript" src="../../js/jquery-3.2.1.min.js"></script>
-
-    <script type="text/javascript"src="js/minicart_addItems.js"></script>
 </head>
 <body>
 <div class="header">

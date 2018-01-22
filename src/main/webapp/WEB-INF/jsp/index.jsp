@@ -63,7 +63,7 @@
     <div class="container">
         <h2 class="hdng"><a href="detail?goodId=${topList1[0].goods.goodId}">${topList1[0].goods.goodName}</a><span></span></h2>
         <p>今日精选推荐</p>
-        <button class="banner_a"  value="${topList1[0].goods.goodId}">加入购物车</button>
+        <a class="banner_a"href="#" onclick="addGoodToCart(${topList1[0].goods.goodId})">加入购物车</a>
         <%--<button class="banner_a addItem" value="${topList1[0].goods.goodId}">加入购物车</button>--%>
         <div class="banner-text">
             <a id="top-Good-href" href="detail?goodId=${topList1[0].goods.goodId}">
@@ -94,7 +94,7 @@
                         <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
                         <a href="detail.jsp">查看详情</a>
                     </p>
-                    <button class="shop" value="${top.goods.goodId}">加入购物车</button>
+                    <a class="shop"href="#" onclick="addGoodToCart(${top.goods.goodId})">加入购物车</a>
 
                     <div class="clearfix"> </div>
                 </div>
@@ -131,7 +131,7 @@
                             <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
                             <a href="#">查看详情</a>
                         </p>
-                        <button class="shop"  value="${top.goods.goodId}">加入购物车</button>
+                        <a class="shop"href="#" onclick="addGoodToCart(${top.goods.goodId})">加入购物车</a>
                         <div class="clearfix"> </div>
                     </div>
                     <div class="galy-info">

@@ -1,4 +1,24 @@
 $().ready(function () {
+    $("#btn_login").click(function () {
+        alert("进入了");
+        $.ajax({
+            url: "actionLogin" ,//url
+            type: "post",//方法类型
+            data: $("#login_form").serialize(),
+            // data: {loginUserName:$("#{login_username}").val(),loginPassword:$("#login_password").val()},
+            dataType: "Json",//预期服务器返回的数据类型
+            async: false,
+            success: function (result) {
+                console.log(result);//打印服务端返回的数据(调试用)
+                // if (result.resultCode==200) {
+                //     alert("SUCCESS");
+                // };
+            },
+            error : function() {
+                alert("异常！");
+            }
+        });
+    });
     $("#login_form").validate({
         // 当标签获得焦点时暂时清除表单验证
         focusCleanup:true,

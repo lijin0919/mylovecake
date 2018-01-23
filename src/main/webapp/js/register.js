@@ -84,7 +84,7 @@ $.validator.setDefaults({
 
         $("#submit-btn").click(function () {
             var username = $("#username-test").val();
-            alert(username);
+            // alert(username);
             $.ajax({
 
                 url: "checkUsername",
@@ -110,25 +110,30 @@ $.validator.setDefaults({
                             var name = $("#user-name").val();
                             var userPhone = $("#user-phone").val();
                             var userAddress =$("#user-address").val();
-                            $.ajax({
-                                url:"actionRegister",
-                                type:"POST",
-                                data:{"username":username,
+                            if (username==""||password==""){//如果用户输入的为空
+                                $("#warning-msg").html("*用户名与密码不能为空！");
+                            } else {
+                                $.ajax({
+                                    url:"actionRegister",
+                                    type:"POST",
+                                    data:{"username":username,
                                         "password":password,
                                         "name":name,
                                         "userPhone":userPhone,
                                         "userAddress":userAddress
-                                },
-                                dataType:"Json",
-                                success:function (data) {
-                                    alert(data);
+                                    },
+                                    dataType:"Json",
+                                    success:function (data) {
+                                        alert(data);
 
-                                    if(data){
-                                        $(location).attr("href","index");
+                                        if(data){
+                                            $(location).attr("href","index");
+                                        }
                                     }
-                                }
 
-                            });
+                                });
+                            }
+
 
 
 

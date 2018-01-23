@@ -56,5 +56,13 @@ public class UserServiceImpl implements IUserService {
             return users;
     }
 
-
+    /**
+     * 根据用户Id查询用户信息
+     * @param userId
+     * @return
+     */
+    public Users findUserInfoByUserId(Integer userId) {
+        Users user = iUserMapper.findUserInfoByUserId(userId);
+        return user ;
+    }
 }

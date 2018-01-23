@@ -60,11 +60,12 @@
             <form action="actionRegister" id="commentForm" method="post">
                 <div class="register-top-grid">
                     <h3>注册新用户</h3>
+                    <p id="warning-msg" style="color: red" align="center"></p>
                     <div class="input">
                         <span>用户名 <label style="color:red;">*</label></span>
                         <input type="text" id="username-test" name="username" placeholder="请输入用户名" required/>
                     </div>
-                    <p id="warning-msg" style="color: red"></p>
+
                     <div class="input">
                         <span>密码 <label style="color:red;">*</label></span>
                         <input id="user-password" type="text" name="password" placeholder="请输入密码" required/>

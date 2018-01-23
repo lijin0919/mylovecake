@@ -25,6 +25,7 @@
     <script src="js/minicart_addItems.js"></script>
     <link rel="stylesheet" href="css/minicart.css">
     <script src="js/common.js"></script>
+    <script type="text/javascript" src="js/userCenter.js"></script>
 </head>
 <body>
 
@@ -59,20 +60,23 @@
                     <h4>收货信息</h4>
                     <div class="input">
                         <span>收货人<label></label></span>
-                        <input type="text" name="name" value="${sessionScope.user.name}" placeholder="请输入收货人姓名">
+                        <input id="new-user-name" type="text" name="name" value="${sessionScope.user.name}" placeholder="请输入收货人姓名">
                     </div>
                     <div class="input">
                         <span>收货电话</span>
-                        <input type="text" name="usePhone" value="${sessionScope.user.userPhone}" placeholder="请输入收货电话">
+                        <input id="new-user-phoneNum" type="text" name="usePhone" value="${sessionScope.user.userPhone}" placeholder="请输入收货电话">
                     </div>
                     <div class="input">
                         <span>收货地址</span>
-                        <input type="text" name="userAddress" value="${sessionScope.user.userAddress}" placeholder="请输入收货地址">
+                        <input id="new-user-address" type="text" name="userAddress" value="${sessionScope.user.userAddress}" placeholder="请输入收货地址">
                     </div>
                     <div class="register-but text-center">
-                        <input type="submit" value="提交">
+                        <input id="npa-submit-button" type="button" value="提交">
                     </div>
                     <hr>
+
+
+
                     <h4>安全信息</h4>
                     <div class="input">
                         <span>原密码</span>
@@ -84,7 +88,7 @@
                     </div>
                     <div class="clearfix"> </div>
                     <div class="register-but text-center">
-                        <input type="submit" value="提交">
+                        <input id="p-submit-button" type="button" value="提交">
                     </div>
                 </div>
             </form>

@@ -11,4 +11,6 @@ public interface IUserService {
     boolean findUserInfoByUsername(String username);
     //根据用户名密码获取用户信息
     Users findUserInfoByUsername(String username,String password);
+    //根据用户ID查询用户信息
+    Users findUserInfoByUserId(Integer userId);
 }

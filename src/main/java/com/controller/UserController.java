@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-
 import javax.servlet.http.HttpSession;
 @CrossOrigin
 @Controller
@@ -116,5 +115,16 @@ public class UserController {
     @GetMapping("/userCenter")
     public String say(){
         return "userCenter";
+    }
+
+
+    /**
+     * 修改用户信息页面
+     */
+    @PostMapping("/actionUserCenter")
+    //这里要先从表单获取数据，然后赋值给Users对象
+    public String changeUserInfo(){
+
+        return "";
     }
 }//class

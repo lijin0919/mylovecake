@@ -44,7 +44,13 @@
 <!--products-->
 <div class="products">
     <div class="container">
-        <h2>${goodsList[0].goodType.typeName}</h2>
+        <c:if test="${isSearch}">
+            <h2>${goodsList[0].goodType.typeName}</h2>
+        </c:if>
+        <c:if test="${isSearch==null}">
+            <h2>${goodsList[0].goodType.typeName}</h2>
+        </c:if>
+
 
         <div class="col-md-12 product-model-sec">
             <c:forEach items="${goodsList}" var="good">

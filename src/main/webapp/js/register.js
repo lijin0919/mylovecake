@@ -93,12 +93,12 @@ $.validator.setDefaults({
                 dataType: "Json",
                 success: function (response) {
                     // 如果返回为真,表示用户存在
-                    alert(response);
+                    // alert(response);
 
 
 
                     if(response){
-                        alert("123");
+                        // alert("123");
                         // $(location).attr("href","#");
                         $("#warning-msg").html("*用户名已存在，请您重新输入");
 

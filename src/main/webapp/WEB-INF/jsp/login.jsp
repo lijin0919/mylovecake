@@ -52,6 +52,7 @@
             <form action="#" method="post" id="login_form" class="login_form">
                 <div class="register-top-grid">
                     <h3>用户登录</h3>
+                    <p style="color: red" id="np-warning"></p>
                     <div class="input">
                         <span>用户名 <label style="color:red;">*</label></span>
                         <input type="text" name="login_username" placeholder="请输入用户名" id="login_username">

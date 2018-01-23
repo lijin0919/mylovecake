@@ -1,12 +1,11 @@
 package com.mapper;
 
 import com.entity.Goods;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Result;
-import org.apache.ibatis.annotations.Results;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.*;
 
 import java.util.List;
+
+import static org.apache.ibatis.type.JdbcType.VARCHAR;
 
 /**
  * 商品表映射
@@ -71,4 +70,23 @@ public interface IGoodMapper {
             @Result(property = "typeId",column = "type_id")
     })
     List<Goods> findGoodListByTypeId(Integer Id);
+
+    /**
+     * 搜索模糊查询
+     * @param name
+     * @return
+     */
+    @Select("SELECT * FROM goods WHERE name LIKE CONCAT('%',#{name},'%') ")
+    @Results({
+            @Result(id = true,property = "goodId",column = "id"),
+            @Result(property = "goodName",column = "name", jdbcType=VARCHAR),
+            @Result(property = "goodCover",column = "cover"),
+            @Result(property = "goodImage1",column = "image1"),
+            @Result(property = "goodImage2",column = "image2"),
+            @Result(property = "goodPrice",column = "price"),
+            @Result(property = "goodIntro",column = "intro"),
+            @Result(property = "goodStock",column = "stock"),
+            @Result(property = "typeId",column = "type_id")
+    })
+    List<Goods> findGoodListByLikeName(@Param("name") String name);
 }

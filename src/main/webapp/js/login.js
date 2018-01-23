@@ -1,6 +1,6 @@
 $().ready(function () {
     $("#btn_login").click(function () {
-        alert("进入了");
+        // alert("进入了");
         //获取用户输入的用户名
         var username=$("#login_username").val();
         //获取用户输入的密码
@@ -14,9 +14,11 @@ $().ready(function () {
             success: function (response) {
                 //response为布尔值，true时表示用户名密码输入正确，我们返回首页，false表示输入错误
                 if(response){
+                    $("#np-warning").html("");
                     window.location.href="index";
                 }else{
-                    alert("用户名或者密码错误！")
+                    $("#np-warning").html("*用户名或者密码错误！请重新输入");
+                    // alert("用户名或者密码错误！")
                 }
 
             },
@@ -66,5 +68,11 @@ $().ready(function () {
                 }
             }
         }
-    })
-});
+    });
+
+        //光标移入错误提示移除
+            $("#login_username,#login_password").focus(function () {
+                $("#np-warning").html("");
+            });
+
+});//ready

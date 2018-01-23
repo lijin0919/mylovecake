@@ -31,6 +31,12 @@ public class GoodsImpl implements IGoods {
         return goodslist;
     }
 
+    public List<Goods> findGoodsByLikeName(String name) {
+        List<Goods> goodsList = goodMapper.findGoodListByLikeName(name);
+        System.out.println("查询到的商品："+goodsList);
+        return goodsList;
+    }
+
     /**
      * 根据商品id查询商品信息
      * @param Id

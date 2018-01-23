@@ -36,6 +36,7 @@ public class GoodsController {
         List<Goods> list=goodsImpl.getGoodsListByTypeId(new Integer(goodsTypeId));
 //        将集合放入goodModel
         goodModel.addAttribute("goodsList",list);
+
 //        返回商品展示页面
         return "goods";
     }

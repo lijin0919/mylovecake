@@ -10,4 +10,5 @@ public interface IGoods {
    List<Goods> getGoodsListByTypeId(Integer typeId);
 
 
+   List<Goods> findGoodsByLikeName(String name);
 }

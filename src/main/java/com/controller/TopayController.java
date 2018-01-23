@@ -41,7 +41,6 @@ public class TopayController {
         order.setName(user.getName());
         order.setPhone(user.getUserPhone());
         order.setAddress(user.getUserAddress());
-        order.setSystime(null);
         order.setUserId(user.getId());
         Integer num=orderService.insertOrder(order);
         //获取本次订单id并给order对象赋值

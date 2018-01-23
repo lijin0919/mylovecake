@@ -1,6 +1,7 @@
 package com.entity;
 
 import java.sql.Timestamp;
+import java.util.List;
 
 public class Order {
     /** 订单状态 - 未付款 */
@@ -27,33 +28,14 @@ public class Order {
     private String address;
     private Timestamp systime;
     private  Integer userId;
+    private List<Goods> goodsList;
 
-    public static byte getStatusUnpay() {
-        return STATUS_UNPAY;
+    public List<Goods> getGoodsList() {
+        return goodsList;
     }
 
-    public static byte getStatusPayed() {
-        return STATUS_PAYED;
-    }
-
-    public static byte getStatusSend() {
-        return STATUS_SEND;
-    }
-
-    public static byte getStatusFinish() {
-        return STATUS_FINISH;
-    }
-
-    public static byte getPaytypeWechat() {
-        return PAYTYPE_WECHAT;
-    }
-
-    public static byte getPaytypeAlipay() {
-        return PAYTYPE_ALIPAY;
-    }
-
-    public static byte getPaytypeOffline() {
-        return PAYTYPE_OFFLINE;
+    public void setGoodsList(List<Goods> goodsList) {
+        this.goodsList = goodsList;
     }
 
     public Integer getId() {
@@ -149,6 +131,7 @@ public class Order {
                 ", address='" + address + '\'' +
                 ", systime=" + systime +
                 ", userId=" + userId +
+                ", goodsList=" + goodsList +
                 '}';
     }
 }

@@ -6,8 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 
 <!DOCTYPE html>
@@ -25,9 +24,6 @@
     <script src="js/common.js"></script>
 </head>
 <body>
-
-
-
 
 
 <!DOCTYPE html>
@@ -49,7 +45,6 @@
     <div class="container">
 
 
-
         <h2>我的订单</h2>
 
         <table class="table table-bordered table-hover">
@@ -64,55 +59,48 @@
                 <th width="10%">下单时间</th>
                 <th width="10%">操作</th>
             </tr>
+            <c:forEach var="order" items="${sessionScope.orderList}">
+                <tr>
+                    <td><p>${order.id}</p></td>
+                    <td><p>${order.total}</p></td>
+                    <td>
+                        <c:forEach var="good" items="${order.goodsList}">
+                            <p>${good.goodName}(${good.goodPrice}) x ${good.goodsNum}</p>
+                        </c:forEach>
+                    </td>
+                    <td>
+                        <p>${order.name}</p>
+                        <p>${order.phone}</p>
+                        <p>${order.address}</p>
+                    </td>
+                    <td>
+                        <p>
 
-            <tr>
-                <td><p>1</p></td>
-                <td><p>598</p></td>
-                <td>
-
-                    <p>夜礼服(299) x 1</p>
-
-                    <p>草莓冰淇淋(299) x 1</p>
-
-                </td>
-                <td>
-                    <p>asdfasdf</p>
-                    <p>1222222222222</p>
-                    <p>sadfasdfasdfasdf</p>
-                </td>
-                <td>
-                    <p>
-
-                        <span style="color:red;">已付款</span>
+                            <span style="color:red;">已付款</span>
 
 
-                    </p>
-                </td>
-                <td>
-                    <p>
+                        </p>
+                    </td>
+                    <td>
+                        <p>
 
-                        支付宝
+                            支付宝
 
-                    </p>
-                </td>
-                <td><p>2018-01-16 15:54:27</p></td>
-                <td>
+                        </p>
+                    </td>
+                    <td><p>2018-01-16 15:54:27</p></td>
+                    <td>
 
-                </td>
-            </tr>
-
+                    </td>
+                </tr>
+            </c:forEach>
 
         </table>
-
-
 
 
     </div>
 </div>
 <!--//cart-items-->
-
-
-
 
 
 <!DOCTYPE html>

@@ -9,4 +9,6 @@ public interface IItemsService {
     Integer insertItem(Items items);
     //根据订单id查询该订单中商品id集合
     List<Integer> getGoodListByOrferId(Integer orderId);
+    //根据商品id和订单id查询商品数量
+    Integer getGoodsNumByGoodIdAndOrderId(Integer orderId, Integer goodId);
 }

@@ -17,4 +17,9 @@ public class GoodsTypesImpl implements IGoodsTypes {
 
         return iTypeMapper.findTypeList();
     }
+
+    public Types getTypesByTypeId(Integer typeId) {
+
+        return iTypeMapper.findTypeById(typeId);
+    }
 }

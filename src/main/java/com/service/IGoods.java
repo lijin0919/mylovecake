@@ -11,4 +11,8 @@ public interface IGoods {
 
 
    List<Goods> findGoodsByLikeName(String name);
+
+    Goods getGoodByGoodId(Integer Id);
+
+    Goods getGoodByGoodIdAndOrderId(Integer orderId,Integer goodId);
 }

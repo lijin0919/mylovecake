@@ -22,4 +22,9 @@ public class ItemsServiceImpl implements IItemsService {
     public List<Integer> getGoodListByOrferId(Integer orderId) {
         return iItemsMapper.findGoodIdListByOrderId(orderId);
     }
+
+    public Integer getGoodsNumByGoodIdAndOrderId(Integer orderId, Integer goodId) {
+
+        return iItemsMapper.findAmountByGoodIdAndOrderId(orderId,goodId);
+    }
 }

@@ -3,6 +3,7 @@ package com.service;
 import com.entity.Goods;
 import com.entity.Types;
 import com.mapper.IGoodMapper;
+import com.mapper.IItemsMapper;
 import com.mapper.ITypeMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,7 +15,10 @@ public class GoodsImpl implements IGoods {
     private IGoodMapper goodMapper;
     @Autowired
     private ITypeMapper iTypeMapper;
-
+    @Autowired
+    private IItemsMapper iItemsMapper;
+    @Autowired
+    private ItemsServiceImpl itemsService;
     /**
      * 根据商品类型id查询商品信息
      * @param Id
@@ -45,6 +49,17 @@ public class GoodsImpl implements IGoods {
     public Goods getGoodByGoodId(Integer Id){
         Goods goods=goodMapper.findGoodById(Id);
         goods.setGoodsNum(0);
+        goods.setGoodType(iTypeMapper.findTypeById(goods.getTypeId()));
         return goods;
     }
+
+    public Goods getGoodByGoodIdAndOrderId(Integer orderId, Integer goodId) {
+        Goods goods=goodMapper.findGoodById(goodId);
+        System.out.println(orderId+"...."+goodId);
+        goods.setGoodsNum(iItemsMapper.findAmountByGoodIdAndOrderId(orderId,goodId));
+        goods.setGoodType(iTypeMapper.findTypeById(goods.getTypeId()));
+        return goods;
+    }
+
+
 }

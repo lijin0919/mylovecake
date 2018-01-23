@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.sql.Timestamp;
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -47,10 +48,10 @@ public class OrderServiceImpl implements IOrderService {
         List<Order> list=iOrderMapper.findAllOrders();
         try {
             for (Order order:list) {
-                List<Goods> goodList=null;
+                List<Goods> goodList=new ArrayList<Goods>();
                 List<Integer> goodIdList=iItemsMapper.findGoodIdListByOrderId(order.getId());
                 for (Integer goodId: goodIdList) {
-
+                    System.out.println(goodsImpl.getGoodByGoodIdAndOrderId(order.getId(),goodId));
                     goodList.add(goodsImpl.getGoodByGoodId(goodId));
 
                 }

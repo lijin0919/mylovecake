@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import javax.servlet.http.HttpSession;
 import java.sql.Timestamp;
 import java.text.ParseException;
-import java.util.Date;
 
 /**
  * 支付页面controller
@@ -30,8 +29,6 @@ public class TopayController {
         Cart cart= (Cart) session.getAttribute("cart");
         //session中获取用户信息
         Users user= (Users) session.getAttribute("user");
-        Date date = new Date();
-        Timestamp nousedate = new Timestamp(date.getTime());
         //实例化一个表单对象，并给属性赋值
         Order order=new Order();
         order.setTotal(cart.getTotalPricr());
@@ -49,7 +46,6 @@ public class TopayController {
         session.setAttribute("order",order);
         //--------------------给items插入信息--------------------
         for (Goods good:cart.getGoodsList()) {
-
             itemsService.insertItem(new Items(0,good.getGoodPrice(),good.getGoodsNum(),maxId,good.getGoodId()));
         }
 

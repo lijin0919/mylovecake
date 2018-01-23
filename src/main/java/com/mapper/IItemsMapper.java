@@ -1,9 +1,7 @@
 package com.mapper;
 
 import com.entity.Items;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.*;
 
 import java.util.List;
 
@@ -25,4 +23,16 @@ public interface IItemsMapper {
      */
     @Select("SELECT good_id FROM items WHERE order_id=#{orderId};")
     List<Integer> findGoodIdListByOrderId(Integer orderId);
+
+
+    //根据商品id和订单id查询商品数量
+    @Select("SELECT amount FROM items WHERE order_id=#{orderId} AND good_id=#{goodId}")
+    @Results({
+            @Result(id = true,property = "id",column = "id"),
+            @Result(property = "price",column = "price"),
+            @Result(property = "amount",column = "amount"),
+            @Result(property = "orderId",column = "order_id"),
+            @Result(property = "goodId",column = "good_id")
+    })
+    Integer findAmountByGoodIdAndOrderId(@Param("orderId")Integer orderId,@Param("goodId")Integer goodId);
 }

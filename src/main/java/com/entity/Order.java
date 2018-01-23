@@ -1,6 +1,6 @@
 package com.entity;
 
-import java.util.Date;
+import java.sql.Timestamp;
 
 public class Order {
     /** 订单状态 - 未付款 */
@@ -25,23 +25,35 @@ public class Order {
     private String name;
     private String phone;
     private String address;
-    private Date systime;
+    private Timestamp systime;
     private  Integer userId;
 
-    public Order() {
+    public static byte getStatusUnpay() {
+        return STATUS_UNPAY;
     }
 
-    public Order(Integer id, Integer total, Integer amount, byte status, byte paytype, String name, String phone, String address, Date systime, Integer userId) {
-        this.id = id;
-        this.total = total;
-        this.amount = amount;
-        this.status = status;
-        this.paytype = paytype;
-        this.name = name;
-        this.phone = phone;
-        this.address = address;
-        this.systime = systime;
-        this.userId = userId;
+    public static byte getStatusPayed() {
+        return STATUS_PAYED;
+    }
+
+    public static byte getStatusSend() {
+        return STATUS_SEND;
+    }
+
+    public static byte getStatusFinish() {
+        return STATUS_FINISH;
+    }
+
+    public static byte getPaytypeWechat() {
+        return PAYTYPE_WECHAT;
+    }
+
+    public static byte getPaytypeAlipay() {
+        return PAYTYPE_ALIPAY;
+    }
+
+    public static byte getPaytypeOffline() {
+        return PAYTYPE_OFFLINE;
     }
 
     public Integer getId() {
@@ -108,11 +120,11 @@ public class Order {
         this.address = address;
     }
 
-    public Date getSystime() {
+    public Timestamp getSystime() {
         return systime;
     }
 
-    public void setSystime(Date systime) {
+    public void setSystime(Timestamp systime) {
         this.systime = systime;
     }
 

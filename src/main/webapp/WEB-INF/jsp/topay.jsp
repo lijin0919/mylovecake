@@ -56,19 +56,19 @@
             <div class="row">
                 <label class="control-label col-md-1">收货人</label>
                 <div class="col-md-6">
-                    <input type="text" class="form-control" name="order.name" value="madi" style="height:auto;padding:10px;" placeholder="输入收货人" required="required"><br>
+                    <input type="text" class="form-control" name="order.name" value="${sessionScope.order.name}" style="height:auto;padding:10px;" placeholder="输入收货人" required="required"><br>
                 </div>
             </div>
             <div class="row">
                 <label class="control-label col-md-1">收货电话</label>
                 <div class="col-md-6">
-                    <input type="text" class="form-control" name="order.phone" value="1333333333" style="height:auto;padding:10px;" placeholder="输入收货电话" required="required"><br>
+                    <input type="text" class="form-control" name="order.phone" value="${sessionScope.order.phone}" style="height:auto;padding:10px;" placeholder="输入收货电话" required="required"><br>
                 </div>
             </div>
             <div class="row">
                 <label class="control-label col-md-1">收货地址</label>
                 <div class="col-md-6">
-                    <input type="text" class="form-control" name="order.address" value="ijijijijijj" style="height:auto;padding:10px;" placeholder="输入收货地址" required="required"><br>
+                    <input type="text" class="form-control" name="order.address" value="${sessionScope.order.address}" style="height:auto;padding:10px;" placeholder="输入收货地址" required="required"><br>
                 </div>
             </div>
         </form>
@@ -76,7 +76,7 @@
         <br><hr><br>
 
         <h2>选择支付方式</h2>
-        <h3>订单编号: 3  支付金额: 269</h3><br><br>
+        <h3>订单编号: ${sessionScope.order.id}  支付金额￥: ${sessionScope.order.total}</h3><br><br>
         <div class="col-sm-6 col-md-4 col-lg-3 ">
             <div class="thumbnail">
                 <a href="#">

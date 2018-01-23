@@ -23,11 +23,10 @@ public interface ITopMapper {
     @Results({
             @Result(id = true,property = "topId",column = "id"),
             @Result(property = "goodId",column = "good_id"),
-            @Result(property = "typeId",column = "good_id")
+            @Result(property = "typeId",column = "type")
 
     })
     Top findTopListById(Integer topId);
-
     /**
      * 查询首页要显示的所有商品
      * @return

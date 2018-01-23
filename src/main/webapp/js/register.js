@@ -94,6 +94,9 @@ $.validator.setDefaults({
                 success: function (response) {
                     // 如果返回为真,表示用户存在
                     alert(response);
+
+
+
                     if(response){
                         alert("123");
                         // $(location).attr("href","#");

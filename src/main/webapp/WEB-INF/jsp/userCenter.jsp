@@ -59,15 +59,15 @@
                     <h4>收货信息</h4>
                     <div class="input">
                         <span>收货人<label></label></span>
-                        <input type="text" name="user.name" value="madi" placeholder="请输入收货">
+                        <input type="text" name="name" value="${sessionScope.user.name}" placeholder="请输入收货人姓名">
                     </div>
                     <div class="input">
                         <span>收货电话</span>
-                        <input type="text" name="user.phone" value="1333333333" placeholder="请输入收货电话">
+                        <input type="text" name="usePhone" value="${sessionScope.user.userPhone}" placeholder="请输入收货电话">
                     </div>
                     <div class="input">
                         <span>收货地址</span>
-                        <input type="text" name="user.address" value="ijijijijijj" placeholder="请输入收货地址">
+                        <input type="text" name="userAddress" value="${sessionScope.user.userAddress}" placeholder="请输入收货地址">
                     </div>
                     <div class="register-but text-center">
                         <input type="submit" value="提交">
@@ -76,11 +76,11 @@
                     <h4>安全信息</h4>
                     <div class="input">
                         <span>原密码</span>
-                        <input type="text" name="user.password" placeholder="请输入原密码">
+                        <input type="text" name="userPassword" placeholder="请输入原密码">
                     </div>
                     <div class="input">
                         <span>新密码</span>
-                        <input type="text" name="user.passwordNew" placeholder="请输入新密码">
+                        <input type="text" name="userPasswordNew" placeholder="请输入新密码">
                     </div>
                     <div class="clearfix"> </div>
                     <div class="register-but text-center">

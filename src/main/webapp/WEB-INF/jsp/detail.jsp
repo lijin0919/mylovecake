@@ -103,8 +103,8 @@
             <div class="col-md-4 single-grid1">
                 <!-- <h2>商品分类</h2> -->
                 <ul>
-                    <c:forEach items="${requestScope.typeList}" var="types">
-                        <li><a href="#">${types.typeName}</a></li>
+                    <c:forEach items="${requestScope.typeList}" var="type">
+                        <li><a href="typeGoods?goodsTypeId=${type.typeId}">${type.typeName}</a></li>
                     </c:forEach>
                 </ul>
             </div>

@@ -1,6 +1,5 @@
 // 点击首页商品的加入购物车链接，将商品加入迷你购物车事件
 function addGoodToCart(goodId) {
-    alert($(".banner_a").val());
     $.ajax({
         url: "getCartGood",
         type: "POST",
@@ -80,4 +79,6 @@ function addGoodToCart(goodId) {
 });
 
 
-
+function goToCart() {
+    window.location.href="cart";
+}

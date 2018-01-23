@@ -45,16 +45,10 @@
                                                        href="typeGoods?goodsTypeId=${type.typeId}">${type.typeName}</a>
                                                 </li>
                                             </c:forEach>
-
-
                                             <%--<li><a class="list" href="goods.jsp">法式系列</a></li>--%>
-
                                             <%--<li><a class="list" href="goods.jsp">儿童系列</a></li>--%>
-
                                             <%--<li><a class="list" href="goods.jsp">零食系列</a></li>--%>
-
                                             <%--<li><a class="list" href="goods.jsp">冰淇淋系列</a></li>--%>
-
                                         </ul>
                                     </div>
                                 </div>
@@ -70,12 +64,10 @@
                     </c:if>
                     <%--用户未登录--%>
                     <c:if test="${sessionScope.user!=null}">
-                        <li><a href="order">我的订单</a></li>
+                        <li><a href="order" >我的订单</a></li>
                         <li><a href="userCenter">个人中心</a></li>
                         <li><a href="logout">退出</a></li>
                     </c:if>
-
-
                     <li><a href="#" target="_blank">后台管理</a></li>
                 </ul>
                 <!--/.navbar-collapse-->
@@ -94,7 +86,7 @@
             </div>
 
             <div id="cart-img" class="header-right cart">
-                <a href="cart.jsp">
+                <a href="#" onclick="goToCart()">
                     <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"><span
                             class="card_num">${cart.totalNum}</span></span>
                 </a>
@@ -119,7 +111,7 @@
                             商品小计:
                             <span class="fs-3 VI-color2" id="cart_items_totalPrice">￥${cart.totalPricr}</span>
                         </div>
-                        <button id="btncart" type="button" class="btn btn-success btn-lg btn-block"
+                        <button id="btncart" type="button" class="btn btn-success btn-lg btn-block" onclick="goToCart()"
                                 style="margin-right:10px; ">立即结算
                         </button>
                     </div>

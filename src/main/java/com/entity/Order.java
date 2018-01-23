@@ -3,6 +3,20 @@ package com.entity;
 import java.util.Date;
 
 public class Order {
+    /** 订单状态 - 未付款 */
+    public static final byte STATUS_UNPAY = 1;
+    /** 订单状态 - 已付款 */
+    public static final byte STATUS_PAYED = 2;
+    /** 订单状态 - 配送中 */
+    public static final byte STATUS_SEND = 3;
+    /** 订单状态 - 已完成 */
+    public static final byte STATUS_FINISH = 4;
+    /** 支付方式 - 微信 */
+    public static final byte PAYTYPE_WECHAT = 4;
+    /** 支付方式 - 支付宝 */
+    public static final byte PAYTYPE_ALIPAY = 4;
+    /** 支付方式 - 线下 */
+    public static final byte PAYTYPE_OFFLINE = 4;
     private Integer id;
     private Integer total;
     private Integer amount;

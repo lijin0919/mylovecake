@@ -49,7 +49,7 @@ function addGoodToCart(goodId) {
                     htmldiv
                 );
             }
-            alert("加入购物车成功！");
+            $.alertView("加入购物车成功！");
         },
         error: function () {
             alert("请求失败");

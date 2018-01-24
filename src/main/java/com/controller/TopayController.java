@@ -29,6 +29,7 @@ public class TopayController {
         Cart cart= (Cart) session.getAttribute("cart");
         //session中获取用户信息
         Users user= (Users) session.getAttribute("user");
+        if (user!=null){
         //实例化一个表单对象，并给属性赋值
         Order order=new Order();
         order.setTotal(cart.getTotalPricr());
@@ -50,5 +51,8 @@ public class TopayController {
         }
         session.removeAttribute("cart");
         return "topay";
+    }else {
+        return  "login";
+        }
     }
 }

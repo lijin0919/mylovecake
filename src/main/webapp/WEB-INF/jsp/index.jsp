@@ -16,6 +16,7 @@
     <link type="text/css" rel="stylesheet" href="css/bootstrap.css">
     <link type="text/css" rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/minicart.css">
+    <link rel="stylesheet" href="css/uiAlertView-1.0.0.css">
     <script type="text/javascript" src="js/jquery.min.js"></script>
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
     <script type="text/javascript"src="js/minicart_addItems.js"></script>
@@ -23,8 +24,10 @@
     <script type="text/javascript" src="js/cart.js"></script>
     <!--购物车Jquery效果-->
     <script type="text/javascript"src="js/common.js"></script>
-    
-    <%--<script>--%>
+    <script src="js/jquery.uiAlertView-1.0.0.js"></script>
+
+
+<%--<script>--%>
         <%--//就绪函数--%>
         <%--$().ready(function () {--%>
             var req = new XMLHttpRequest();

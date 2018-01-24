@@ -35,7 +35,6 @@ function orderTopay(orderId) {
             alert("请求失败");
         }
     });
-
 }
 
 function deleteOrder(orderId) {

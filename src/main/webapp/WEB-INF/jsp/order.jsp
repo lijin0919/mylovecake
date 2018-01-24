@@ -127,8 +127,6 @@
             </c:forEach>
 
         </table>
-
-
     </div>
 </div>
 <!--//cart-items-->

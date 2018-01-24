@@ -65,4 +65,25 @@ public class UserServiceImpl implements IUserService {
         Users user = iUserMapper.findUserInfoByUserId(userId);
         return user ;
     }
+
+
+    /**
+     * 修改用户信息:姓名、电话、地址
+     * @param user
+     * @return
+     */
+    public Integer updateUserInfo(Users user) {
+        Integer result = iUserMapper.updateUserInfo(user);
+        return result;
+    }
+
+    /**
+     * 修改用户密码
+     * @param user
+     * @return
+     */
+    public Integer updatePassword(Users user){
+        Integer result = iUserMapper.updatePassword(user);
+        return result;
+    }
 }

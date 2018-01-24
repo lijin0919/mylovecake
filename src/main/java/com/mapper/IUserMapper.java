@@ -64,6 +64,15 @@ public interface IUserMapper {
      * @param user
      * @return
      */
-    @Update(" UPDATE users set name=#{name},phone=#{userPhone},address=#{userAddress} WHERE id=#{id}")
+    @Update("UPDATE users set name=#{name},phone=#{userPhone},address=#{userAddress} WHERE id=#{id}")
     Integer updateUserInfo(Users user);
+
+
+    /**
+     * 修改用户密码
+     * @param user
+     * @return
+     */
+    @Update("UPDATE users set password=#{password} WHERE id=#{id}")
+    Integer updatePassword(Users user);
 }

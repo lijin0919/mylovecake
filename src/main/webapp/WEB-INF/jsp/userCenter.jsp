@@ -17,6 +17,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <link type="text/css" rel="stylesheet" href="css/bootstrap.css">
     <link type="text/css" rel="stylesheet" href="css/style.css">
+    <link type="text/css" rel="stylesheet" href="css/uiAlertView-1.0.0.css">
     <script type="text/javascript" src="js/jquery.min.js"></script>
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
     <script type="text/javascript" src="js/simpleCart.min.js"></script>
@@ -26,6 +27,7 @@
     <link rel="stylesheet" href="css/minicart.css">
     <script src="js/common.js"></script>
     <script type="text/javascript" src="js/userCenter.js"></script>
+    <script type="text/javascript" src="js/jquery.uiAlertView-1.0.0.js"></script>
 </head>
 <body>
 
@@ -75,17 +77,18 @@
                     </div>
                     <hr>
 
-
-
                     <h4>安全信息</h4>
                     <div class="input">
                         <span>原密码</span>
-                        <input type="text" name="userPassword" placeholder="请输入原密码">
+                        <input id="old-password" type="text" name="userPassword" placeholder="请输入原密码">
                     </div>
+                    <p id="check-old-password-false" style="color: red"></p>
+                    <p id="check-old-password-true" style="color: limegreen"></p>
                     <div class="input">
                         <span>新密码</span>
-                        <input type="text" name="userPasswordNew" placeholder="请输入新密码">
+                        <input id="new-password" type="text" name="userPasswordNew" placeholder="请输入新密码">
                     </div>
+                    <p id="check-new-password-false" style="color: red"></p>
                     <div class="clearfix"> </div>
                     <div class="register-but text-center">
                         <input id="p-submit-button" type="button" value="提交">

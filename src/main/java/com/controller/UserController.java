@@ -67,9 +67,7 @@ public class UserController {
         if(result>0){
             flag = true;
         }
-        //将返回结果存入Model中
-
-        //获取表单数据
+        //将结果返回给页面
         return new Gson().toJson(flag);
     }
 
@@ -122,9 +120,85 @@ public class UserController {
      * 修改用户信息页面
      */
     @PostMapping("/actionUserCenter")
+    @ResponseBody
     //这里要先从表单获取数据，然后赋值给Users对象
-    public String changeUserInfo(){
+    public String changeUserInfo(
+            @RequestParam("newName") String newName,//获取用户姓名
+            @RequestParam("newUserPhone") String newUserPhone,//获取用户电话
+            @RequestParam("newUserAddress") String newUserAddress){//获取用户地址
+            //创建一个Users对象
+        System.out.println("newName:"+newName);
+        Users newUser = new Users();
+        //获取session中的userId
+        Users user = (Users) session.getAttribute("user");
+        Integer userId = user.getId();
 
-        return "";
+        //为对象赋值
+        newUser.setName(newName);
+        newUser.setUserPhone(newUserPhone);
+        newUser.setUserAddress(newUserAddress);
+        newUser.setId(userId);
+        //将赋值的Users对象传参给Service方法
+        Integer result = userService.updateUserInfo(newUser);
+        System.out.println("result:"+result);
+        //标记
+        boolean flag = false;
+        //判断返回影响行数，给页面返回结果
+        if (result>0){
+            //修改成功以后，将原来session中的对象数据要改
+            session.removeAttribute("user");
+            //清空以后，再根据userId查询一次获得Users对象
+            Users newSessionUser = userService.findUserInfoByUserId(userId);
+            //将newSessionUser重新存入session
+            session.setAttribute("user",newSessionUser);
+            flag=true;
+            System.out.println("flag:"+flag);
+        }
+        //将结果返回到页面
+        return new Gson().toJson(flag);
+    }
+
+    /**
+     * 验证用户密码是否正确
+     */
+    @PostMapping("/checkPassword")
+    @ResponseBody
+    public String checkPassword(@RequestParam("oldPassword") String oldPassword){
+        //首先获取Users对象，再根据传入的秘密看是否匹配
+        Users user = (Users) session.getAttribute("user");
+        //获取userId
+        Integer userId = user.getId();
+        Users sqlUser = userService.findUserInfoByUserId(userId);
+        String sqlPassword = sqlUser.getPassword();
+        //判断传过来的密码，和数据库的密码是否匹配
+        //标记
+        boolean flag = false;
+        if (sqlPassword.equals(oldPassword)){//如果密码一致
+            flag=true;
+        }
+        //将结果返回给页面
+        return new Gson().toJson(flag);
+    }
+
+    @PostMapping("/changePassword")
+    @ResponseBody
+    public String changePassword(@RequestParam("newPassword") String newPassword){
+        System.out.println(newPassword);
+        //首先获取Users对象，再根据传入的秘密看是否匹配
+        Users user = (Users) session.getAttribute("user");
+        //获取userId
+        Integer userId = user.getId();
+        //创建一个对象
+        Users user1 = new Users();
+        //为user1赋值
+        user1.setPassword(newPassword);
+        user1.setId(userId);
+        //调用方法修改密码
+        Integer result = userService.updatePassword(user1);
+        boolean flag = false;
+        if (result>0){
+            flag=true;
+        }
+        return new Gson().toJson(flag);
     }
 }//class

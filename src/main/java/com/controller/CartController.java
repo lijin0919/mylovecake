@@ -34,6 +34,10 @@ public class CartController {
     @ResponseBody
     public String cart(@RequestParam("id") Integer id) {
         Cart cart = null;
+        List<Integer> list=new ArrayList<Integer>();
+        Integer goodNum=0;
+        Integer totalPrice=0;
+        Integer totalNum=0;
 
         try {
             cart = (Cart) session.getAttribute("cart");
@@ -41,17 +45,23 @@ public class CartController {
                 if (good.getGoodId()==id) {
 
                     good.setGoodsNum(good.getGoodsNum() + 1);
+                    goodNum=good.getGoodsNum();
                     cart.setTotalNum(cart.getTotalNum() + 1);
+                    totalNum=cart.getTotalNum();
                     cart.setTotalPricr(cart.getTotalPricr() + good.getGoodPrice());
+                    totalPrice=cart.getTotalPricr();
                     break;
                 }
             }
             session.setAttribute("cart", cart);
+            list.add(goodNum);
+            list.add(totalNum);
+            list.add(totalPrice);
         } catch (Exception e) {
             e.printStackTrace();
         }
         Gson gson = new Gson();
-        return gson.toJson(cart);
+        return gson.toJson(list);
 
     }
 
@@ -60,6 +70,10 @@ public class CartController {
     @PostMapping("/decGood")
     @ResponseBody
     public String decGood(@RequestParam("id") Integer id) {
+        List<Integer> list=new ArrayList<Integer>();
+        Integer goodNum=0;
+        Integer totalPrice=0;
+        Integer totalNum=0;
         Cart cart = null;
         try {
             cart = (Cart) session.getAttribute("cart");
@@ -67,39 +81,54 @@ public class CartController {
                 if (good.getGoodId()==id) {
                     if (good.getGoodsNum()>1) {
                         good.setGoodsNum(good.getGoodsNum() - 1);
+                        goodNum=good.getGoodsNum();
                         cart.setTotalNum(cart.getTotalNum() - 1);
+                        totalNum=cart.getTotalNum();
                         cart.setTotalPricr(cart.getTotalPricr() - good.getGoodPrice());
+                        totalPrice=cart.getTotalPricr();
                         break;
                     }
                 }
             }
             session.setAttribute("cart", cart);
+            list.add(goodNum);
+            list.add(totalNum);
+            list.add(totalPrice);
         } catch (Exception e) {
             e.printStackTrace();
         }
         Gson gson = new Gson();
-        return gson.toJson(cart);
+        return gson.toJson(list);
     }
 
     @PostMapping("/deleteGood")
     @ResponseBody
     public String deleteGood(@RequestParam("id") Integer id) {
         Cart cart = null;
+        List<Integer> list=new ArrayList<Integer>();
+        Integer goodNum=0;
+        Integer totalPrice=0;
+        Integer totalNum=0;
         try {
             cart = (Cart) session.getAttribute("cart");
             for (Goods good : cart.getGoodsList()) {
                 if (good.getGoodId()==id) {
                     cart.getGoodsList().remove(good);
                     cart.setTotalNum(cart.getTotalNum()-good.getGoodsNum());
+                    totalNum=cart.getTotalNum();
                     cart.setTotalPricr(cart.getTotalPricr()-good.getGoodsNum()*good.getGoodPrice());
+                    totalPrice=cart.getTotalPricr();
                     break;
                 }
             }
             session.setAttribute("cart", cart);
+            list.add(goodNum);
+            list.add(totalNum);
+            list.add(totalPrice);
         } catch (Exception e) {
             e.printStackTrace();
         }
         Gson gson = new Gson();
-        return gson.toJson(cart);
+        return gson.toJson(list);
     }
 }

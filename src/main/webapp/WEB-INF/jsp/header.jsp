@@ -101,7 +101,7 @@
 
                             <c:if test="${cart.goodsList!=null}">
                                 <c:forEach items="${sessionScope.cart.goodsList}" var="good">
-                                    <div  type="normal" class="item6-in-minicart-a">
+                                    <div  type="normal" class="item6-in-minicart-a" id="item6-in-minicart-a${good.goodId}">
 
                                         <a href="detail.jsp" target="_blank">
                                             <!--左，商品图片-->
@@ -119,15 +119,15 @@
                                                 </h5>
                                             </div>
                                             <div class="minicart_div_center_div">
-                                                <input class="min" name="" type="button" value="-" id="btn-warning6"onclick="decGoods(good.goodId)"/>
-                                                <input class="text_box" name="goodnum" type="text" value="${good.goodsNum}" style="width:25px;" id="cart_item_num6"/>
-                                                <input class="add" name="" type="button" value="+" id="btn-info6" onclick="addItem(good.goodId)"/>
+                                                <input class="min" name="" type="button" value="-" id="btn-warning6"onclick="decGoods(${good.goodId})"/>
+                                                <input class="text_box" name="goodnum" type="text" value="${good.goodsNum}" style="width:25px;" id="cart_item_num${good.goodId}"/>
+                                                <input class="add" name="" type="button" value="+" id="btn-info6" onclick="addGoods(${good.goodId})"/>
                                             </div>
                                         </div>
                                         <!--右，删除按钮-->
                                         <div class="minicart_div_right">
                                             <div class="minicart_div_center_div"></div>
-                                            <div class="minicart_div_center_div"><button id="btn-danger6" onclick="deleteGoods(good.goodId)">删除</button></div>
+                                            <div class="minicart_div_center_div"><button id="btn-danger6" onclick="deleteGoods(${good.goodId})">删除</button></div>
                                             <div class="minicart_div_center_div"></div>
                                         </div>
 

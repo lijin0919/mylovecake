@@ -29,6 +29,27 @@
     <script src="js/common.js"></script>
     <script src="js/topay.js"></script>
     <script src="js/jquery.uiAlertView-1.0.0.js"></script>
+    <%--<style type="text/css">--%>
+        <%--.qrcode {--%>
+            <%--position: fixed;--%>
+            <%--top: 0;--%>
+            <%--left: 0;--%>
+            <%--width: 100%;--%>
+            <%--height: 100%;--%>
+            <%--background: rgba(255, 255, 255, 0.6);--%>
+            <%--z-index: 9999;--%>
+            <%--display: none;--%>
+        <%--}--%>
+
+        <%--.qrcode img {--%>
+            <%--position: absolute;--%>
+            <%--top: 50%;--%>
+            <%--left: 50%;--%>
+            <%--width: 100px;--%>
+            <%--height: 100px;--%>
+            <%--display: block;--%>
+        <%--}--%>
+    <%--</style>--%>
 
 </head>
 <body>
@@ -82,14 +103,14 @@
         <h3>订单编号: ${sessionScope.order.id}  支付金额￥: ${sessionScope.order.total}</h3><br><br>
         <div class="col-sm-6 col-md-4 col-lg-3 ">
             <div class="thumbnail">
-                <a href="#" >
+                <a href="#" id="we-Chat-pic">
                     <img src="images/wechat.jpg" id="weChatPay" alt="微信支付">
                 </a>
             </div>
         </div>
         <div class="col-sm-6 col-md-4 col-lg-3 ">
             <div class="thumbnail">
-                <a href="#">
+                <a href="#" id="maYun-pic">
                     <img src="images/alipay.jpg"  id="zfbPay" alt="支付宝支付">
                 </a>
             </div>
@@ -100,6 +121,15 @@
                     <img src="images/offline.jpg" alt="货到付款">
                 </a>
             </div>
+        </div>
+
+
+        <div class="qrcode" id="qrcode1">
+            <img id="we-Chat-img" src="images/weChat1.jpg">
+        </div>
+
+        <div class="qrcode" id="qrcode2">
+            <img id="maYun-img" src="images/zfb.jpg">
         </div>
     </div>
 </div>

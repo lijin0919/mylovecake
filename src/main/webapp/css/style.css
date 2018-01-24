@@ -3333,3 +3333,23 @@ h2 {
 .error{
     color: red;
 }
+
+.qrcode {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.6);
+    z-index: 9999;
+    display: none;
+}
+
+.qrcode img {
+    position: absolute;
+    top: 40%;
+    left: 40%;
+    width: 300px;
+    height: 300px;
+    display: block;
+}

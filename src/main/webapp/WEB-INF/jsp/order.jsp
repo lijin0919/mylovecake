@@ -120,7 +120,7 @@
                             <button style="display: inline" class="btn-topay${order.id}" onclick="orderTopay(${order.id}) " disabled="disabled">已支付</button>
                             <button style="display: inline"  class="btn-receive${order.id}" onclick="receiveGoods(${order.id}) ">已完成</button>
                         </c:if>
-                        <%--<button style="display: inline"  class="btn-delete${order.id}"onclick="deleteOrder(${order.id})">删除</button>--%>
+                        <button style="display: inline"  class="btn-delete${order.id}"onclick="deleteOrder(${order.id})">删除</button>
 
                     </td>
                 </tr>

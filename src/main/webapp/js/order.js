@@ -38,5 +38,21 @@ function orderTopay(orderId) {
 }
 
 function deleteOrder(orderId) {
-    $("#order" + orderId).remove();
+    $.ajax({
+        url: "deleteOrder",
+        type: "POST",
+        data: {id: orderId},
+        dataType: "Json",
+        success: function (respons) {
+            if (respons > 0) {
+                $("#order" + orderId).remove();
+            }else {
+                alert("删除失败！")
+            }
+        },
+        error: function () {
+            alert("请求失败");
+        }
+    });
+
 }

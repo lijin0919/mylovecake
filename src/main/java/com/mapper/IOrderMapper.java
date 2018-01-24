@@ -88,4 +88,10 @@ public interface IOrderMapper {
             @Result(property = "status",column = "status")
     })
     Integer findOrderStatusByOrderId(Integer id);
+
+    @Delete("DELETE FROM orders WHERE id=#{id}")
+    @Results({
+            @Result(id = true,property = "id",column = "id"),
+    })
+    Integer deleteOrderByOrderId(Integer id);
 }

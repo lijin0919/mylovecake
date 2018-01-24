@@ -18,4 +18,6 @@ public interface IOrderService {
     Integer orderPay(Integer id);
     //根据订单id查询订单状态
     Integer getOrderStatusByOrderId(Integer id);
+    //根据订单id删除订单
+    Integer deleteOrderByOrderId(Integer id);
 }

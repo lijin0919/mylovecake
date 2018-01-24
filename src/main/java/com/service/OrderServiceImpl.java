@@ -76,4 +76,8 @@ public class OrderServiceImpl implements IOrderService {
     public Integer getOrderStatusByOrderId(Integer id) {
         return iOrderMapper.findOrderStatusByOrderId(id);
     }
+
+    public Integer deleteOrderByOrderId(Integer id) {
+        return iOrderMapper.deleteOrderByOrderId(id);
+    }
 }

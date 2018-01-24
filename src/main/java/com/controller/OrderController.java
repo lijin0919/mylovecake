@@ -43,4 +43,11 @@ public class OrderController {
 
         return new Gson().toJson(num);
     }
+
+    @PostMapping("/deleteOrder")
+    @ResponseBody
+    public String deleteOrder(@RequestParam("id")Integer id){
+        Integer num =orderService.deleteOrderByOrderId(id);
+        return new Gson().toJson(num);
+    }
 }

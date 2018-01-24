@@ -48,7 +48,7 @@ public class TopayController {
         for (Goods good:cart.getGoodsList()) {
             itemsService.insertItem(new Items(0,good.getGoodPrice(),good.getGoodsNum(),maxId,good.getGoodId()));
         }
-
+        session.removeAttribute("cart");
         return "topay";
     }
 }

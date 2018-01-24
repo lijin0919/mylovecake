@@ -22,6 +22,8 @@
     <script type="text/javascript" src="layer/layer.js"></script>
     <script type="text/javascript" src="js/cart.js"></script>
     <script src="js/common.js"></script>
+    <script src="js/order.js"></script>
+
 </head>
 <body>
 
@@ -50,7 +52,7 @@
         <table class="table table-bordered table-hover">
 
             <tr>
-                <th width="10%">ID</th>
+                <th width="10%">订单编号</th>
                 <th width="10%">总价</th>
                 <th width="20%">商品详情</th>
                 <th width="20%">收货信息</th>
@@ -60,7 +62,7 @@
                 <th width="10%">操作</th>
             </tr>
             <c:forEach var="order" items="${sessionScope.orderList}">
-                <tr>
+                <tr id="order${order.id}">
                     <td><p>${order.id}</p></td>
                     <td><p>${order.total}</p></td>
                     <td>
@@ -75,21 +77,50 @@
                     </td>
                     <td>
                         <p>
-
-                            <span style="color:red;">已付款</span>
-
+                            <c:if test="${order.status==1}" >
+                            <span style="color:red;" class="paytype${order.id}">未付款</span>
+                            </c:if>
+                            <c:if test="${order.status==2}">
+                                <span style="color:red;" class="paytype${order.id}">已付款</span>
+                            </c:if>
+                            <c:if test="${order.status==3}">
+                                <span style="color:red;" class="paytype${order.id}">配送中</span>
+                            </c:if>
+                            <c:if test="${order.status==4}">
+                                <span style="color:red;" class="paytype${order.id}">已完成</span>
+                            </c:if>
 
                         </p>
                     </td>
                     <td>
                         <p>
-
-                            支付宝
+                            <c:if test="${order.paytype==1}">
+                                微信支付
+                            </c:if>
+                            <c:if test="${order.paytype==2}">
+                                支付宝支付
+                            </c:if>
+                            <c:if test="${order.paytype==3}">
+                                货到付款
+                            </c:if>
 
                         </p>
                     </td>
-                    <td><p>2018-01-16 15:54:27</p></td>
+                    <td><p>2018-01-24 11:54:27</p></td>
                     <td>
+                        <c:if test="${order.status==1}">
+                        <button style="display: inline" class="btn-topay${order.id}" onclick="orderTopay(${order.id}) ">立即支付</button>
+                            <button style="display: inline"  class="btn-receive${order.id}" onclick="receiveGoods(${order.id})  "disabled="disabled">确认收货</button>
+                        </c:if>
+                        <c:if test="${order.status==2}">
+                            <button style="display: inline" class="btn-topay${order.id}" onclick="orderTopay(${order.id}) " disabled="disabled">已支付</button>
+                            <button style="display: inline"  class="btn-receive${order.id}" onclick="receiveGoods(${order.id}) ">确认收货</button>
+                        </c:if>
+                        <c:if test="${order.status==4}">
+                            <button style="display: inline" class="btn-topay${order.id}" onclick="orderTopay(${order.id}) " disabled="disabled">已支付</button>
+                            <button style="display: inline"  class="btn-receive${order.id}" onclick="receiveGoods(${order.id}) ">已完成</button>
+                        </c:if>
+                        <button style="display: inline"  class="btn-delete${order.id}"onclick="deleteOrder(${order.id}">删除</button>
 
                     </td>
                 </tr>

@@ -28,11 +28,7 @@ public interface IItemsMapper {
     //根据商品id和订单id查询商品数量
     @Select("SELECT amount FROM items WHERE order_id=#{orderId} AND good_id=#{goodId}")
     @Results({
-            @Result(id = true,property = "id",column = "id"),
-            @Result(property = "price",column = "price"),
-            @Result(property = "amount",column = "amount"),
-            @Result(property = "orderId",column = "order_id"),
-            @Result(property = "goodId",column = "good_id")
+            @Result(property = "amount",column = "amount")
     })
     Integer findAmountByGoodIdAndOrderId(@Param("orderId")Integer orderId,@Param("goodId")Integer goodId);
 }

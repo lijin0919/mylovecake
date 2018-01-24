@@ -35,7 +35,6 @@ public class TopServiceImpl implements ITopService{
             top.setGoods(goodMapper.findGoodById(goodId));
         }
 
-        System.out.println(topList);
 
         return topList;
     }

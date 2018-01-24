@@ -51,16 +51,29 @@ public class OrderServiceImpl implements IOrderService {
                 List<Goods> goodList=new ArrayList<Goods>();
                 List<Integer> goodIdList=iItemsMapper.findGoodIdListByOrderId(order.getId());
                 for (Integer goodId: goodIdList) {
-                    System.out.println(goodsImpl.getGoodByGoodIdAndOrderId(order.getId(),goodId));
-                    goodList.add(goodsImpl.getGoodByGoodId(goodId));
-
+                    goodList.add(goodsImpl.getGoodByGoodIdAndOrderId(order.getId(),goodId));
                 }
                 order.setGoodsList(goodList);
+                System.out.println(order);
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
 
         return list;
+    }
+
+    public Integer receiveGoods(Integer id) {
+
+
+        return iOrderMapper.orderConfirm(id);
+    }
+
+    public Integer orderPay(Integer id) {
+        return iOrderMapper.orderPay(id);
+    }
+
+    public Integer getOrderStatusByOrderId(Integer id) {
+        return iOrderMapper.findOrderStatusByOrderId(id);
     }
 }

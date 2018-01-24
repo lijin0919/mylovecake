@@ -55,7 +55,6 @@ public class GoodsImpl implements IGoods {
 
     public Goods getGoodByGoodIdAndOrderId(Integer orderId, Integer goodId) {
         Goods goods=goodMapper.findGoodById(goodId);
-        System.out.println(orderId+"...."+goodId);
         goods.setGoodsNum(iItemsMapper.findAmountByGoodIdAndOrderId(orderId,goodId));
         goods.setGoodType(iTypeMapper.findTypeById(goods.getTypeId()));
         return goods;

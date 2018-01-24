@@ -30,7 +30,12 @@ org.springframework.http.converter.StringHttpMessageConverter默认采用的ISO-
     @ResponseBody
     public String checkUsername(@RequestParam("username") String username){
         System.out.println(username);
-
+7、jQuery中提交按钮的灰色与恢复 (2013-02-19 18:08:35)转载▼
+  1.按钮的id为btnzhuce
+  ==》 控制按钮为禁用：
+  $("#btnzhuce").attr({"disabled":"disabled"});
+  ==》控制按钮为可用
+  $("#btnzhuce").removeAttr("disabled");//将按钮可用
 
 
 

@@ -49,4 +49,43 @@ public interface IOrderMapper {
      */
     @Select("SELECT * FROM orders;")
     List<Order> findAllOrders();
+
+    /**
+     * 将订单状态改为已完成
+     * @param id
+     * @return
+     */
+    @Update("UPDATE orders SET status=4 WHERE id=#{id}")
+    @Results({
+            @Result(id = true,property = "id",column = "id")
+    })
+    Integer orderConfirm(@Param("id") Integer id);
+
+    /**
+     * 将订单状态改为已付款
+     * @param id
+     * @return
+     */
+    @Update("UPDATE orders SET status=2 WHERE id=#{id}")
+    @Results({
+            @Result(id = true,property = "id",column = "id")
+    })
+    Integer orderPay(@Param("id") Integer id);
+    /**
+     * 将订单状态改为正在配送
+     * @param id
+     * @return
+     */
+    @Update("UPDATE orders SET status=3 WHERE id=#{id}")
+    @Results({
+            @Result(id = true,property = "id",column = "id")
+    })
+    Integer orderOnExpress(@Param("id") Integer id);
+
+    @Select("SELECT status FROM orders WHERE id=#{id}")
+    @Results({
+            @Result(id = true,property = "id",column = "id"),
+            @Result(property = "status",column = "status")
+    })
+    Integer findOrderStatusByOrderId(Integer id);
 }

@@ -13,11 +13,11 @@ public class Order {
     /** 订单状态 - 已完成 */
     public static final byte STATUS_FINISH = 4;
     /** 支付方式 - 微信 */
-    public static final byte PAYTYPE_WECHAT = 4;
+    public static final byte PAYTYPE_WECHAT = 1;
     /** 支付方式 - 支付宝 */
-    public static final byte PAYTYPE_ALIPAY = 4;
+    public static final byte PAYTYPE_ALIPAY = 2;
     /** 支付方式 - 线下 */
-    public static final byte PAYTYPE_OFFLINE = 4;
+    public static final byte PAYTYPE_OFFLINE = 3;
     private Integer id;
     private Integer total;
     private Integer amount;

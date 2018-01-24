@@ -55,7 +55,15 @@
 
 </head>
 <body>
+<%--<div id="addSuccess"--%>
+        <%--style="display: none; width: 120px; height: 50px; position: absolute;background-color: white; top: 200px; left: 800px; z-index: 5000;  color: red;border: #8ce78a 1px solid">加入购物车成功！</div>--%>
+<%--</body>--%>
+<div class="alert alert-dismissable alert-success" id="addSuccess" style="display: none; width: 200px; height: 50px; position: fixed;top: 30%; left: 45%; z-index: 5000;">
 
+    <h4>
+        加入购物车成功！
+    </h4>
+</div>
 <%--//header--%>
 <jsp:include page="header.jsp"/>
 <!--//header-->
@@ -66,7 +74,7 @@
     <div class="container">
         <h2 class="hdng"><a href="detail?goodId=${topList1[0].goods.goodId}">${topList1[0].goods.goodName}</a><span></span></h2>
         <p>今日精选推荐</p>
-        <a class="banner_a"href="#" onclick="addGoodToCart(${topList1[0].goods.goodId})">加入购物车</a>
+        <a class="banner_a"href="#" onclick="addGoodToCart(${topList1[0].goods.goodId});return false;">加入购物车</a>
         <%--<button class="banner_a addItem" value="${topList1[0].goods.goodId}">加入购物车</button>--%>
         <div class="banner-text">
             <a id="top-Good-href" href="detail?goodId=${topList1[0].goods.goodId}">
@@ -97,7 +105,7 @@
                         <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
                         <a href="detail.jsp">查看详情</a>
                     </p>
-                    <a class="shop"href="#" onclick="addGoodToCart(${top.goods.goodId})">加入购物车</a>
+                    <a class="shop"href="#" onclick="addGoodToCart(${top.goods.goodId});return false;">加入购物车</a>
 
                     <div class="clearfix"> </div>
                 </div>
@@ -134,7 +142,7 @@
                             <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
                             <a href="#">查看详情</a>
                         </p>
-                        <a class="shop"href="#" onclick="addGoodToCart(${top.goods.goodId})">加入购物车</a>
+                        <a class="shop"href="#" onclick="addGoodToCart(${top.goods.goodId});return false;">加入购物车</a>
                         <div class="clearfix"> </div>
                     </div>
                     <div class="galy-info">
@@ -153,6 +161,7 @@
 
         </div>
     </div>
+</div>
 </div>
 <!--//gallery-->
 

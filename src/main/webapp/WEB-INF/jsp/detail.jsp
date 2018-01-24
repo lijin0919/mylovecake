@@ -97,7 +97,7 @@
                 </div>
                 <div class="btn_form">
                     <!--<a href="" class="add-cart item_add" onclick="buy(1)">加入购物车</a>-->
-                    <a href="#" class="add-cart item_add" id="detail-cart-btn" onclick="addGoodToCart(${requestScope.good.goodId})">加入购物车</a>
+                    <a href="#" class="add-cart item_add detail_item_add" id="detail-cart-btn" onclick="addGoodToCart(${requestScope.good.goodId})">加入购物车</a>
                 </div>
             </div>
             <div class="col-md-4 single-grid1">

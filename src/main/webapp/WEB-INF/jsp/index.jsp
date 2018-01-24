@@ -30,7 +30,7 @@
 <%--<script>--%>
         <%--//就绪函数--%>
         <%--$().ready(function () {--%>
-            var req = new XMLHttpRequest();
+            <%--var req = new XMLHttpRequest();--%>
             <%--$(".addItem").click(function () {--%>
                 <%--//设置传送方式，对应的servlet或action路径，是否异步处理--%>
                 <%--req.open("POST","/index",true);--%>
@@ -55,11 +55,7 @@
 
 </head>
 <body>
-<%--<div id="addSuccess"--%>
-        <%--style="display: none; width: 120px; height: 50px; position: absolute;background-color: white; top: 200px; left: 800px; z-index: 5000;  color: red;border: #8ce78a 1px solid">加入购物车成功！</div>--%>
-<%--</body>--%>
 <div class="alert alert-dismissable alert-success" id="addSuccess" style="display: none; width: 200px; height: 50px; position: fixed;top: 30%; left: 45%; z-index: 5000;">
-
     <h4>
         加入购物车成功！
     </h4>

@@ -1,7 +1,7 @@
 $().ready(function () {
     //《-----------------购物车-----------------》
 
-    $(".item_add").click(function () {
+    $(".detail_item_add").click(function () {
         var json = {
             // title:"标题",
             msg: "添加购物车成功！",

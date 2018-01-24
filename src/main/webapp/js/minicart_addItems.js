@@ -33,7 +33,7 @@ function addGoodToCart(goodId) {
                     "                                    <div class=\"minicart_div_center_div\">\n" +
                     "                                        <input class=\"min\" name=\"\" type=\"button\" value=\"-\"  />\n" +
                     "                                        <input class=\"text_box\" name=\"goodnum\" type=\"text\" value=\"" + respons.goodsList[i].goodsNum + "\" style=\"width:25px;\" id=\"cart_item_num6\"/>\n" +
-                    "                                        <input class=\"add\" name=\"\"  type=\"button\" value=\"+\" onclick='addItem(respons.goodsList[i].goodId)' />\n" +
+                    "                                        <input class=\"add\" name=\"\"  type=\"button\" value=\"+\" onclick=\"addItem(respons.goodsList[i].goodId)\" />\n" +
                     "                                    </div>\n" +
                     "                                </div>\n" +
                     "                                <!--右，删除按钮-->\n" +
@@ -55,7 +55,7 @@ function addGoodToCart(goodId) {
             alert("请求失败");
         }
     });
-};
+}
 
     function addItem(id) {
         alert(id);

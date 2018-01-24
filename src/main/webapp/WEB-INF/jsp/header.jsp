@@ -99,6 +99,41 @@
                         <%--miniCart--%>
                         <ul class="list-minicart">
 
+                            <c:if test="${cart.goodsList!=null}">
+                                <c:forEach items="${sessionScope.cart.goodsList}" var="good">
+                                    <div  type="normal" class="item6-in-minicart-a">
+
+                                        <a href="detail.jsp" target="_blank">
+                                            <!--左，商品图片-->
+                                            <div><img  class="minicart_div_left"  src="${good.goodCover}" alt="" ></div>
+                                        </a>
+                                        <!--中，商品信息-->
+                                        <div class="minicart_div_center">
+                                            <div class="minicart_div_center_div">
+                                                <h5>${good.goodName}</h5>
+                                            </div>
+                                            <div class="minicart_div_center_div">
+                                                <h5>
+                                                    <!--<span class="pull-right">满额折9折</span>-->
+                                                    ￥${good.goodPrice}/礼盒
+                                                </h5>
+                                            </div>
+                                            <div class="minicart_div_center_div">
+                                                <input class="min" name="" type="button" value="-" id="btn-warning6"onclick="decGoods(good.goodId)"/>
+                                                <input class="text_box" name="goodnum" type="text" value="${good.goodsNum}" style="width:25px;" id="cart_item_num6"/>
+                                                <input class="add" name="" type="button" value="+" id="btn-info6" onclick="addGoods(good.goodId)"/>
+                                            </div>
+                                        </div>
+                                        <!--右，删除按钮-->
+                                        <div class="minicart_div_right">
+                                            <div class="minicart_div_center_div"></div>
+                                            <div class="minicart_div_center_div"><button id="btn-danger6" onclick="deleteGoods(good.goodId)">删除</button></div>
+                                            <div class="minicart_div_center_div"></div>
+                                        </div>
+
+                                    </div>
+                                </c:forEach>
+                            </c:if>
                         </ul>
                     </div>
                     <div class="mcart-pay clearfix">

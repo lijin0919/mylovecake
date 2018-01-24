@@ -55,7 +55,7 @@
         <div class="col-md-12 product-model-sec">
             <c:forEach items="${goodsList}" var="good">
             <div class="product-grid">
-                <a href="detail.jsp">
+                <a  href="detail?goodId=${good.goodId}">
                     <div class="more-product"><span> </span></div>
                     <div class="product-img b-link-stripe b-animate-go  thickbox">
                         <img src="${good.goodCover}" class="img-responsive" alt="夜礼服" width="240" height="240">

@@ -17,6 +17,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <link type="text/css" rel="stylesheet" href="css/bootstrap.css">
     <link type="text/css" rel="stylesheet" href="css/style.css">
+    <link type="text/css" rel="stylesheet" href="css/uiAlertView-1.0.0.css">
     <script type="text/javascript" src="js/jquery.min.js"></script>
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
     <script type="text/javascript" src="layer/layer.js"></script>
@@ -26,6 +27,8 @@
     <script src="js/minicart_addItems.js"></script>
     <link rel="stylesheet" href="css/minicart.css">
     <script src="js/common.js"></script>
+    <script src="js/topay.js"></script>
+    <script src="js/jquery.uiAlertView-1.0.0.js"></script>
 
 </head>
 <body>
@@ -79,21 +82,21 @@
         <h3>订单编号: ${sessionScope.order.id}  支付金额￥: ${sessionScope.order.total}</h3><br><br>
         <div class="col-sm-6 col-md-4 col-lg-3 ">
             <div class="thumbnail">
-                <a href="#">
-                    <img src="images/wechat.jpg" alt="微信支付">
+                <a href="#" >
+                    <img src="images/wechat.jpg" id="weChatPay" alt="微信支付">
                 </a>
             </div>
         </div>
         <div class="col-sm-6 col-md-4 col-lg-3 ">
             <div class="thumbnail">
                 <a href="#">
-                    <img src="images/alipay.jpg" alt="支付宝支付">
+                    <img src="images/alipay.jpg"  id="zfbPay" alt="支付宝支付">
                 </a>
             </div>
         </div>
         <div class="col-sm-6 col-md-4 col-lg-3 ">
             <div class="thumbnail">
-                <a href="#">
+                <a href="#" id="payWhenReceive">
                     <img src="images/offline.jpg" alt="货到付款">
                 </a>
             </div>

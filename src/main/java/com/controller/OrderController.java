@@ -29,12 +29,6 @@ public class OrderController {
         return "order";
     }
 
-    @PostMapping("/orderAction")
-    @ResponseBody
-    public String checkOrder(){
-        List<Order> orderList=orderService.getAllOrders();
-        return new Gson().toJson(orderList);
-    }
     @PostMapping ("/receiveGoods")
     @ResponseBody
     public String receiveGoods(@RequestParam("id")Integer id){

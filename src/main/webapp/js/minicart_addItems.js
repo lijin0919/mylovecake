@@ -50,7 +50,7 @@ function addGoodToCart(goodId) {
             //         htmldiv
             //     );
             // }
-            $ ("#addSuccess").show ().delay (200).fadeOut ();
+            $ ("#addSuccess").show ().delay (500).fadeOut ();
         },
         error: function () {
             alert("请求失败");

@@ -36,7 +36,7 @@ $().ready(function () {
 //商品夜礼服的增加按钮功能
 function addGoodNum(id) {
     $.ajax({
-        url: "addGood",//url
+        url: "addGood2",//url
         type: "POST",//方法类型
         // data: $("#login_form").serialize(),
         data: {"id": id},
@@ -44,8 +44,10 @@ function addGoodNum(id) {
         success: function (response) {
             for (var i = 0; i < response.goodsList.length; i++) {
                 if (id == response.goodsList[i].goodId) {
-                    $("."+"cart_item_num"+id).text("数量:"+response.goodsList[i].goodsNum);
+                    // $("#"+"cart_item_num"+id).text("数量:"+response.goodsList[i].goodsNum);
+                    $(this).prev().text("数量:"+response.goodsList[i].goodsNum);
                 }
+
             }
             $("#cart_items_totalPrices").text("订单总金额: ¥"+response.totalPricr);
         },
@@ -59,7 +61,7 @@ function addGoodNum(id) {
 /*购物车内每次点击某个商品的减少按钮，商品数量数量减少1个,并且重新计算总价*/
 function decGoodNum(id) {
     $.ajax({
-        url: "decGood",//url
+        url: "decGood2",//url
         type: "POST",//方法类型
         // data: $("#login_form").serialize(),
         data: {"id": id},
@@ -67,7 +69,8 @@ function decGoodNum(id) {
         success: function (response) {
             for (var i = 0; i < response.goodsList.length; i++) {
                 if (id == response.goodsList[i].goodId) {
-                    $("."+"cart_item_num"+id).text("数量:"+response.goodsList[i].goodsNum);
+                    $(this).prev().prev().children("span").text("数量:"+response.goodsList[i].goodsNum);
+
                 }
             }
             $("#cart_items_totalPrices").text("订单总金额: ¥"+response.totalPricr);
@@ -82,7 +85,7 @@ function decGoodNum(id) {
 
 function deleteGood(id) {
     $.ajax({
-        url: "deleteGood",//url
+        url: "deleteGood2",//url
         type: "POST",//方法类型
         // data: $("#login_form").serialize(),
         data: {"id": id},
@@ -90,7 +93,7 @@ function deleteGood(id) {
         success: function (response) {
             for (var i = 0; i < response.goodsList.length; i++) {
                 if (id == response.goodsList[i].goodId) {
-                    $("."+"item"+id).remove();
+                    $("#item"+id).remove();
                     break;
                 }
             }

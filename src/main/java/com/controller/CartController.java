@@ -131,4 +131,81 @@ public class CartController {
         Gson gson = new Gson();
         return gson.toJson(list);
     }
+    @PostMapping("/addGood2")
+    @ResponseBody
+    public String addGood2(@RequestParam("id") Integer id) {
+        Cart cart = null;
+
+        try {
+            cart = (Cart) session.getAttribute("cart");
+            for (Goods good : cart.getGoodsList()) {
+                if (good.getGoodId()==id) {
+
+                    good.setGoodsNum(good.getGoodsNum() + 1);
+                    cart.setTotalNum(cart.getTotalNum() + 1);
+                    cart.setTotalPricr(cart.getTotalPricr() + good.getGoodPrice());
+                    break;
+                }
+            }
+            session.setAttribute("cart", cart);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        Gson gson = new Gson();
+        return gson.toJson(cart);
+
+    }
+
+
+
+    @PostMapping("/decGood2")
+    @ResponseBody
+    public String decGood2(@RequestParam("id") Integer id) {
+
+        Cart cart = null;
+        try {
+            cart = (Cart) session.getAttribute("cart");
+            for (Goods good : cart.getGoodsList()) {
+                if (good.getGoodId()==id) {
+                    if (good.getGoodsNum()>1) {
+                        good.setGoodsNum(good.getGoodsNum() - 1);
+                        cart.setTotalNum(cart.getTotalNum() - 1);
+                        cart.setTotalPricr(cart.getTotalPricr() - good.getGoodPrice());
+                        break;
+                    }
+                }
+            }
+            session.setAttribute("cart", cart);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        Gson gson = new Gson();
+        return gson.toJson(cart);
+    }
+
+    @PostMapping("/deleteGood2")
+    @ResponseBody
+    public String deleteGood2(@RequestParam("id") Integer id) {
+        Cart cart = null;
+
+        try {
+            cart = (Cart) session.getAttribute("cart");
+            for (Goods good : cart.getGoodsList()) {
+                if (good.getGoodId()==id) {
+                    cart.getGoodsList().remove(good);
+                    cart.setTotalNum(cart.getTotalNum()-good.getGoodsNum());
+                    cart.setTotalPricr(cart.getTotalPricr()-good.getGoodsNum()*good.getGoodPrice());
+                    break;
+                }
+            }
+            session.setAttribute("cart", cart);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        Gson gson = new Gson();
+        return gson.toJson(cart);
+    }
 }

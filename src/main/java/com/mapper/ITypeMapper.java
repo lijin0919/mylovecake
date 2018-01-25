@@ -28,4 +28,40 @@ public interface ITypeMapper {
             @Result(property = "typeName",column = "name")
     })
     Types findTypeById(@Param("typeId") Integer typeId);
+
+    /**
+     * 插入商品类目
+     * @param name
+     * @return
+     */
+
+    @Insert("INSERT INTO types(name) VALUES(#{name});")
+    @Results({
+            @Result(property = "name",column = "name")
+    })
+    Integer insertType(String name);
+
+    /**
+     * 根据类型id更新类型名
+     * @param typeName
+     * @param typeId
+     * @return
+     */
+    @Update("UPDATE types SET name=#{typeName} WHERE id=#{typeId};")
+    @Results({
+            @Result(id = true,property = "typeId",column = "id"),
+            @Result(property = "typeName",column = "name")
+    })
+    Integer changeTypeNameByTypeId(@Param("typeName") String  typeName,@Param("typeId")Integer typeId);
+
+    /**
+     * 根据类型id删除类型信息
+     * @param typeId
+     * @return
+     */
+    @Delete("DELETE  FROM types WHERE id=#{typeId}")
+    @Results({
+            @Result(id = true,property = "typeId",column = "id"),
+    })
+    Integer deleteTypeById(@Param("typeId")Integer typeId);
 }

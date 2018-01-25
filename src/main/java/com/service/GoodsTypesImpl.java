@@ -22,4 +22,19 @@ public class GoodsTypesImpl implements IGoodsTypes {
 
         return iTypeMapper.findTypeById(typeId);
     }
+
+    public Integer insertNewType(String name) {
+
+        return iTypeMapper.insertType(name);
+    }
+
+    public Integer changeTypeNameById(String typeName,Integer typeId) {
+        Integer num= iTypeMapper.changeTypeNameByTypeId(typeName,typeId);
+        return num;
+    }
+
+    public Integer deleteTypeById(Integer typeId) {
+        return iTypeMapper.deleteTypeById(typeId);
+    }
+
 }

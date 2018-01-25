@@ -23,7 +23,7 @@
                 <li ><a href="orderList.action">订单管理</a></li>
                 <li class="active"><a href="toAdminUserList">客户管理</a></li>
                 <li ><a href="goodList.action">商品管理</a></li>
-                <li ><a href="typeList.action">类目管理</a></li>
+                <li ><a href="typeList">类目管理</a></li>
                 <li ><a href="adminRe.action">修改密码</a></li>
                 <li><a href="logout.action">退出</a></li>
             </ul>

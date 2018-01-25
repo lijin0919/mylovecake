@@ -9,28 +9,28 @@
       <Visible>1</Visible>
       <Collation>utf8_general_ci</Collation>
     </schema>
-    <schema id="3" parent="1" name="exam">
+    <schema id="3" parent="1" name="information_schema">
       <Collation>utf8_general_ci</Collation>
     </schema>
-    <schema id="4" parent="1" name="information_schema">
+    <schema id="4" parent="1" name="mysql">
       <Collation>utf8_general_ci</Collation>
     </schema>
-    <schema id="5" parent="1" name="mysql">
+    <schema id="5" parent="1" name="performance_schema">
       <Collation>utf8_general_ci</Collation>
     </schema>
-    <schema id="6" parent="1" name="performance_schema">
+    <schema id="6" parent="1" name="school">
       <Collation>utf8_general_ci</Collation>
     </schema>
-    <schema id="7" parent="1" name="pig40">
+    <schema id="7" parent="1" name="shop">
       <Collation>utf8_general_ci</Collation>
     </schema>
-    <schema id="8" parent="1" name="school">
+    <schema id="8" parent="1" name="sys">
       <Collation>utf8_general_ci</Collation>
     </schema>
-    <schema id="9" parent="1" name="sys">
+    <schema id="9" parent="1" name="test">
       <Collation>utf8_general_ci</Collation>
     </schema>
-    <schema id="10" parent="1" name="test">
+    <schema id="10" parent="1" name="userinformation">
       <Collation>utf8_general_ci</Collation>
     </schema>
     <collation id="11" parent="1" name="armscii8_bin">

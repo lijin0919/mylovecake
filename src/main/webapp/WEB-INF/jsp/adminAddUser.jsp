@@ -19,7 +19,7 @@
     <script type="text/javascript" src="js/jquery.min.js"></script>
     <script src="js/jquery.validate.js"></script>
     <script src="js/additional-methods.js"></script>
-    <script src="js/admin_register.js"></script>
+    <script src="js/admin_userInfo.js"></script>
     <script src="js/jquery.validate.min.js"></script>
     <script type="text/javascript" src="js/jquery.uiAlertView-1.0.0.js"></script>
     <style>

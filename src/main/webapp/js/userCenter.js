@@ -87,22 +87,24 @@ $().ready(function () {
         //获取旧密码和新密码（非空操作）
        var newPassword = $("#new-password").val();
        var oldPassword = $("#old-password").val();
-       if (newPassword!=""&&oldPassword!=""){
+       if (newPassword.eq("")||oldPassword.eq("")&&!(newPassword.eq(oldPassword))){
+           $.alertView("密码修改失败！")
+       }else {
            //发送ajax修改密码
            $.ajax(
                {
-                  url:"changePassword",
-                  type:"POST",
-                  data:{"newPassword":newPassword},
-                  dataType:"Json",
+                   url:"changePassword",
+                   type:"POST",
+                   data:{"newPassword":newPassword},
+                   dataType:"Json",
 
-                  success:function (flag) {
-                      if (flag){
-                          $.alertView("密码修改成功！")
-                      }else {
-                          $.alertView("密码修改失败！")
-                      }
-                  }
+                   success:function (flag) {
+                       if (flag){
+                           $.alertView("密码修改成功！")
+                       }else {
+                           $.alertView("密码修改失败！")
+                       }
+                   }
                })
        }
 

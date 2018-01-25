@@ -65,6 +65,7 @@ public class adminUserController {
     public String toAdminUserReset(@RequestParam("userId") Integer userId,Model userModel){
         //先获取用户对象
         Users user = userService.findUserInfoByUserId(userId);
+        System.out.println(user.getId());
         //将用户信息存入Model中
         userModel.addAttribute("user",user);
         return "adminUserReset";
@@ -81,6 +82,9 @@ public class adminUserController {
     @ResponseBody
     public String checkPassword(@RequestParam("oldPassword") String oldPassword,
                                  @RequestParam("userId") Integer userId){
+
+        System.out.println(userId);
+        System.out.println(oldPassword);
         //获取数据库中的Users对象
         Users sqlUser = userService.findUserInfoByUserId(userId);
         //获取数据库密码
@@ -93,6 +97,7 @@ public class adminUserController {
         } else {
             flag = false;
         }
+        System.out.println(flag);
         return new Gson().toJson(flag);
     }
 

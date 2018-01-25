@@ -214,11 +214,12 @@
             //修改密码之前，首先应该验证原密码是否正确
             $("#old-password").blur(function () {
                 var oldPassword = $("#old-password").val();
-                var userId = $("#user-Id").val();
+                var userId = $("#user-id").val();
                 // alert(oldPassword);
+                alert(userId);
                 if (oldPassword!=""){
                     $.ajax(
-                        // alert("进来了！"),
+                        alert("进来了！"),
                         {
                             url:"adminCheckPassword",
                             type:"POST",
@@ -234,6 +235,9 @@
                                     $("#check-old-password-false").html("用户原密码输入不正确！")
 
                                 }
+                            },
+                            error:function () {
+                                alert("修改失败！")
                             }
                         })
                 }else {
@@ -268,7 +272,7 @@
                 //获取旧密码和新密码（非空操作）
                 var newPassword = $("#new-password").val();
                 var oldPassword = $("#old-password").val();
-                var userId = $("#user-Id").val();
+                var userId = $("#user-id").val();
                 if (newPassword!=""&&oldPassword!=""){
                     //发送ajax修改密码
                     $.ajax(

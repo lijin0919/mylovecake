@@ -31,7 +31,7 @@
     <br><br>
 
     <form class="form-horizontal" action="" method="post">
-        <input type="hidden" id="user-Id" value="${requestScope.userId}">
+        <input type="hidden" id="user-id" value="${requestScope.user.id}">
         <div class="form-group">
             <label for="user-username" class="col-sm-1 control-label">用户名</label>
             <div class="col-sm-5" id="user-username">${requestScope.user.username}</div>

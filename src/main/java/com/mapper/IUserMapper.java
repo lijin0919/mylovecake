@@ -102,4 +102,12 @@ public interface IUserMapper {
             @Result(property = "userAddress",column = "address")
     })
     List<Users> findUsersList();
+
+    /**
+     * 根据用户Id删除用户信息
+     * @param userId
+     * @return
+     */
+    @Delete("DELETE FROM users WHERE id=#{userId};")
+    Integer deleteUser(@Param("userId") Integer userId);
 }

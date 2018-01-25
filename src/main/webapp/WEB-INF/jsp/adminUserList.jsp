@@ -15,6 +15,11 @@
     <title>客户列表</title>
     <meta charset="utf-8"/>
     <link rel="stylesheet" href="css/bootstrap.css"/>
+    <link rel="stylesheet" href="css/uiAlertView-1.0.0.css">
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script src="js/additional-methods.js"></script>
+    <script type="text/javascript" src="js/admin_userInfo.js"></script>
+    <script src="js/jquery.uiAlertView-1.0.0.js"></script>
 </head>
 <body>
 <div class="container-fluid">
@@ -38,7 +43,7 @@
         </tr>
 
         <c:forEach items="${requestScope.userList}" var="user">
-            <tr>
+            <tr id="dlt-user-id${user.id}">
                 <td><p>${user.id}</p></td>
                 <td><p>${user.username}</p></td>
                 <td><p>${user.userPhone}</p></td>
@@ -46,7 +51,7 @@
                 <td>
                     <a class="btn btn-info" href="toAdminUserReset?userId=${user.id}">重置密码</a>
                     <a class="btn btn-primary" href="toAdminUserEdit?userId=${user.id}">修改</a>
-                    <a class="btn btn-danger" href="#">删除</a>
+                    <a id="delete-user-button" class="btn btn-danger" href="javascript:deleteUser(${user.id})">删除</a>
                 </td>
             </tr>
         </c:forEach>
@@ -61,7 +66,7 @@
     <h2 style='display:inline;'>[5]</h2>
     <a class='btn btn-info' disabled >下一页</a>
     <a class='btn btn-info' disabled >尾页</a>
-    <input type='text' class='form-control' style='display:inline;width:60px;' value=''/><a class='btn btn-info' href='javascript:void(0);' onclick='location.href="http://localhost:8080/ssh_cake/admin/userList.action?page="+(this.previousSibling.value)+""'>GO</a>
+    <input type='text' class='form-control' style='display:inline;width:60px;' value=''/><a class='btn btn-info' href='javascript:void(0);' onclick='location.href="http://localhost:8080/ssh_cake/admin/userList.action?page="+(this.previousSibling.value)+""'/>GO</a>
 </div>
     <br>
 </div>

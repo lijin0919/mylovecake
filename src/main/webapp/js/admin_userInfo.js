@@ -321,6 +321,28 @@
                 $("#check-new-password-false").html("");
 
             })
+        
+        
+        
+        
+
 
 
 });//ready
+//<---------------------------删除用户按钮-------------------------->
+    function deleteUser(userId) {
+        $("#dlt-user-id"+userId).remove();
+        $.ajax({
+
+            url:"deleteUser",
+            type:"POST",
+            data:{"userId":userId},
+            dataType:"Json",
+
+            success:function (result) {
+                if (result){
+                    $.alertView("用户删除成功！")
+                }
+            }
+        })
+    }

@@ -99,4 +99,14 @@ public class UserServiceImpl implements IUserService {
         List<Users> usersList = iUserMapper.findUsersList();
         return usersList;
     }
+
+    /**
+     * 根据用户Id删除用户信息
+     * @param userId
+     * @return
+     */
+    public Integer deleteUser(Integer userId) {
+        Integer result = iUserMapper.deleteUser(userId);
+        return result;
+    }
 }

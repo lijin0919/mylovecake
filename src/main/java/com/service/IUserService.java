@@ -21,5 +21,6 @@ public interface IUserService {
     Integer updatePassword(Users user);
     //用户信息全查
     List<Users> findUserList();
-
+    //根据用户ID删除用户
+    Integer deleteUser(Integer userId);
 }

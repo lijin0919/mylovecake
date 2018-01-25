@@ -150,4 +150,19 @@ public class adminUserController {
         }
         return new Gson().toJson(flag);
     }
+
+
+
+    @PostMapping("/deleteUser")
+    public String deleteUser(@RequestParam("userId") Integer userId){
+        Integer result = userService.deleteUser(userId);
+        System.out.println(result);
+        boolean flag = false;
+        if (result>0){
+            flag = true;
+        }else {
+            flag = false;
+        }
+        return new Gson().toJson(flag);
+    }
 }//class

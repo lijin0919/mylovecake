@@ -1,5 +1,6 @@
 package com.controller.admin;
 
+import com.entity.Goods;
 import com.entity.Order;
 import com.google.gson.Gson;
 import com.service.OrderServiceImpl;
@@ -33,13 +34,26 @@ public class adminOrderList {
     public String orderListHave(@RequestParam("status")Integer status) {
         List<Order> returnList=new ArrayList<Order>();
         List<Order> orderList=orderService.getAllOrders();
-        for (Order order:orderList) {
-            if (status==order.getStatus()){
-                returnList.add(order);
+        Gson gson=new Gson();
+        if (status!=0) {
+            for (Order order : orderList) {
+                if (status == order.getStatus()) {
+                    returnList.add(order);
+                }
             }
+        }else {
+            returnList=orderList;
+        }
+        for (Order order:returnList
+             ) {
+
+           gson.toJson(order.getGoodsList()) ;
+
         }
 
         session.setAttribute("orderList",returnList);
+        String s =new Gson().toJson(returnList);
+        System.out.println("guoguoguogugougoguog"+s);
         return new Gson().toJson(returnList);
     }
 }

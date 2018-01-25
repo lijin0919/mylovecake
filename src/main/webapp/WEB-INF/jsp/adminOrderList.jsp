@@ -42,7 +42,7 @@
 
     <br>
 
-    <table class="table table-bordered table-hover">
+    <table class="table table-bordered table-hover" id="ordrTable">
 
         <tr>
             <th width="5%">ID</th>

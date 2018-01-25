@@ -90,4 +90,13 @@ public class UserServiceImpl implements IUserService {
         Integer result = iUserMapper.updatePassword(user);
         return result;
     }
+
+    /**
+     * 用户信息全查
+     * @return
+     */
+    public List<Users> findUserList() {
+        List<Users> usersList = iUserMapper.findUsersList();
+        return usersList;
+    }
 }

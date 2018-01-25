@@ -15,46 +15,62 @@
     <title>客户添加</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="css/bootstrap.css" />
+    <link type="text/css" rel="stylesheet" href="css/uiAlertView-1.0.0.css">
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script src="js/jquery.validate.js"></script>
+    <script src="js/additional-methods.js"></script>
+    <script src="js/admin_register.js"></script>
+    <script src="js/jquery.validate.min.js"></script>
+    <script type="text/javascript" src="js/jquery.uiAlertView-1.0.0.js"></script>
+    <style>
+        .error{
+            color: red;
+        }
+    </style>
 </head>
 <body>
 <div class="container-fluid">
-
-
-
-
 
     <!DOCTYPE html>
     <jsp:include page="adminHeader.jsp"/>
 
     <br><br>
-    <form class="form-horizontal" action="userSave.action" method="post">
+
+    <form id="commentForm" class="form-horizontal" action="" method="post">
+        <p id="warning-msg" style="color: red"></p>
         <div class="form-group">
-            <label for="input_name" class="col-sm-1 control-label">用户名</label>
+            <label for="username-test" class="col-sm-1 control-label">用户名</label>
             <div class="col-sm-6">
-                <input type="text" class="form-control" id="input_name" name="user.username" required="required">
+                <input type="text" class="form-control" id="username-test" name="username" placeholder="请输入用户名" required>
             </div>
         </div>
         <div class="form-group">
-            <label for="input_name" class="col-sm-1 control-label">密码</label>
+            <label for="user-password" class="col-sm-1 control-label">密码</label>
             <div class="col-sm-6">
-                <input type="text" class="form-control" id="input_name" name="user.password" required="required">
+                <input type="text" class="form-control" id="user-password" name="password" placeholder="请输入密码" required>
             </div>
         </div>
         <div class="form-group">
-            <label for="input_name" class="col-sm-1 control-label">电话</label>
+            <label for="user-name" class="col-sm-1 control-label">收货人</label>
             <div class="col-sm-6">
-                <input type="text" class="form-control" id="input_name" name="user.phone" >
+                <input type="text" class="form-control" id="user-name" name="name" placeholder="请输入收货人" >
             </div>
         </div>
         <div class="form-group">
-            <label for="input_name" class="col-sm-1 control-label">地址</label>
+            <label for="user-phone" class="col-sm-1 control-label">电话</label>
             <div class="col-sm-6">
-                <input type="text" class="form-control" id="input_name" name="user.address" >
+                <input type="text" class="form-control" id="user-phone" name="userPhone" placeholder="请输入收货人电话" required>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="user-address" class="col-sm-1 control-label">地址</label>
+            <div class="col-sm-6">
+                <input type="text" class="form-control" id="user-address" name="userAddress" placeholder="请输入收货地址" >
             </div>
         </div>
         <div class="form-group">
             <div class="col-sm-offset-1 col-sm-10">
-                <button type="submit" class="btn btn-success">提交保存</button>
+                <button id="submit-btn" type="button" class="btn btn-success">提交保存</button>
             </div>
         </div>
     </form>

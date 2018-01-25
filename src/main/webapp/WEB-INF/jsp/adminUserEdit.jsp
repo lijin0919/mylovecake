@@ -14,6 +14,13 @@
     <title>客户修改</title>
     <meta charset="utf-8"/>
     <link rel="stylesheet" href="css/bootstrap.css"/>
+    <link type="text/css" rel="stylesheet" href="css/uiAlertView-1.0.0.css">
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script src="js/jquery.validate.js"></script>
+    <script src="js/additional-methods.js"></script>
+    <script src="js/jquery.validate.min.js"></script>
+    <script type="text/javascript" src="js/admin_userInfo.js"></script>
+    <script type="text/javascript" src="js/jquery.uiAlertView-1.0.0.js"></script>
 </head>
 <body>
 <div class="container-fluid">
@@ -28,33 +35,33 @@
     <br><br>
 
     <form class="form-horizontal" action="" method="post">
-        <input type="hidden" name="user.id" value="5">
-        <input type="hidden" name="user.username" value="maojie111">
+        <input id="user-id" type="hidden" name="userId" value="${requestScope.user.id}">
+        <input type="hidden" name="user.username" value="${requestScope.user.username}">
         <div class="form-group">
-            <label for="input_name" class="col-sm-1 control-label">用户名</label>
-            <div class="col-sm-5">这里是要获取的</div>
+            <label for="user-name" class="col-sm-1 control-label">用户名</label>
+            <div class="col-sm-5" id="user-name">${requestScope.user.username}</div>
         </div>
         <div class="form-group">
-            <label for="input_name" class="col-sm-1 control-label">收货人</label>
+            <label for="new-user-name" class="col-sm-1 control-label">收货人</label>
             <div class="col-sm-6">
-                <input type="text" class="form-control" id="" name="user.phone" value="13444444444">
+                <input type="text" class="form-control" id="new-user-name" name="name" value="${requestScope.user.name}">
             </div>
         </div>
         <div class="form-group">
-            <label for="input_name" class="col-sm-1 control-label">电话</label>
+            <label for="new-user-phoneNum" class="col-sm-1 control-label">收货电话</label>
             <div class="col-sm-6">
-                <input type="text" class="form-control" id="" name="user.phone" value="13444444444">
+                <input type="text" class="form-control" id="new-user-phoneNum" name="userPhone" value="${requestScope.user.userPhone}">
             </div>
         </div>
         <div class="form-group">
-            <label for="input_name" class="col-sm-1 control-label">地址</label>
+            <label for="new-user-address" class="col-sm-1 control-label">收货地址</label>
             <div class="col-sm-6">
-                <input type="text" class="form-control" id="input_name" name="user.address" value="点点滴滴">
+                <input type="text" class="form-control" id="new-user-address" name="userAddress" value="${requestScope.user.userAddress}">
             </div>
         </div>
         <div class="form-group">
             <div class="col-sm-offset-1 col-sm-10">
-                <button type="submit" class="btn btn-success">提交修改</button>
+                <button id="npa-submit-button" type="button" class="btn btn-success">提交修改</button>
             </div>
         </div>
     </form>

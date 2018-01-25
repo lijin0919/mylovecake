@@ -3353,3 +3353,6 @@ h2 {
     height: 300px;
     display: block;
 }
+.error{
+    color: red;
+}

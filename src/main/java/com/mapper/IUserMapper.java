@@ -86,4 +86,20 @@ public interface IUserMapper {
             @Result(property = "username",column = "username")
     })
     String findUsernameByUserId(Integer id);
+
+
+    /**
+     * 用户信息全查
+     * @return
+     */
+    @Select("SELECT * FROM users;")
+    @Results({
+            @Result(id = true,property = "id",column = "id"),
+            @Result(property = "username",column = "username"),
+            @Result(property = "password",column = "password"),
+            @Result(property = "name",column = "name"),
+            @Result(property = "userPhone",column = "phone"),
+            @Result(property = "userAddress",column = "address")
+    })
+    List<Users> findUsersList();
 }

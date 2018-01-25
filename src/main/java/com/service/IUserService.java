@@ -17,5 +17,9 @@ public interface IUserService {
     Integer updateUserInfo(Users user);
     //根据用户id查询用户名
     String getUsernameByUserId(Integer id);
+    //修改用户名密码
+    Integer updatePassword(Users user);
+    //用户信息全查
+    List<Users> findUserList();
 
 }

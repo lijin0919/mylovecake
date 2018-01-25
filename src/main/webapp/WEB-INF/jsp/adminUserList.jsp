@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 
 <!DOCTYPE html>
@@ -22,7 +23,7 @@
 <jsp:include page="adminHeader.jsp"/>
 
 
-    <div class="text-right"><a class="btn btn-warning" href="toAdminAddUser">添加客户</a></div>
+    <div class="text-right"><a class="btn btn-warning" href="toAdminAddUser">＋ 添加客户</a></div>
 
     <br>
 
@@ -36,21 +37,20 @@
             <th width="10%">操作</th>
         </tr>
 
-
-        <tr>
-            <td><p>5</p></td>
-            <td><p>maojie111</p></td>
-            <td><p>13444444444</p></td>
-            <td><p>点点滴滴</p></td>
-            <td>
-                <a class="btn btn-info" href="toAdminUserReset">重置密码</a>
-                <a class="btn btn-primary" href="toAdminUserEdit">修改</a>
-                <a class="btn btn-danger" href="">删除</a>
-            </td>
-        </tr><%--这里是要查询后循环打印的--%>
-
-
-
+        <c:forEach items="${requestScope.userList}" var="user">
+            <tr>
+                <td><p>${user.id}</p></td>
+                <td><p>${user.username}</p></td>
+                <td><p>${user.userPhone}</p></td>
+                <td><p>${user.userAddress}</p></td>
+                <td>
+                    <a class="btn btn-info" href="toAdminUserReset?userId=${user.id}">重置密码</a>
+                    <a class="btn btn-primary" href="toAdminUserEdit?userId=${user.id}">修改</a>
+                    <a class="btn btn-danger" href="#">删除</a>
+                </td>
+            </tr>
+        </c:forEach>
+        <%--这里是要查询后循环打印的--%>
 
     </table>
 

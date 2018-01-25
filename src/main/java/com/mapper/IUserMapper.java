@@ -75,4 +75,15 @@ public interface IUserMapper {
      */
     @Update("UPDATE users set password=#{password} WHERE id=#{id}")
     Integer updatePassword(Users user);
+
+    /**
+     * 根据用户id查询用户名
+     * @param id
+     * @return
+     */
+    @Select("SELECT username FROM users WHERE id=#{id} ")
+    @Results({
+            @Result(property = "username",column = "username")
+    })
+    String findUsernameByUserId(Integer id);
 }

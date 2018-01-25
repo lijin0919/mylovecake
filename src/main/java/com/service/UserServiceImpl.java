@@ -77,6 +77,10 @@ public class UserServiceImpl implements IUserService {
         return result;
     }
 
+    public String getUsernameByUserId(Integer id) {
+        return iUserMapper.findUsernameByUserId(id);
+    }
+
     /**
      * 修改用户密码
      * @param user

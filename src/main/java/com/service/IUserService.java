@@ -15,5 +15,7 @@ public interface IUserService {
     Users findUserInfoByUserId(Integer userId);
     //修改用户信息:姓名、电话、地址
     Integer updateUserInfo(Users user);
+    //根据用户id查询用户名
+    String getUsernameByUserId(Integer id);
 
 }

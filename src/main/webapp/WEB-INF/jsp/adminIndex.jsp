@@ -35,7 +35,7 @@
             </div>
             <div>
                 <ul class="nav navbar-nav">
-                    <li ><a href="orderList.action">订单管理</a></li>
+                    <li ><a href="orderList">订单管理</a></li>
                     <li ><a href="userList.action">客户管理</a></li>
                     <li ><a href="goodList.action">商品管理</a></li>
                     <li ><a href="typeList.action">类目管理</a></li>

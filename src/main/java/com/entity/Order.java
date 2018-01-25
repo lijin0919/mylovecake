@@ -29,6 +29,7 @@ public class Order {
     private Timestamp systime;
     private  Integer userId;
     private List<Goods> goodsList;
+    private String userName;
 
     public List<Goods> getGoodsList() {
         return goodsList;
@@ -118,6 +119,14 @@ public class Order {
         this.userId = userId;
     }
 
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
     @Override
     public String toString() {
         return "Order{" +
@@ -132,6 +141,7 @@ public class Order {
                 ", systime=" + systime +
                 ", userId=" + userId +
                 ", goodsList=" + goodsList +
+                ", userName='" + userName + '\'' +
                 '}';
     }
 }

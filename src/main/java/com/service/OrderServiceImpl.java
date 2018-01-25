@@ -4,6 +4,7 @@ import com.entity.Goods;
 import com.entity.Order;
 import com.mapper.IItemsMapper;
 import com.mapper.IOrderMapper;
+import com.mapper.IUserMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,6 +18,8 @@ public class OrderServiceImpl implements IOrderService {
     private IOrderMapper iOrderMapper;
     @Autowired
     private IItemsMapper iItemsMapper;
+    @Autowired
+    private IUserMapper iUserMapper;
     @Autowired
     private GoodsImpl goodsImpl;
     /**
@@ -54,6 +57,7 @@ public class OrderServiceImpl implements IOrderService {
                     goodList.add(goodsImpl.getGoodByGoodIdAndOrderId(order.getId(),goodId));
                 }
                 order.setGoodsList(goodList);
+                order.setUserName(iUserMapper.findUsernameByUserId(order.getUserId()));
                 System.out.println(order);
             }
         } catch (Exception e) {

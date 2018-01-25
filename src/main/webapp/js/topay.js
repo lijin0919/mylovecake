@@ -12,7 +12,6 @@ $().ready(function () {
     //     // });
 
     $("#we-Chat-pic").click(function() {
-
         $("#qrcode1").fadeIn("slow");
         return false;
     });

@@ -16,6 +16,10 @@
     <link rel="stylesheet" href="css/bootstrap.css"/>
     <script type="text/javascript" src="js/jquery.min.js"></script>
     <script type="text/javascript" src="js/adminType.js"></script>
+    <script src="js/jquery.validate.js"></script>
+    <script src="js/additional-methods.js"></script>
+    <script src="js/jquery.validate.min.js"></script>
+    <script type="text/javascript" src="js/messages_zh.js"></script>
 </head>
 <body>
 <div class="container-fluid">
@@ -40,9 +44,9 @@
     <br>
 
     <div>
-        <form class="form-inline" method="post" action="#">
-            <input type="text" class="form-control" id="input_name" name="type.name" placeholder="输入类目名称" required="required" style="width: 500px">
-            <input type="button" class="btn btn-warning" value="添加类目" onclick="typeSave()"/>
+        <form class="form-inline" id="form-inline" method="post" action="#">
+            <input type="text" class="form-control" id="input_name1" name="typename" placeholder="输入类目名称" required="required" style="width: 500px">
+            <input type="button" class="btn btn-warning" value="添加类目" onclick="typesSave()"/>
         </form>
     </div>
 

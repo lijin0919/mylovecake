@@ -41,11 +41,11 @@ function getOrderList(status) {
             $("#ordrTable").html(msg);
             respons.forEach(function (value) {
                 $("#ordrTable").last().append("<tr><td><p>" + value.id + "</p></td>" +
-                    "            <td><p>" + value.total + "</p></td>");
+                    "            <td><p>" + value.total + "</p></td><td></td></tr>");
                 value.goodsList.forEach(function (value) {
-                    $("table tr").last().append(" <p>" + value.goodName + "(" + value.goodsNum + ")" + "x " + value.goodPrice + "</p>")
+                    $("table tr td").last().append(" <p>" + value.goodName + "(" + value.goodsNum + ")" + "x " + value.goodPrice + "</p>")
                 });
-                $("#ordrTable").last().append("</tr>");
+                // $("#ordrTable").last().append("</tr>");
                 $("table tr").last().append(
                     "            <td>" +
                     "                <p>"+value.name+"</p>" +
@@ -128,3 +128,31 @@ function getOrderList(status) {
         }
     });
 }
+
+$().ready(function () {
+    $("#form-inline").validate({
+        // 当标签获得焦点时暂时清除表单验证
+        focusCleanup:true,
+        //当标签失去焦点时进行表单验证
+        onfocusout: function (element) {
+            $(element).valid();
+        },
+        rules: {
+            //name为login_username的验证规则
+            typename: {
+                //是否必须填写
+                required: true
+
+            },
+
+            //不符合验证规则时的提示信息
+            messages: {
+                //name为login_username的标签中内容不符合验证规则时的提示信息
+                typename: {
+                    //未填写时的提示信息
+                    required: "请输入类型名！"
+                }
+            }
+        }
+    });
+});

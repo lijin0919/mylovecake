@@ -16,6 +16,11 @@
     <link rel="stylesheet" href="css/bootstrap.css"/>
     <script type="text/javascript" src="js/jquery.min.js"></script>
     <script type="text/javascript" src="js/adminType.js"></script>
+    <%--<script type="text/javascript" src="js/simpleCart.min.js"></script>--%>
+    <script type="text/javascript" src="js/jquery.validate.min.js"></script>
+    <script src="js/additional-methods.js"></script>
+    <script type="text/javascript" src="js/messages_zh.js"></script>
+
 </head>
 <body>
 <div class="container-fluid">
@@ -38,12 +43,12 @@
 
     <br><br>
 
-    <form class="form-horizontal" action="#" method="post">
+    <form class="form-horizontal" id="form-horizontal" action="#" method="post">
         <input type="hidden" name="type.id" value="6">
         <div class="form-group">
             <label for="input_name" class="col-sm-1 control-label">类目名称</label>
             <div class="col-sm-6">
-                <input type="text" class="form-control" id="input_name" name="type.name" value="${sessionScope.types.typeName}" required="required">
+                <input type="text" class="form-control" id="input_name" name="typename" value="${sessionScope.types.typeName}" required="required">
             </div>
         </div>
         <div class="form-group">

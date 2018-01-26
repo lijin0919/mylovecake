@@ -39,7 +39,6 @@ public class adminLoginController {
             session.setAttribute("admin", adminNew);
         }
         Gson gson = new Gson();
-        System.out.println("adminLoginAction"+flag);
         return gson.toJson(flag);
     }
 

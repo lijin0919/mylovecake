@@ -17,7 +17,6 @@ public class SearchController {
 
     @PostMapping("/search")
     public String findItemByWord(@RequestParam("name") String word, Model model){
-        System.out.println("搜索的关键字："+word);
         List<Goods> goodsList = goodsService.findGoodsByLikeName(word);
         model.addAttribute("goodsList",goodsList);
         model.addAttribute("isSearch",true);

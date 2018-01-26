@@ -58,7 +58,6 @@ public class OrderServiceImpl implements IOrderService {
                 }
                 order.setGoodsList(goodList);
                 order.setUserName(iUserMapper.findUsernameByUserId(order.getUserId()));
-                System.out.println(order);
             }
         } catch (Exception e) {
             e.printStackTrace();

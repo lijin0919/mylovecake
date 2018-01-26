@@ -30,14 +30,12 @@ public class UserController {
     @PostMapping("/checkUsername")
     @ResponseBody
     public String checkUsername(@RequestParam("username") String username){
-        System.out.println(username);
         //调用方法查询
         boolean result = userService.findUserInfoByUsername(username);
 
         Gson gson = new Gson();
 
 
-        System.out.println(result);
         return gson.toJson(result);
     }
     /**

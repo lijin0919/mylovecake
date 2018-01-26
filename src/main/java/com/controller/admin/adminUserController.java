@@ -65,7 +65,6 @@ public class adminUserController {
     public String toAdminUserReset(@RequestParam("userId") Integer userId,Model userModel){
         //先获取用户对象
         Users user = userService.findUserInfoByUserId(userId);
-        System.out.println(user.getId());
         //将用户信息存入Model中
         userModel.addAttribute("user",user);
         return "adminUserReset";
@@ -83,8 +82,6 @@ public class adminUserController {
     public String checkPassword(@RequestParam("oldPassword") String oldPassword,
                                  @RequestParam("userId") Integer userId){
 
-        System.out.println(userId);
-        System.out.println(oldPassword);
         //获取数据库中的Users对象
         Users sqlUser = userService.findUserInfoByUserId(userId);
         //获取数据库密码
@@ -97,7 +94,6 @@ public class adminUserController {
         } else {
             flag = false;
         }
-        System.out.println(flag);
         return new Gson().toJson(flag);
     }
 
@@ -138,7 +134,6 @@ public class adminUserController {
         user.setUserPhone(newUserPhone);
         user.setUserAddress(newUserAddress);
 
-        System.out.println(user);
         //获得影响行数
         Integer result = userService.updateUserInfo(user);
         //判断结果
@@ -156,7 +151,6 @@ public class adminUserController {
     @PostMapping("/deleteUser")
     public String deleteUser(@RequestParam("userId") Integer userId){
         Integer result = userService.deleteUser(userId);
-        System.out.println(result);
         boolean flag = false;
         if (result>0){
             flag = true;

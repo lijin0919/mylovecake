@@ -37,7 +37,6 @@ public class GoodsImpl implements IGoods {
 
     public List<Goods> findGoodsByLikeName(String name) {
         List<Goods> goodsList = goodMapper.findGoodListByLikeName(name);
-        System.out.println("查询到的商品："+goodsList);
         return goodsList;
     }
 

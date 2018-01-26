@@ -53,7 +53,6 @@ public class adminOrderList {
 
         session.setAttribute("orderList",returnList);
         String s =new Gson().toJson(returnList);
-        System.out.println("guoguoguogugougoguog"+s);
         return new Gson().toJson(returnList);
     }
 }

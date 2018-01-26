@@ -19,7 +19,6 @@ public class UserServiceImpl implements IUserService {
     public boolean findUserInfoByUsername(String username) {
         try{
             List<Users> usersList = iUserMapper.findUserInfoByUsername(username);
-            System.out.println(usersList.size());
             if (usersList.size()>0){
                 //如果为空则证明用户存在
                 return true;

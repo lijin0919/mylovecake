@@ -20,6 +20,14 @@
     <script src="js/additional-methods.js"></script>
     <script src="js/jquery.validate.min.js"></script>
     <script type="text/javascript" src="js/messages_zh.js"></script>
+    <style>
+        .error{
+            color: red;
+        }
+        .form-group{
+            width: 60%;
+        }
+    </style>
 </head>
 <body>
 <div class="container-fluid">
@@ -44,9 +52,13 @@
     <br>
 
     <div>
-        <form class="form-inline" id="form-inline" method="post" action="#">
-            <input type="text" class="form-control" id="input_name1" name="typename" placeholder="输入类目名称" required="required" style="width: 500px">
-            <input type="button" class="btn btn-warning" value="添加类目" onclick="typesSave()"/>
+        <form class="form-inline admin-good-types" id="form-inline" method="post" action="#">
+            <div class="form-group">
+                <input type="text" class="form-control" id="input_name1" name="typename" placeholder="输入类目名称" width="500px" required />
+            </div>
+            <div class="form-group">
+                <input type="button" class="btn btn-warning" value="添加类目" onclick="typesSave()"/>
+            </div>
         </form>
     </div>
 

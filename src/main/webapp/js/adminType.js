@@ -57,7 +57,7 @@ function typeDelete(typeId) {
 }
 
 $().ready(function () {
-    $("#form-horizontal").validate({
+    $(".admin-good-types").validate({
         // 当标签获得焦点时暂时清除表单验证
         focusCleanup:true,
         //当标签失去焦点时进行表单验证
@@ -79,6 +79,7 @@ $().ready(function () {
                     //未填写时的提示信息
                     required: "请输入新类型名！"
                 }
+
             }
         }
     });

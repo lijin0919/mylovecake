@@ -149,6 +149,7 @@ public class adminUserController {
 
 
     @PostMapping("/deleteUser")
+    @ResponseBody
     public String deleteUser(@RequestParam("userId") Integer userId){
         Integer result = userService.deleteUser(userId);
         boolean flag = false;

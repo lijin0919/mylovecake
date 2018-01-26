@@ -9,28 +9,28 @@
       <Visible>1</Visible>
       <Collation>utf8_general_ci</Collation>
     </schema>
-    <schema id="3" parent="1" name="information_schema">
+    <schema id="3" parent="1" name="exam">
       <Collation>utf8_general_ci</Collation>
     </schema>
-    <schema id="4" parent="1" name="mysql">
+    <schema id="4" parent="1" name="information_schema">
       <Collation>utf8_general_ci</Collation>
     </schema>
-    <schema id="5" parent="1" name="performance_schema">
+    <schema id="5" parent="1" name="mysql">
       <Collation>utf8_general_ci</Collation>
     </schema>
-    <schema id="6" parent="1" name="school">
+    <schema id="6" parent="1" name="performance_schema">
       <Collation>utf8_general_ci</Collation>
     </schema>
-    <schema id="7" parent="1" name="shop">
+    <schema id="7" parent="1" name="pig40">
       <Collation>utf8_general_ci</Collation>
     </schema>
-    <schema id="8" parent="1" name="sys">
+    <schema id="8" parent="1" name="school">
       <Collation>utf8_general_ci</Collation>
     </schema>
-    <schema id="9" parent="1" name="test">
+    <schema id="9" parent="1" name="sys">
       <Collation>utf8_general_ci</Collation>
     </schema>
-    <schema id="10" parent="1" name="userinformation">
+    <schema id="10" parent="1" name="test">
       <Collation>utf8_general_ci</Collation>
     </schema>
     <collation id="11" parent="1" name="armscii8_bin">
@@ -1168,49 +1168,55 @@
       <DataType>varchar(50)|0</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="277" parent="238" name="PRIMARY">
+    <column id="277" parent="238" name="status">
+      <Position>3</Position>
+      <DataType>tinyint(4)|0</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <key id="278" parent="238" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="278" parent="239" name="id">
+    <column id="279" parent="239" name="id">
       <Position>1</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="279" parent="239" name="username">
+    <column id="280" parent="239" name="username">
       <Position>2</Position>
       <Comment>用户名</Comment>
       <DataType>varchar(255)|0</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="280" parent="239" name="password">
+    <column id="281" parent="239" name="password">
       <Position>3</Position>
       <Comment>密码</Comment>
       <DataType>varchar(255)|0</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="281" parent="239" name="name">
+    <column id="282" parent="239" name="name">
       <Position>4</Position>
       <Comment>收货人</Comment>
       <DataType>varchar(255)|0</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="282" parent="239" name="phone">
+    <column id="283" parent="239" name="phone">
       <Position>5</Position>
       <Comment>收货电话</Comment>
       <DataType>varchar(255)|0</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="283" parent="239" name="address">
+    <column id="284" parent="239" name="address">
       <Position>6</Position>
       <Comment>收货地址</Comment>
       <DataType>varchar(255)|0</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="284" parent="239" name="PRIMARY">
+    <key id="285" parent="239" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>

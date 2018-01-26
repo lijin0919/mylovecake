@@ -1,11 +1,11 @@
 //点击注册提交后的触发事件
 
+
 $.validator.setDefaults({
     submitHandler: function(form) {
         alert("提交事件!");
     }
 });
-
 
 
 // 就绪函数

@@ -64,8 +64,6 @@ public class GoodsImpl implements IGoods {
     }
 
     public List<Goods> getGoodListByCurrentPagAndGoodsNum(Integer currentPage, Integer goodsNum) {
-        System.out.println(currentPage);
-        System.out.println(goodsNum);
         List<Goods> goodsList= goodMapper.findGoodsListForPage(currentPage,goodsNum);
         for (Goods good:goodsList) {
             good.setGoodType(iTypeMapper.findTypeById(good.getTypeId()));

@@ -15,6 +15,8 @@
     <title>商品列表</title>
     <meta charset="utf-8"/>
     <link rel="stylesheet" href="css/bootstrap.css"/>
+    <script src="js/jquery.min.js" type="text/javascript"></script>
+    <script type="text/javascript" src="js/adminGoodsList.js"></script>
 </head>
 <body>
 <div class="container-fluid">
@@ -41,7 +43,7 @@
 
     <br>
 
-    <table class="table table-bordered table-hover">
+    <table class="table table-bordered table-hover" id="goodsTable">
 
         <tr>
             <th width="5%">商品Id</th>
@@ -77,13 +79,13 @@
     </table>
 
     <br><div style='text-align:center;'>
-    <a class='btn btn-info' disabled >首页</a>
-    <a class='btn btn-info' disabled >上一页</a>
-    <h2 style='display:inline;'>[1/2]</h2>
-    <h2 style='display:inline;'>[14]</h2>
-    <a class='btn btn-info' href='http://localhost:8080/ssh_cake/admin/goodList.action?page=2'>下一页</a>
-    <a class='btn btn-info' href='http://localhost:8080/ssh_cake/admin/goodList.action?page=2'>尾页</a>
-    <input type='text' class='form-control' style='display:inline;width:60px;' value=''/><a class='btn btn-info' href='javascript:void(0);' onclick='location.href="http://localhost:8080/ssh_cake/admin/goodList.action?page="+(this.previousSibling.value)+""'>GO</a>
+    <input type="hidden" id="totalNum" value="${sessionScope.goodsPage.totalPage}"/>
+    <a class='btn btn-info'  id="first"  href="#" onclick="firstAndLastPage(${1})">首页</a>
+    <a class='btn btn-info'  id="before" href="#"  onclick="beforePage(${sessionScope.goodsPage.currentPage})">上一页</a>
+    <h2 style='display:inline;' id="nums">[${sessionScope.goodsPage.currentPage}/${sessionScope.goodsPage.totalPage}]</h2>
+    <a class='btn btn-info' href='#' id="next" onclick="nextPage(${sessionScope.goodsPage.currentPage})">下一页</a>
+    <a class='btn btn-info' href='#' id="last" onclick="firstAndLastPage(${sessionScope.goodsPage.totalPage})">尾页</a>
+    <input type='text' id="pageNum" class='form-control' style='display:inline;width:60px;' value=''/><a class='btn btn-info' href='#' onclick='gotoPage()'>GO</a>
 </div>
     <br>
 </div>

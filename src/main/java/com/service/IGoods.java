@@ -15,4 +15,9 @@ public interface IGoods {
     Goods getGoodByGoodId(Integer Id);
 
     Goods getGoodByGoodIdAndOrderId(Integer orderId,Integer goodId);
+
+    Integer getGoodsTotalNum();
+
+    //根据当前页和每页商品数量查询商品集合
+    List<Goods> getGoodListByCurrentPagAndGoodsNum(Integer currentPage,Integer goodsNum );
 }

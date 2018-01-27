@@ -3,6 +3,7 @@ package com.mapper;
 import com.entity.Admins;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 
 @Mapper
 public interface IAdminMapper {
@@ -10,4 +11,7 @@ public interface IAdminMapper {
     @Select("SELECT * FROM admins WHERE username=#{userName} AND password=#{password}")
     Admins findAdminByUsernameAndPassword(Admins admins);
 
-}
+
+    @Update("UPDATE admins set password=#{password} WHERE id=#{id};")
+    Integer updateAdminPassword(Admins admin);
+}//interface

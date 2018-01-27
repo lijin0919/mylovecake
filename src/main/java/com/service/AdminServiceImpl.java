@@ -17,4 +17,15 @@ public class AdminServiceImpl implements IAdminService {
         Admins admins1=iAdminMapper.findAdminByUsernameAndPassword(admins);
         return admins1;
     }
+
+
+    /**
+     * 修改后台管理员密码
+     * @param admin
+     * @return
+     */
+    public Integer updateAdminPassword(Admins admin) {
+        Integer result = iAdminMapper.updateAdminPassword(admin);
+        return result;
+    }
 }

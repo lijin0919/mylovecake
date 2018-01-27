@@ -264,10 +264,6 @@
                 }
             });
 
-
-
-
-
             $("#p-submit-button").click(function () {
                 //获取旧密码和新密码（非空操作）
                 var newPassword = $("#new-password").val();
@@ -313,7 +309,6 @@
                 }
 
             });
-
 
             //光标移入警告消失
             $("#old-password,#new-password").focus(function () {

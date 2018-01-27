@@ -17,7 +17,12 @@ public class Goods {
     private Integer goodsNum;
     //这个属性是要去service层去通过方法查询后，再set值
     private Types goodType;//商品类型
-
+    // 不持久化
+    private boolean topScroll; // 条幅推荐
+    // 不持久化
+    private boolean topLarge; // 热销推荐
+    // 不持久化
+    private boolean topSmall; // 新品推荐
 
     public Integer getGoodsNum() {
         return goodsNum;
@@ -32,21 +37,7 @@ public class Goods {
      */
     public Goods() {
     }
-    /**
-     * 有参构造
-     */
-    public Goods(Integer goodId, String goodName, String goodCover, String goodImage1, String goodImage2, Integer goodPrice, String goodIntro, Integer goodStock, Integer typeId, Types goodType) {
-        this.goodId = goodId;
-        this.goodName = goodName;
-        this.goodCover = goodCover;
-        this.goodImage1 = goodImage1;
-        this.goodImage2 = goodImage2;
-        this.goodPrice = goodPrice;
-        this.goodIntro = goodIntro;
-        this.goodStock = goodStock;
-        this.typeId = typeId;
-        this.goodType = goodType;
-    }
+
 
     /**
      * 重写toString方法
@@ -65,6 +56,9 @@ public class Goods {
                 ", typeId=" + typeId +
                 ", goodsNum=" + goodsNum +
                 ", goodType=" + goodType +
+                ", topScroll=" + topScroll +
+                ", topLarge=" + topLarge +
+                ", topSmall=" + topSmall +
                 '}';
     }
 
@@ -149,5 +143,29 @@ public class Goods {
 
     public void setGoodType(Types goodType) {
         this.goodType = goodType;
+    }
+
+    public boolean isTopScroll() {
+        return topScroll;
+    }
+
+    public void setTopScroll(boolean topScroll) {
+        this.topScroll = topScroll;
+    }
+
+    public boolean isTopLarge() {
+        return topLarge;
+    }
+
+    public void setTopLarge(boolean topLarge) {
+        this.topLarge = topLarge;
+    }
+
+    public boolean isTopSmall() {
+        return topSmall;
+    }
+
+    public void setTopSmall(boolean topSmall) {
+        this.topSmall = topSmall;
     }
 }

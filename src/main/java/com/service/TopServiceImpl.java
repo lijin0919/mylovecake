@@ -33,6 +33,7 @@ public class TopServiceImpl implements ITopService{
             int typeId = top.getTypeId();
             top.setTypes(typeMapper.findTypeById(typeId));
             top.setGoods(goodMapper.findGoodById(goodId));
+
         }
 
 

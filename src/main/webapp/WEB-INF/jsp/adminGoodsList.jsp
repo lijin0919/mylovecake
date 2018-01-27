@@ -31,7 +31,7 @@
     <br>
 
     <ul role="tablist" class="nav nav-tabs">
-        <li class="active" role="presentation"><a href="goodList.action">全部商品</a></li>
+        <li class="active" role="presentation"><a href="GoodsList">全部商品</a></li>
         <li  role="presentation"><a href="#" onclick="toTopList(1)">条幅推荐</a></li>
         <li  role="presentation"><a href="#" onclick="toTopList(2)">热销推荐</a></li>
         <li  role="presentation"><a href="#" onclick="toTopList(3)">新品推荐</a></li>
@@ -55,7 +55,7 @@
             <th width="25%">操作</th>
         </tr>
         <c:forEach var="good" items="${sessionScope.goodsPage.goodsList}">
-        <tr id="good"+${good.goodId}>
+        <tr id="good${good.goodId}">
             <td><p>${good.goodId}</p></td>
             <td><p><a href="../index/detail.action?goodid=14" target="_blank"><img src="..//${good.goodCover}" width="100px" height="100px"></a></p></td>
             <td><p><a href="../index/detail.action?goodid=14" target="_blank">${good.goodName}</a></p></td>
@@ -64,12 +64,12 @@
             <td><p>${good.goodType.typeName}</p></td>
             <td>
                 <p>
-
-                    <a class="btn btn-primary" href="#" onclick="topSave(${good.goodId},1)">加入条幅</a>
-
-                    <a class="btn btn-primary" href="#" onclick="topSave(${good.goodId},2)">加入热销</a>
-
-                    <a class="btn btn-primary" href="#" onclick="topSave(${good.goodId},3)")>加入新品</a>
+                    <c:if test="${good.topScroll}"><a class="btn btn-info" href="#" onclick="topDelete(${good.goodId},1)">移出条幅</a></c:if>
+                    <c:if test="${!good.topScroll}"><a class="btn btn-primary" href="#" onclick="topSave(${good.goodId},1)">加入条幅</a></c:if>
+                    <c:if test="${good.topLarge}"><a class="btn btn-info" href="#" onclick="topDelete(${good.goodId},2)">移出热销</a></c:if>
+                    <c:if test="${!good.topLarge}"><a class="btn btn-primary" href="#" onclick="topSave(${good.goodId},2)">加入热销</a></c:if>
+                    <c:if test="${good.topSmall}"><a class="btn btn-info" href="#" onclick="topDelete(${good.goodId},2)">移出新品</a></c:if>
+                    <c:if test="${!good.topSmall}"><a class="btn btn-primary" href="#" onclick="topSave(${good.goodId},2)">加入新品</a></c:if>
                 </p>
                 <a class="btn btn-success" href="goodEdit.action?id=14">修改</a>
                 <a class="btn btn-danger" href="#" onclick="adminGoodDelete(${good.goodId})">删除</a>

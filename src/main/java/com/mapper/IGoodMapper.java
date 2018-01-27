@@ -116,4 +116,10 @@ public interface IGoodMapper {
             @Result(property = "typeId",column = "type_id")
     })
     List<Goods> findGoodsListForPage(@Param("currentPage") Integer currentPage,@Param("goodsNum")Integer goodsNum);
+
+    @Delete("DELETE FROM goods WHERE id=#{goodId}")
+    @Results({
+            @Result(id = true,property = "goodId",column = "id"),
+    })
+    Integer deleteGoodByGoodId(@Param("goodId") Integer goodId);
 }

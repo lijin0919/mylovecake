@@ -1,10 +1,7 @@
 package com.mapper;
 
 import com.entity.Top;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Result;
-import org.apache.ibatis.annotations.Results;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.*;
 
 import java.util.List;
 
@@ -52,4 +49,32 @@ public interface ITopMapper {
             @Result(property = "typeId",column = "type")
     })
     List<Top> findTopListByTypeId(Integer typeId);
+
+    /**
+     * 插入top信息
+     * @param goodId
+     * @param typeId
+     * @return
+     */
+    @Insert("INSERT INTO tops(good_id,type) VALUES(#{goodId},#{typeId});")
+    @Results({
+            @Result(id = true,property = "topId",column = "id"),
+            @Result(property = "goodId",column = "good_id"),
+            @Result(property = "typeId",column = "type")
+    })
+    Integer insertTop(@Param("goodId") Integer goodId,@Param("typeId")Integer typeId);
+
+    /**
+     * 根据商品id和类型id删除top信息
+     * @param goodId
+     * @param typeId
+     * @return
+     */
+    @Delete("DELETE FROM tops WHERE 1=1 AND good_id=#{goodId} AND type=#{typeId}")
+    @Results({
+            @Result(id = true,property = "topId",column = "id"),
+            @Result(property = "goodId",column = "good_id"),
+            @Result(property = "typeId",column = "type")
+    })
+    Integer deleteTopByGoodIdAndType(@Param("goodId") Integer goodId,@Param("typeId")Integer typeId );
 }

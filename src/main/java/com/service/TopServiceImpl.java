@@ -52,6 +52,13 @@ public class TopServiceImpl implements ITopService{
         return topList;
     }
 
+    public Integer insertTop(Integer goodId, Integer typeId) {
+            Integer num=topMapper.insertTop(goodId,typeId);
+        return num;
+    }
+
+
+
     public Top getTopListById(Integer topId) {
         Top top = topMapper.findTopListById(topId);
         return top;
@@ -68,5 +75,10 @@ public class TopServiceImpl implements ITopService{
             top.setGoods(goodMapper.findGoodById(goodId));
         }
         return topList;
+    }
+
+    public Integer deleteTopByGoodIdAndType(Integer goodId, Integer typeId) {
+
+        return topMapper.deleteTopByGoodIdAndType(goodId,typeId);
     }
 }

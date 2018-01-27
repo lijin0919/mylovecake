@@ -71,5 +71,10 @@ public class GoodsImpl implements IGoods {
         return goodsList;
     }
 
+    public Integer deleteGoodById(Integer goodId) {
+
+        return goodMapper.deleteGoodByGoodId(goodId);
+    }
+
 
 }

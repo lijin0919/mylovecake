@@ -20,4 +20,6 @@ public interface IGoods {
 
     //根据当前页和每页商品数量查询商品集合
     List<Goods> getGoodListByCurrentPagAndGoodsNum(Integer currentPage,Integer goodsNum );
+    //根据商品Id删除商品信息
+    Integer deleteGoodById(Integer goodId);
 }

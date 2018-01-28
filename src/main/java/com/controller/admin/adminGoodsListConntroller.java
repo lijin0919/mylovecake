@@ -220,12 +220,12 @@ public class adminGoodsListConntroller {
             FileUtils.copyInputStreamToFile(cover.getInputStream(), new File(path,
                     System.currentTimeMillis() + cover.getOriginalFilename()));
             String path1 = Util.goodsPicturePath + System.currentTimeMillis() + cover.getOriginalFilename();
-            FileUtils.copyInputStreamToFile(cover.getInputStream(), new File(path,
+            FileUtils.copyInputStreamToFile(image1.getInputStream(), new File(path,
                     System.currentTimeMillis() + image1.getOriginalFilename()));
-            String path2 = Util.goodsPicturePath + System.currentTimeMillis() + cover.getOriginalFilename();
-            FileUtils.copyInputStreamToFile(cover.getInputStream(), new File(path,
+            String path2 = Util.goodsPicturePath + System.currentTimeMillis() + image1.getOriginalFilename();
+            FileUtils.copyInputStreamToFile(image2.getInputStream(), new File(path,
                     System.currentTimeMillis() + image2.getOriginalFilename()));
-            String path3 = Util.goodsPicturePath + System.currentTimeMillis() + cover.getOriginalFilename();
+            String path3 = Util.goodsPicturePath + System.currentTimeMillis() + image2.getOriginalFilename();
             //  将商品信息插入数据库
             Goods goods=new Goods();
             goods.setGoodCover(path1);
@@ -294,12 +294,12 @@ public class adminGoodsListConntroller {
             FileUtils.copyInputStreamToFile(cover.getInputStream(), new File(path,
                     System.currentTimeMillis() + cover.getOriginalFilename()));
             String path1 = Util.goodsPicturePath + System.currentTimeMillis() + cover.getOriginalFilename();
-            FileUtils.copyInputStreamToFile(cover.getInputStream(), new File(path,
+            FileUtils.copyInputStreamToFile(image1.getInputStream(), new File(path,
                     System.currentTimeMillis() + image1.getOriginalFilename()));
-            String path2 = Util.goodsPicturePath + System.currentTimeMillis() + cover.getOriginalFilename();
-            FileUtils.copyInputStreamToFile(cover.getInputStream(), new File(path,
+            String path2 = Util.goodsPicturePath + System.currentTimeMillis() + image1.getOriginalFilename();
+            FileUtils.copyInputStreamToFile(image2.getInputStream(), new File(path,
                     System.currentTimeMillis() + image2.getOriginalFilename()));
-            String path3 = Util.goodsPicturePath + System.currentTimeMillis() + cover.getOriginalFilename();
+            String path3 = Util.goodsPicturePath + System.currentTimeMillis() + image2.getOriginalFilename();
             //  将商品信息插入数据库
             Goods goods=new Goods();
             goods.setGoodId(goodid);

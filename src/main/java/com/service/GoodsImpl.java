@@ -76,5 +76,15 @@ public class GoodsImpl implements IGoods {
         return goodMapper.deleteGoodByGoodId(goodId);
     }
 
+    public Integer insertGood(Goods goods) {
+
+
+        return goodMapper.insertGood(goods);
+    }
+
+    public Integer updateGood(Goods goods) {
+        return goodMapper.updateGood(goods);
+    }
+
 
 }

@@ -22,4 +22,8 @@ public interface IGoods {
     List<Goods> getGoodListByCurrentPagAndGoodsNum(Integer currentPage,Integer goodsNum );
     //根据商品Id删除商品信息
     Integer deleteGoodById(Integer goodId);
+    //插入一条新商品
+    Integer insertGood(Goods goods);
+    //修改，更新商品信息
+    Integer updateGood(Goods goods);
 }

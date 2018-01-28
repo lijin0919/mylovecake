@@ -1,3 +1,7 @@
+/**
+ * 下一页按钮
+ * @param Page
+ */
 function nextPage(Page) {
     var currentPage = Page + 1;
     $.ajax({
@@ -29,25 +33,25 @@ function nextPage(Page) {
                     "            <td>" +
                     "                <p></p></td></tr>");
                 if (value.topScroll) {
-                    $("table tr td p").last().append("<a class='btn btn-info' href='#'  onclick='topDelete(" + value.goodId + "," + 1 + ")'>移出条幅</a>")
+                    $("table tr td p").last().append("<a class='btn btn-info' href='#'  onclick='topDelete(" + value.goodId + "," + 1 + "," + 0+ ")'>移出条幅</a>")
                 }
                 if (!value.topScroll) {
-                    $("table tr td p").last().append("<a class='btn btn-primary' href='#'  onclick='topSave(" + value.goodId + "," + 1 + ")'>加入条幅</a>")
+                    $("table tr td p").last().append("<a class='btn btn-primary' href='#'  onclick='topSave(" + value.goodId + "," + 1 + "," + 0+ ")'>加入条幅</a>")
                 }
                 if (value.topLarge) {
-                    $("table tr td p").last().append("<a class='btn btn-info' href='#' onclick='topDelete(" + value.goodId + "," + 2 + ")'>移出热销</a>")
+                    $("table tr td p").last().append("<a class='btn btn-info' href='#' onclick='topDelete(" + value.goodId + "," + 2 + "," + 0+ ")'>移出热销</a>")
                 }
                 if (!value.topLarge) {
-                    $("table tr td p").last().append("<a class='btn btn-primary' href='#' onclick='topSave(" + value.goodId + "," + 2 + ")'>加入热销</a>")
+                    $("table tr td p").last().append("<a class='btn btn-primary' href='#' onclick='topSave(" + value.goodId + "," + 2 + "," + 0+ ")'>加入热销</a>")
                 }
                 if (value.topSmall) {
-                    $("table tr td p").last().append("<a class='btn btn-info' href='#' onclick='topDelete(" + value.goodId + "," + 3 + ")'>移出新品</a>")
+                    $("table tr td p").last().append("<a class='btn btn-info' href='#' onclick='topDelete(" + value.goodId + "," + 3 + "," + 0+ ")'>移出新品</a>")
                 }
                 if (!value.topSmall) {
-                    $("table tr td p").last().append("<a class='btn btn-primary' href='#' onclick='topSave(" + value.goodId + "," + 3 + ")'>加入新品</a>")
+                    $("table tr td p").last().append("<a class='btn btn-primary' href='#' onclick='topSave(" + value.goodId + "," + 3 + "," + 0+ ")'>加入新品</a>")
                 }
                 $("table tr td ").last().append(
-                    "                       <a class='btn btn-success' href='goodEdit.action?id=14'>修改</a>" +
+                    "                       <a class='btn btn-success' href='goodEdit?goodId="+value.goodId+"'>修改</a>" +
                     "                        <a class='btn btn-danger'href='#' onclick='adminGoodDelete("+value.goodId+")'>删除</a>")
 
             });
@@ -64,6 +68,11 @@ function nextPage(Page) {
     });
 }
 
+/**
+ * 上一页按钮
+
+ * @param Page
+ */
 function beforePage(Page) {
     var currentPage = Page - 1;
     $.ajax({
@@ -95,25 +104,25 @@ function beforePage(Page) {
                     "            <td>" +
                     "                <p></p></td></tr>");
                 if (value.topScroll) {
-                    $("table tr td p").last().append("<a class='btn btn-info' href='#'  onclick='topDelete(" + value.goodId + "," + 1 + ")'>移出条幅</a>")
+                    $("table tr td p").last().append("<a class='btn btn-info' href='#'  onclick='topDelete(" + value.goodId + "," + 1 + "," + 0+ ")'>移出条幅</a>")
                 }
                 if (!value.topScroll) {
-                    $("table tr td p").last().append("<a class='btn btn-primary' href='#'  onclick='topSave(" + value.goodId + "," + 1 + ")'>加入条幅</a>")
+                    $("table tr td p").last().append("<a class='btn btn-primary' href='#'  onclick='topSave(" + value.goodId + "," + 1 + "," + 0+ ")'>加入条幅</a>")
                 }
                 if (value.topLarge) {
-                    $("table tr td p").last().append("<a class='btn btn-info' href='#' onclick='topDelete(" + value.goodId + "," + 2 + ")'>移出热销</a>")
+                    $("table tr td p").last().append("<a class='btn btn-info' href='#' onclick='topDelete(" + value.goodId + "," + 2 + "," + 0+ ")'>移出热销</a>")
                 }
                 if (!value.topLarge) {
-                    $("table tr td p").last().append("<a class='btn btn-primary' href='#' onclick='topSave(" + value.goodId + "," + 2 + ")'>加入热销</a>")
+                    $("table tr td p").last().append("<a class='btn btn-primary' href='#' onclick='topSave(" + value.goodId + "," + 2 + "," + 0+ ")'>加入热销</a>")
                 }
                 if (value.topSmall) {
-                    $("table tr td p").last().append("<a class='btn btn-info' href='#' onclick='topDelete(" + value.goodId + "," + 3 + ")'>移出新品</a>")
+                    $("table tr td p").last().append("<a class='btn btn-info' href='#' onclick='topDelete(" + value.goodId + "," + 3 + "," + 0+ ")'>移出新品</a>")
                 }
                 if (!value.topSmall) {
-                    $("table tr td p").last().append("<a class='btn btn-primary' href='#' onclick='topSave(" + value.goodId + "," + 3 + ")'>加入新品</a>")
+                    $("table tr td p").last().append("<a class='btn btn-primary' href='#' onclick='topSave(" + value.goodId + "," + 3 + "," + 0+ ")'>加入新品</a>")
                 }
                 $("table tr td ").last().append(
-                    "                       <a class='btn btn-success' href='goodEdit.action?id=14'>修改</a>" +
+                    "                       <a class='btn btn-success'href='goodEdit?goodId="+value.goodId+"'>修改</a>" +
                     "                        <a class='btn btn-danger' href='#' onclick='adminGoodDelete("+value.goodId+")'>删除</a>")
 
             });
@@ -130,6 +139,10 @@ function beforePage(Page) {
     });
 }
 
+/**
+ * 首页和尾页按钮
+ * @param Page
+ */
 function firstAndLastPage(Page) {
     $.ajax({
         url: "PageGoodsList",//url
@@ -160,25 +173,25 @@ function firstAndLastPage(Page) {
                     "            <td>" +
                     "                <p></p></td></tr>");
                 if (value.topScroll) {
-                    $("table tr td p").last().append("<a class='btn btn-info' href='#'  onclick='topDelete(" + value.goodId + "," + 1 + ")'>移出条幅</a>")
+                    $("table tr td p").last().append("<a class='btn btn-info' href='#'  onclick='topDelete(" + value.goodId + "," + 1 + "," + 0+ ")'>移出条幅</a>")
                 }
                 if (!value.topScroll) {
-                    $("table tr td p").last().append("<a class='btn btn-primary' href='#'  onclick='topSave(" + value.goodId + "," + 1 + ")'>加入条幅</a>")
+                    $("table tr td p").last().append("<a class='btn btn-primary' href='#'  onclick='topSave(" + value.goodId + "," + 1 + "," + 0+ ")'>加入条幅</a>")
                 }
                 if (value.topLarge) {
-                    $("table tr td p").last().append("<a class='btn btn-info' href='#' onclick='topDelete(" + value.goodId + "," + 2 + ")'>移出热销</a>")
+                    $("table tr td p").last().append("<a class='btn btn-info' href='#' onclick='topDelete(" + value.goodId + "," + 2 + "," + 0+ ")'>移出热销</a>")
                 }
                 if (!value.topLarge) {
-                    $("table tr td p").last().append("<a class='btn btn-primary' href='#' onclick='topSave(" + value.goodId + "," + 2 + ")'>加入热销</a>")
+                    $("table tr td p").last().append("<a class='btn btn-primary' href='#' onclick='topSave(" + value.goodId + "," + 2 + "," + 0+ ")'>加入热销</a>")
                 }
                 if (value.topSmall) {
-                    $("table tr td p").last().append("<a class='btn btn-info' href='#' onclick='topDelete(" + value.goodId + "," + 3 + ")'>移出新品</a>")
+                    $("table tr td p").last().append("<a class='btn btn-info' href='#' onclick='topDelete(" + value.goodId + "," + 3 + "," + 0+ ")'>移出新品</a>")
                 }
                 if (!value.topSmall) {
-                    $("table tr td p").last().append("<a class='btn btn-primary' href='#' onclick='topSave(" + value.goodId + "," + 3 + ")'>加入新品</a>")
+                    $("table tr td p").last().append("<a class='btn btn-primary' href='#' onclick='topSave(" + value.goodId + "," + 3 + "," + 0+ ")'>加入新品</a>")
                 }
                 $("table tr td ").last().append(
-                    "                       <a class='btn btn-success' href='goodEdit.action?id=14'>修改</a>" +
+                    "                       <a class='btn btn-success'href='goodEdit?goodId="+value.goodId+"'>修改</a>" +
                     "                        <a class='btn btn-danger' href='#' onclick='adminGoodDelete("+value.goodId+")'>删除</a>")
 
             });
@@ -195,6 +208,9 @@ function firstAndLastPage(Page) {
     });
 }
 
+/**
+ * go页面跳转按钮
+ */
 function gotoPage() {
     var currentPage = $("#pageNum").val();
     var total = $("#totalNum").val();
@@ -228,25 +244,25 @@ function gotoPage() {
                         "            <td>" +
                         "                <p></p></td></tr>");
                     if (value.topScroll) {
-                        $("table tr td p").last().append("<a class='btn btn-info' href='#'  onclick='topDelete(" + value.goodId + "," + 1 + ")'>移出条幅</a>")
+                        $("table tr td p").last().append("<a class='btn btn-info' href='#'  onclick='topDelete(" + value.goodId + "," + 1 + "," + 0+ ")'>移出条幅</a>")
                     }
                     if (!value.topScroll) {
-                        $("table tr td p").last().append("<a class='btn btn-primary' href='#'  onclick='topSave(" + value.goodId + "," + 1 + ")'>加入条幅</a>")
+                        $("table tr td p").last().append("<a class='btn btn-primary' href='#'  onclick='topSave(" + value.goodId + "," + 1 + "," + 0+ ")'>加入条幅</a>")
                     }
                     if (value.topLarge) {
-                        $("table tr td p").last().append("<a class='btn btn-info' href='#' onclick='topDelete(" + value.goodId + "," + 2 + ")'>移出热销</a>")
+                        $("table tr td p").last().append("<a class='btn btn-info' href='#' onclick='topDelete(" + value.goodId + "," + 2 + "," + 0+ ")'>移出热销</a>")
                     }
                     if (!value.topLarge) {
-                        $("table tr td p").last().append("<a class='btn btn-primary' href='#' onclick='topSave(" + value.goodId + "," + 2 + ")'>加入热销</a>")
+                        $("table tr td p").last().append("<a class='btn btn-primary' href='#' onclick='topSave(" + value.goodId + "," + 2 + "," + 0+ ")'>加入热销</a>")
                     }
                     if (value.topSmall) {
-                        $("table tr td p").last().append("<a class='btn btn-info' href='#' onclick='topDelete(" + value.goodId + "," + 3 + ")'>移出新品</a>")
+                        $("table tr td p").last().append("<a class='btn btn-info' href='#' onclick='topDelete(" + value.goodId + "," + 3 + "," + 0+ ")'>移出新品</a>")
                     }
                     if (!value.topSmall) {
-                        $("table tr td p").last().append("<a class='btn btn-primary' href='#' onclick='topSave(" + value.goodId + "," + 3 + ")'>加入新品</a>")
+                        $("table tr td p").last().append("<a class='btn btn-primary' href='#' onclick='topSave(" + value.goodId + "," + 3 + "," + 0+")'>加入新品</a>")
                     }
                     $("table tr td ").last().append(
-                        "                       <a class='btn btn-success' href='goodEdit.action?id=14'>修改</a>" +
+                        "                       <a class='btn btn-success'href='goodEdit?goodId="+value.goodId+"'>修改</a>" +
                         "                        <a class='btn btn-danger' href='#' onclick='adminGoodDelete("+value.goodId+")'>删除</a>")
 
                 });
@@ -269,15 +285,25 @@ function gotoPage() {
  * @param goodId
  * @param typeId
  */
-function topSave(goodId, typeId) {
+function topSave(goodId, typeId,page) {
     $.ajax({
         url: "topSave",//url
         type: "POST",//方法类型
         data: {"goodId": goodId, "typeId": typeId},
         dataType: "Json",//预期服务器返回的数据类型
         success: function (response) {
+            if(page==0){
             window.location.reload();
-
+            }
+            if (page==1){
+                toTopList(page);
+            }
+            if (page==2){
+                toTopList(page);
+            }
+            if (page==3){
+                toTopList(page);
+            }
         },
         error: function () {
             alert("异常！");
@@ -291,14 +317,26 @@ function topSave(goodId, typeId) {
  * @param goodId
  * @param typeId
  */
-function topDelete(goodId, typeId) {
+function topDelete(goodId, typeId,page) {
     $.ajax({
         url: "topDelete",//url
         type: "POST",//方法类型
         data: {"goodId": goodId, "typeId": typeId},
         dataType: "Json",//预期服务器返回的数据类型
         success: function (response) {
-            window.location.reload();
+
+            if(page==0){
+                window.location.reload();
+            }
+            if (page==1){
+                toTopList(page);
+            }
+            if (page==2){
+                toTopList(page);
+            }
+            if (page==3){
+                toTopList(page);
+            }
 
         },
         error: function () {
@@ -306,6 +344,11 @@ function topDelete(goodId, typeId) {
         }
     });
 }
+
+/**
+ * 热销新品条幅商品展示
+ * @param status
+ */
 function toTopList(status) {
     $.ajax({
         url: "toTopLists",//url
@@ -339,25 +382,25 @@ function toTopList(status) {
                     "            <td>" +
                     "                <p></p></td></tr>");
                 if (value.topScroll) {
-                    $("table tr td p").last().append("<a class='btn btn-info' href='#'  onclick='topDelete(" + value.goodId + "," + 1 + ")'>移出条幅</a>")
+                    $("table tr td p").last().append("<a class='btn btn-info' href='#'  onclick='topDelete(" + value.goodId + "," + 1 +"," + status+ ")'>移出条幅</a>")
                 }
                 if (!value.topScroll) {
-                    $("table tr td p").last().append("<a class='btn btn-primary' href='#'  onclick='topSave(" + value.goodId + "," + 1 + ")'>加入条幅</a>")
+                    $("table tr td p").last().append("<a class='btn btn-primary' href='#'  onclick='topSave(" + value.goodId + "," + 1 + "," + status+ ")'>加入条幅</a>")
                 }
                 if (value.topLarge) {
-                    $("table tr td p").last().append("<a class='btn btn-info' href='#' onclick='topDelete(" + value.goodId + "," + 2 + ")'>移出热销</a>")
+                    $("table tr td p").last().append("<a class='btn btn-info' href='#' onclick='topDelete(" + value.goodId + "," + 2 + "," + status+ ")'>移出热销</a>")
                 }
                 if (!value.topLarge) {
-                    $("table tr td p").last().append("<a class='btn btn-primary' href='#' onclick='topSave(" + value.goodId + "," + 2 + ")'>加入热销</a>")
+                    $("table tr td p").last().append("<a class='btn btn-primary' href='#' onclick='topSave(" + value.goodId + "," + 2 + "," + status+ ")'>加入热销</a>")
                 }
                 if (value.topSmall) {
-                    $("table tr td p").last().append("<a class='btn btn-info' href='#' onclick='topDelete(" + value.goodId + "," + 3 + ")'>移出新品</a>")
+                    $("table tr td p").last().append("<a class='btn btn-info' href='#' onclick='topDelete(" + value.goodId + "," + 3 + "," + status+ ")'>移出新品</a>")
                 }
                 if (!value.topSmall) {
-                    $("table tr td p").last().append("<a class='btn btn-primary' href='#' onclick='topSave(" + value.goodId + "," + 3 + ")'>加入新品</a>")
+                    $("table tr td p").last().append("<a class='btn btn-primary' href='#' onclick='topSave(" + value.goodId + "," + 3 + "," + status+ ")'>加入新品</a>")
                 }
                 $("table tr td ").last().append(
-                    "                       <a class='btn btn-success' href='goodEdit.action?id=14'>修改</a>" +
+                    "                       <a class='btn btn-success'href='goodEdit?goodId="+value.goodId+"'>修改</a>" +
                     "                        <a class='btn btn-danger' href='#' onclick='adminGoodDelete("+value.goodId+")'>删除</a>")
 
             });
@@ -413,3 +456,4 @@ function topGoodDelete(goodId, status) {
         }
     });
 }
+

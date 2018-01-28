@@ -117,9 +117,54 @@ public interface IGoodMapper {
     })
     List<Goods> findGoodsListForPage(@Param("currentPage") Integer currentPage,@Param("goodsNum")Integer goodsNum);
 
+    /**
+     * 根据商品id删除商品信息
+     * @param goodId
+     * @return
+     */
     @Delete("DELETE FROM goods WHERE id=#{goodId}")
     @Results({
-            @Result(id = true,property = "goodId",column = "id"),
+            @Result(id = true,property = "goodId",column = "id")
     })
     Integer deleteGoodByGoodId(@Param("goodId") Integer goodId);
+
+    /**
+     * 插入一条新商品
+     * @param goods
+     * @return
+     */
+    @Insert("INSERT INTO goods(name,cover,image1,image2,price,intro,stock,type_id)" +
+            " VALUES(#{goodName},#{goodCover},#{goodImage1},#{goodImage2},#{goodPrice},#{goodIntro},#{goodStock},#{typeId})")
+    @Results({
+            @Result(id = true,property = "goodId",column = "id"),
+            @Result(property = "goodName",column = "name", jdbcType=VARCHAR),
+            @Result(property = "goodCover",column = "cover"),
+            @Result(property = "goodImage1",column = "image1"),
+            @Result(property = "goodImage2",column = "image2"),
+            @Result(property = "goodPrice",column = "price"),
+            @Result(property = "goodIntro",column = "intro"),
+            @Result(property = "goodStock",column = "stock"),
+            @Result(property = "typeId",column = "type_id")
+    })
+    Integer  insertGood(Goods goods);
+
+    /**
+     * 修改，更新商品信息
+     * @param goods
+     * @return
+     */
+    @Update("UPDATE goods SET name=#{goodName},price=#{goodPrice},intro=#{goodIntro},stock=#{goodStock}," +
+            "cover=#{goodCover},image1=#{goodImage1},image2=#{goodImage2},type_id=#{typeId} WHERE 1=1 AND id=#{goodId};")
+    @Results({
+            @Result(id = true,property = "goodId",column = "id"),
+            @Result(property = "goodName",column = "name", jdbcType=VARCHAR),
+            @Result(property = "goodCover",column = "cover"),
+            @Result(property = "goodImage1",column = "image1"),
+            @Result(property = "goodImage2",column = "image2"),
+            @Result(property = "goodPrice",column = "price"),
+            @Result(property = "goodIntro",column = "intro"),
+            @Result(property = "goodStock",column = "stock"),
+            @Result(property = "typeId",column = "type_id")
+    })
+    Integer updateGood(Goods goods);
 }

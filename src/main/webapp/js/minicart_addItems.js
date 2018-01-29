@@ -5,8 +5,46 @@ function addGoodToCart(goodId) {
         type: "POST",
         data: {id:goodId},
         dataType: "Json",
-        success: function (respons) {
-            location.reload();
+        success: function (response) {
+            $("#list-minicart").empty();
+            response.goodsList.forEach(function (value){
+
+            $("#list-minicart").append("<div  type='normal' class='item6-in-minicart-a' id='item6-in-minicart-a"+value.goodId+"'>\n" +
+                "\n" +
+                "                                        <a href='detail.jsp' target='_blank'>\n" +
+                "                                            <!--左，商品图片-->\n" +
+                "                                            <div><img  class='minicart_div_left'  src='"+value.goodCover+"' alt='' ></div>\n" +
+                "                                        </a>\n" +
+                "                                        <!--中，商品信息-->\n" +
+                "                                        <div class='minicart_div_center'>\n" +
+                "                                            <div class='minicart_div_center_div'>\n" +
+                "                                                <h5>"+value.goodName+"</h5>\n" +
+                "                                            </div>\n" +
+                "                                            <div class='minicart_div_center_div'>\n" +
+                "                                                <h5>\n" +
+                "                                                    <!--<span class='pull-right'>满额折9折</span>-->\n" +
+                "                                                    ￥"+value.goodPrice+"/礼盒\n" +
+                "                                                </h5>\n" +
+                "                                            </div>\n" +
+                "                                            <div class='minicart_div_center_div'>\n" +
+                "                                                <input class='min' name='' type='button' value='-' id='btn-warning6'onclick='decGoods("+value.goodId+")'/>\n" +
+                "                                                <input class='text_box' name='goodnum' type='text' value='"+value.goodsNum+"' style='width:25px;' id='cart_item_num"+value.goodId+"'/>\n" +
+                "                                                <input class='add' name='' type='button' value='+' id='btn-info6' onclick='addGoods("+value.goodId+")'/>\n" +
+                "                                            </div>\n" +
+                "                                        </div>\n" +
+                "                                        <!--右，删除按钮-->\n" +
+                "                                        <div class='minicart_div_right'>\n" +
+                "                                            <div class='minicart_div_center_div'></div>\n" +
+                "                                            <div class='minicart_div_center_div'><button id='btn-danger6' onclick='deleteGoods("+value.goodId+")'>删除</button></div>\n" +
+                "                                            <div class='minicart_div_center_div'></div>\n" +
+                "                                        </div>\n" +
+                "\n" +
+                "                                    </div>");});
+                $("#items_num").text(response.totalNum);
+                $("#cart_items_totalPrice").text(response.totalPricr);
+                $("#card_num").text(response.totalNum);
+
+
         },
 
         error: function () {

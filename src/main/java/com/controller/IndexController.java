@@ -95,6 +95,10 @@ public class IndexController {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        for (Goods goods:cart.getGoodsList()
+             ) {
+            new Gson().toJson(goods);
+        }
         Gson gson = new Gson();
         return gson.toJson(cart);
     }

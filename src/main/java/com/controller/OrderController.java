@@ -21,7 +21,10 @@ public class OrderController {
     @Autowired
     private OrderServiceImpl orderService;
 
-
+    /**
+     * 跳转到订单页面
+     * @return
+     */
     @GetMapping("/order")
     public String order(){
         List<Order> orderList=orderService.getAllOrders();
@@ -29,6 +32,11 @@ public class OrderController {
         return "order";
     }
 
+    /**
+     * 已收货订单的映射
+     * @param id
+     * @return
+     */
     @PostMapping ("/receiveGoods")
     @ResponseBody
     public String receiveGoods(@RequestParam("id")Integer id){
@@ -36,6 +44,12 @@ public class OrderController {
 
         return new Gson().toJson(num);
     }
+
+    /**
+     * 已付款订单的映射
+     * @param id
+     * @return
+     */
     @PostMapping ("/toPayNow")
     @ResponseBody
     public String toPayNow(@RequestParam("id")Integer id){
@@ -44,6 +58,11 @@ public class OrderController {
         return new Gson().toJson(num);
     }
 
+    /**
+     * 删除订单的映射
+     * @param id
+     * @return
+     */
     @PostMapping("/deleteOrder")
     @ResponseBody
     public String deleteOrder(@RequestParam("id")Integer id){

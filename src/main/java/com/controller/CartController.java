@@ -25,11 +25,20 @@ public class CartController {
     @Autowired
     private HttpSession session;
 
+    /**
+     * 跳转到购物车页面
+     * @return
+     */
     @GetMapping("/cart")
     public String addGood() {
         return "cart";
     }
 
+    /**
+     * 迷你购物车中某个商品数量增加1
+     * @param id
+     * @return
+     */
     @PostMapping("/addGood")
     @ResponseBody
     public String cart(@RequestParam("id") Integer id) {
@@ -65,7 +74,11 @@ public class CartController {
 
     }
 
-
+    /**
+     * 迷你购物车中某个商品数量减少1
+     * @param id
+     * @return
+     */
 
     @PostMapping("/decGood")
     @ResponseBody
@@ -101,6 +114,11 @@ public class CartController {
         return gson.toJson(list);
     }
 
+    /**
+     * 删除迷你购物车中某个商品
+     * @param id
+     * @return
+     */
     @PostMapping("/deleteGood")
     @ResponseBody
     public String deleteGood(@RequestParam("id") Integer id) {
@@ -131,6 +149,12 @@ public class CartController {
         Gson gson = new Gson();
         return gson.toJson(list);
     }
+
+    /**
+     * 购物车页面内每次点击某个商品的增加按钮，商品数量数量增加1个,并且重新计算总价
+     * @param id
+     * @return
+     */
     @PostMapping("/addGood2")
     @ResponseBody
     public String addGood2(@RequestParam("id") Integer id) {
@@ -157,8 +181,11 @@ public class CartController {
 
     }
 
-
-
+    /**
+     * 购物车页面内每次点击某个商品的减少按钮，商品数量数量减少1个,并且重新计算总价
+     * @param id
+     * @return
+     */
     @PostMapping("/decGood2")
     @ResponseBody
     public String decGood2(@RequestParam("id") Integer id) {
@@ -184,7 +211,9 @@ public class CartController {
         Gson gson = new Gson();
         return gson.toJson(cart);
     }
-
+    /**
+     * 购物车页面内每次点击某个商品的删除按钮，则将此商品移除,并且重新计算总价
+     */
     @PostMapping("/deleteGood2")
     @ResponseBody
     public String deleteGood2(@RequestParam("id") Integer id) {

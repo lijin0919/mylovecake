@@ -22,6 +22,10 @@ public class adminOrderList {
     @Autowired
     private OrderServiceImpl orderService;
 
+    /**
+     * 跳转到订单管理页面
+     * @return
+     */
     @GetMapping("/orderList")
     public String orderList() {
         List<Order> orderList=orderService.getAllOrders();
@@ -29,6 +33,11 @@ public class adminOrderList {
         return "adminOrderList";
     }
 
+    /**
+     * 分别获取已付款，未付款等不同状态的订单功能的映射
+     * @param status
+     * @return
+     */
     @PostMapping("/orderList1")
     @ResponseBody
     public String orderListHave(@RequestParam("status")Integer status) {

@@ -14,7 +14,7 @@ function addGoodToCart(goodId) {
         }
     });
 }
-
+    //迷你购物车中点击商品的“+”
     function addGoods(goodId) {
         $.ajax({
             url: "addGood",
@@ -33,6 +33,7 @@ function addGoodToCart(goodId) {
             }
         });
     }
+//迷你购物车中点击商品的“-”
 function decGoods(goodId) {
     $.ajax({
         url: "decGood",
@@ -51,6 +52,7 @@ function decGoods(goodId) {
         }
     });
 }
+//迷你购物车中点击商品的“删除”
 function deleteGoods(goodId) {
     $.ajax({
         url: "deleteGood",

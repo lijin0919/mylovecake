@@ -19,7 +19,10 @@ public class adminTypeConntroller {
     @Autowired
     private HttpSession session;
 
-
+    /**
+     * 获取所有商品类型集合
+     * @return
+     */
     @GetMapping("/typeList")
     public String typeList() {
         List<Types> list=goodsTypesImpl.getGoodTypeLIst();
@@ -27,6 +30,11 @@ public class adminTypeConntroller {
         return "adminType";
     }
 
+    /**
+     * 插入一个新的商品类型
+     * @param name
+     * @return
+     */
     @PostMapping("/insertNewType")
     @ResponseBody
     public String insertNewType(@RequestParam("name")String  name) {
@@ -36,6 +44,11 @@ public class adminTypeConntroller {
         return new Gson().toJson(types);
     }
 
+    /**
+     * 跳转到商品类型信息修改的页面
+     * @param typeId
+     * @return
+     */
     @GetMapping("/toEditType")
     public String toEditType(@RequestParam("typeId") Integer typeId) {
         Types types=new Types();
@@ -44,6 +57,12 @@ public class adminTypeConntroller {
         return "adminTypeEdit";
     }
 
+    /**
+     * 根据类型id改变商品的类型名
+     * @param typeId
+     * @param typeName
+     * @return
+     */
     @PostMapping("/changeTypeName")
     @ResponseBody
     public String changeTypeName(@RequestParam("typeId") Integer typeId,@RequestParam("typeName")String  typeName) {
@@ -53,6 +72,11 @@ public class adminTypeConntroller {
         return new Gson().toJson(num);
     }
 
+    /**
+     * 删除商品类型信息
+     * @param typeId
+     * @return
+     */
     @PostMapping("/deleteTypeById")
     @ResponseBody
     public String deleteTypeById(@RequestParam("typeId") Integer typeId) {

@@ -106,21 +106,17 @@ public class adminGoodsListConntroller {
     @PostMapping("/toTopLists")
     @ResponseBody
     public String getTopGoods(@RequestParam("status") Integer status) {
-        System.out.println(status);
         List<Goods> goodsList = null;
         try {
             List<Top> topList = topService.getTopListByTypeId(status);
             goodsList = new ArrayList<Goods>();
             for (Top top : topList) {
                 if (status == top.getTypeId()) {
-                    System.out.println(3);
                     goodsList.add(goodsImpl.getGoodByGoodId(top.getGoodId()));
-                    System.out.println(4);
                 }
             }
             List<Top> topListNew = topService.getTopList();
             goodsList = statusSet.goodsListSet(goodsList, topListNew);
-            System.out.println(goodsList);
 
         } catch (Exception e) {
             e.printStackTrace();

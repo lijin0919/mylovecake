@@ -119,3 +119,9 @@ ________________________________________________________________________________
 <a id="delete-user-button" class="btn btn-danger" href="javascript:deleteUser(${user.id})">删除</a>
 _______________________________________________________________________________________________________________________
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+16、java下Date跟timestamp相互转换
+    Date()转timestamp：
+            new Timestamp((new Date()).getTime());
+    timestamp转Date()：
+            Timestamp t = new Timestamp(System.currentTimeMillis());
+            Date d = new Date(t.getTime());

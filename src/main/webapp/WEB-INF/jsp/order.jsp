@@ -106,7 +106,7 @@
 
                         </p>
                     </td>
-                    <td><p>2018-01-24 11:54:27</p></td>
+                    <td><p>${order.systime}</p></td>
                     <td>
                         <c:if test="${order.status==1}">
                         <button style="display: inline" class="btn-topay${order.id}" onclick="orderTopay(${order.id}) ">立即支付</button>

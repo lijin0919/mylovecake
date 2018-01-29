@@ -49,7 +49,6 @@ public class IndexController {
             session.setAttribute("topList3",topList3);
             List<Types> typeList=goodsTypes.getGoodTypeLIst();
             session.setAttribute("typeList",typeList);
-//            System.out.println(topList1);
         }catch (Exception e){
             e.printStackTrace();
         }

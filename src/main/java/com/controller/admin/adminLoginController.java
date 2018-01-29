@@ -64,7 +64,6 @@ public class adminLoginController {
         admin.setId(adminId);
         admin.setPassword(newAdminPassword);
 
-        System.out.println(admin);
         //调用方法修改密码
         Integer result = adminService.updateAdminPassword(admin);
         //判断
@@ -74,7 +73,6 @@ public class adminLoginController {
         } else {
             flag = false;
         }
-        System.out.println(flag);
         //将结果返回页面
         return new Gson().toJson(flag);
     }

@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import javax.servlet.http.HttpSession;
 import java.sql.Timestamp;
 import java.text.ParseException;
+import java.util.Date;
 
 /**
  * 支付页面controller
@@ -23,6 +24,12 @@ public class TopayController {
     private OrderServiceImpl orderService;
     @Autowired
     private ItemsServiceImpl itemsService;
+
+    /**
+     * 提交订单后跳转到支付页面并生成订单信息
+     * @return
+     * @throws ParseException
+     */
     @GetMapping("/topay")
     public String topay() throws ParseException {
         //session中获取购物车商品信息
@@ -39,6 +46,8 @@ public class TopayController {
         order.setName(user.getName());
         order.setPhone(user.getUserPhone());
         order.setAddress(user.getUserAddress());
+        order.setSystime(new Timestamp((new Date()).getTime()) );
+            System.out.println("_____________"+order.getSystime());
         order.setUserId(user.getId());
         Integer num=orderService.insertOrder(order);
         //获取本次订单id并给order对象赋值

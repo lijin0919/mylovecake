@@ -7,7 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+
 import javax.servlet.http.HttpSession;
+
 @CrossOrigin
 @Controller
 public class UserController {
@@ -15,11 +17,12 @@ public class UserController {
     HttpSession session;
     @Autowired
     private UserServiceImpl userService;
+
     /**
      * 跳转注册页面
      */
     @GetMapping("/register")
-    public String register(){
+    public String register() {
         return "register";
     }
 
@@ -29,7 +32,7 @@ public class UserController {
      */
     @PostMapping("/checkUsername")
     @ResponseBody
-    public String checkUsername(@RequestParam("username") String username){
+    public String checkUsername(@RequestParam("username") String username) {
         //调用方法查询
         boolean result = userService.findUserInfoByUsername(username);
 
@@ -38,6 +41,7 @@ public class UserController {
 
         return gson.toJson(result);
     }
+
     /**
      * 注册用户信息
      */
@@ -45,11 +49,11 @@ public class UserController {
     @PostMapping("/actionRegister")
     @ResponseBody
     public String actionRegister(@RequestParam("username") String username,
-                      @RequestParam("password") String password,
-                      @RequestParam("name") String name,
-                      @RequestParam("userPhone") String userPhone,
-                      @RequestParam("userAddress") String userAddress,
-                      Model resultModel){
+                                 @RequestParam("password") String password,
+                                 @RequestParam("name") String name,
+                                 @RequestParam("userPhone") String userPhone,
+                                 @RequestParam("userAddress") String userAddress,
+                                 Model resultModel) {
         //获取到所有数据的，赋值给User对象
         Users user = new Users();
         user.setUsername(username);
@@ -58,11 +62,11 @@ public class UserController {
         user.setUserPhone(userPhone);
         user.setUserAddress(userAddress);
         //将用户信息存入session中
-        session.setAttribute("user",user);
+        session.setAttribute("user", user);
         //调用方法添加用户信息
         boolean flag = false;
         Integer result = userService.addUserInfo(user);
-        if(result>0){
+        if (result > 0) {
             flag = true;
         }
         //将结果返回给页面
@@ -73,7 +77,7 @@ public class UserController {
      * 跳转登陆页面
      */
     @GetMapping("/login")
-    public String login(){
+    public String login() {
         return "login";
     }
 
@@ -82,10 +86,10 @@ public class UserController {
      */
     @PostMapping("/actionLogin")
     @ResponseBody
-    public String actionLogin(@RequestParam("loginUserName") String loginUserName,@RequestParam("loginPassword") String loginPassword){
-        boolean flag=false;
-        Users user=userService.findUserInfoByUsername(loginUserName,loginPassword);
-        if (user!=null) {
+    public String actionLogin(@RequestParam("loginUserName") String loginUserName, @RequestParam("loginPassword") String loginPassword) {
+        boolean flag = false;
+        Users user = userService.findUserInfoByUsername(loginUserName, loginPassword);
+        if (user != null) {
             flag = true;
             session.setAttribute("user", user);
         }
@@ -98,7 +102,7 @@ public class UserController {
      */
 
     @GetMapping("/logout")
-    public String logout(){
+    public String logout() {
         session.removeAttribute("user");
         Users user = (Users) session.getAttribute("user");
 //        session.setAttribute("user",null);
@@ -109,7 +113,7 @@ public class UserController {
      * 用户个人中心页面
      */
     @GetMapping("/userCenter")
-    public String say(){
+    public String say() {
         return "userCenter";
     }
 
@@ -123,9 +127,8 @@ public class UserController {
     public String changeUserInfo(
             @RequestParam("newName") String newName,//获取用户姓名
             @RequestParam("newUserPhone") String newUserPhone,//获取用户电话
-            @RequestParam("newUserAddress") String newUserAddress){//获取用户地址
-            //创建一个Users对象
-        System.out.println("newName:"+newName);
+            @RequestParam("newUserAddress") String newUserAddress) {//获取用户地址
+        //创建一个Users对象
         Users newUser = new Users();
         //获取session中的userId
         Users user = (Users) session.getAttribute("user");
@@ -138,19 +141,19 @@ public class UserController {
         newUser.setId(userId);
         //将赋值的Users对象传参给Service方法
         Integer result = userService.updateUserInfo(newUser);
-        System.out.println("result:"+result);
+        System.out.println("result:" + result);
         //标记
         boolean flag = false;
         //判断返回影响行数，给页面返回结果
-        if (result>0){
+        if (result > 0) {
             //修改成功以后，将原来session中的对象数据要改
             session.removeAttribute("user");
             //清空以后，再根据userId查询一次获得Users对象
             Users newSessionUser = userService.findUserInfoByUserId(userId);
             //将newSessionUser重新存入session
-            session.setAttribute("user",newSessionUser);
-            flag=true;
-            System.out.println("flag:"+flag);
+            session.setAttribute("user", newSessionUser);
+            flag = true;
+            System.out.println("flag:" + flag);
         }
         //将结果返回到页面
         return new Gson().toJson(flag);
@@ -161,7 +164,7 @@ public class UserController {
      */
     @PostMapping("/checkPassword")
     @ResponseBody
-    public String checkPassword(@RequestParam("oldPassword") String oldPassword){
+    public String checkPassword(@RequestParam("oldPassword") String oldPassword) {
         //首先获取Users对象，再根据传入的秘密看是否匹配
         Users user = (Users) session.getAttribute("user");
         //获取userId
@@ -171,8 +174,8 @@ public class UserController {
         //判断传过来的密码，和数据库的密码是否匹配
         //标记
         boolean flag = false;
-        if (sqlPassword.equals(oldPassword)){//如果密码一致
-            flag=true;
+        if (sqlPassword.equals(oldPassword)) {//如果密码一致
+            flag = true;
         }
         //将结果返回给页面
         return new Gson().toJson(flag);
@@ -180,7 +183,7 @@ public class UserController {
 
     @PostMapping("/changePassword")
     @ResponseBody
-    public String changePassword(@RequestParam("newPassword") String newPassword){
+    public String changePassword(@RequestParam("newPassword") String newPassword) {
         System.out.println(newPassword);
         //首先获取Users对象，再根据传入的秘密看是否匹配
         Users user = (Users) session.getAttribute("user");
@@ -194,8 +197,8 @@ public class UserController {
         //调用方法修改密码
         Integer result = userService.updatePassword(user1);
         boolean flag = false;
-        if (result>0){
-            flag=true;
+        if (result > 0) {
+            flag = true;
         }
         return new Gson().toJson(flag);
     }

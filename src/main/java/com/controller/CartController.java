@@ -83,6 +83,7 @@ public class CartController {
     @PostMapping("/decGood")
     @ResponseBody
     public String decGood(@RequestParam("id") Integer id) {
+
         List<Integer> list=new ArrayList<Integer>();
         Integer goodNum=0;
         Integer totalPrice=0;
@@ -100,6 +101,10 @@ public class CartController {
                         cart.setTotalPricr(cart.getTotalPricr() - good.getGoodPrice());
                         totalPrice=cart.getTotalPricr();
                         break;
+                    }else {
+                        goodNum=good.getGoodsNum();
+                        totalNum=cart.getTotalNum();
+                        totalPrice=cart.getTotalPricr();
                     }
                 }
             }

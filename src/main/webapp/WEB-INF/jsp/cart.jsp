@@ -53,7 +53,7 @@
 
 
 <c:forEach var="item" items="${cart.goodsList}">
-        <div class="cart-header col-md-6  item" id="item${item.goodId}">
+        <div class="cart-header col-md-6  item  " id="good${item.goodId}">
             <div class="cart-sec simpleCart_shelfItem">
                 <div class="cart-item cyc">
                     <a href="#">
@@ -63,7 +63,7 @@
                 <div class="cart-item-info">
                     <h3><a href="detail">${item.goodName}</a></h3>
                     <h3><span>单价: ¥ ${item.goodPrice}</span></h3>
-                    <h3><span class="cart_item_num" id="cart_item_num${item.goodId}" >数量: ${item.goodsNum}</span></h3>
+                    <h3><span class="cart_item_num" id="${item.goodId}" >数量: ${item.goodsNum}</span></h3>
                     <a class="btn btn-info" href="#" id="btn-info${item.goodId}" onclick="addGoodNum(${item.goodId})">增加</a>
                     <a class="btn btn-warning" id="btn-warning${item.goodId}"  href="#" onclick="decGoodNum(${item.goodId})">减少</a>
                     <a class="btn btn-danger"  id="btn-danger${item.goodId}" href="#" onclick="deleteGood(${item.goodId})">删除</a>

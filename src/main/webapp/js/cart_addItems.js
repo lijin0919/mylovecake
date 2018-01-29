@@ -43,8 +43,7 @@ function addGoodNum(id) {
         success: function (response) {
             for (var i = 0; i < response.goodsList.length; i++) {
                 if (id == response.goodsList[i].goodId) {
-                    // $("#"+"cart_item_num"+id).text("数量:"+response.goodsList[i].goodsNum);
-                    $(this).prev().text("数量:"+response.goodsList[i].goodsNum);
+                    $("#"+id).text("数量:"+response.goodsList[i].goodsNum);
                 }
 
             }
@@ -68,7 +67,7 @@ function decGoodNum(id) {
         success: function (response) {
             for (var i = 0; i < response.goodsList.length; i++) {
                 if (id == response.goodsList[i].goodId) {
-                    $(this).prev().prev().children("span").text("数量:"+response.goodsList[i].goodsNum);
+                    $("#"+id).text("数量:"+response.goodsList[i].goodsNum);
 
                 }
             }
@@ -90,12 +89,7 @@ function deleteGood(id) {
         data: {"id": id},
         dataType: "Json",//预期服务器返回的数据类型
         success: function (response) {
-            for (var i = 0; i < response.goodsList.length; i++) {
-                if (id == response.goodsList[i].goodId) {
-                    $("#item"+id).remove();
-                    break;
-                }
-            }
+                    $("#good"+id).remove();
             $("#cart_items_totalPrices").text("订单总金额: ¥"+(response.totalPricr));
         },
         error: function () {

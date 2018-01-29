@@ -64,12 +64,12 @@
             <td><p>${good.goodType.typeName}</p></td>
             <td>
                 <p>
-                    <c:if test="${good.topScroll}"><a class="btn btn-info" href="#" onclick="topDelete(${good.goodId},1,0)">移出条幅</a></c:if>
-                    <c:if test="${!good.topScroll}"><a class="btn btn-primary" href="#" onclick="topSave(${good.goodId},1,0)">加入条幅</a></c:if>
-                    <c:if test="${good.topLarge}"><a class="btn btn-info" href="#" onclick="topDelete(${good.goodId},2,0)">移出热销</a></c:if>
-                    <c:if test="${!good.topLarge}"><a class="btn btn-primary" href="#" onclick="topSave(${good.goodId},2,0)">加入热销</a></c:if>
-                    <c:if test="${good.topSmall}"><a class="btn btn-info" href="#" onclick="topDelete(${good.goodId},2,0)">移出新品</a></c:if>
-                    <c:if test="${!good.topSmall}"><a class="btn btn-primary" href="#" onclick="topSave(${good.goodId},2,0)">加入新品</a></c:if>
+                    <c:if test="${good.topScroll}"><a class="btn btn-info" href="#" onclick="topDeleteA(${good.goodId},1,${sessionScope.goodsPage.currentPage}">移出条幅</a></c:if>
+                    <c:if test="${!good.topScroll}"><a class="btn btn-primary" href="#" onclick="topSaveA(${good.goodId},1,${sessionScope.goodsPage.currentPage})">加入条幅</a></c:if>
+                    <c:if test="${good.topLarge}"><a class="btn btn-info" href="#" onclick="topDeleteA(${good.goodId},2,${sessionScope.goodsPage.currentPage})">移出热销</a></c:if>
+                    <c:if test="${!good.topLarge}"><a class="btn btn-primary" href="#" onclick="topSaveA(${good.goodId},2,${sessionScope.goodsPage.currentPage})">加入热销</a></c:if>
+                    <c:if test="${good.topSmall}"><a class="btn btn-info" href="#" onclick="topDeleteA(${good.goodId},2,${sessionScope.goodsPage.currentPage})">移出新品</a></c:if>
+                    <c:if test="${!good.topSmall}"><a class="btn btn-primary" href="#" onclick="topSaveA(${good.goodId},2,${sessionScope.goodsPage.currentPage})">加入新品</a></c:if>
                 </p>
                 <a class="btn btn-success" href="goodEdit?goodId=${good.goodId}">修改</a>
                 <a class="btn btn-danger" href="#" onclick="adminGoodDelete(${good.goodId})">删除</a>
